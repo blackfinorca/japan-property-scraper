@@ -1,0 +1,1 @@
+"""Japan property scraper package."""

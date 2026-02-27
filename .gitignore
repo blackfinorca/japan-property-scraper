@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+output/raw/*.json
+output/raw/*.xlsx
+output/consolidated/*.json
+output/consolidated/*.csv
+
+.DS_Store
