@@ -1,4 +1,4 @@
-"""Entry point for running the scraper without packaging."""
+"""Entry point for running pipeline stages without packaging."""
 
 from pathlib import Path
 import sys
@@ -10,8 +10,8 @@ SRC_DIR = PROJECT_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-from japan_property_scraper.main import run  # noqa: E402
+from japan_property_scraper.main import cli  # noqa: E402
 
 
 if __name__ == "__main__":
-    run()
+    cli()

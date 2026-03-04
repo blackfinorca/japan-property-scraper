@@ -2,15 +2,41 @@
 
 Python web scraping app for Japanese real estate listings.
 
-## Run scripts:
+## Run scripts
 
+Default pipeline (scrape only):
+
+```bash
 .venv/bin/python run.py
+```
 
-# Ai only:
-zsh -ic '.venv/bin/python run_ryokan_licence_eligibility.py'
+Run selected pipeline stages with `--tags`:
 
-# If you want OpenAI-only for specific properties:
-zsh -ic '.venv/bin/python run_ryokan_licence_eligibility.py --property-number 70049 --property-number 69199 --property-number 69071 --property-number 70039 --property-number 70023'
+```bash
+# scrape + OpenAI eligibility + ryokan summary
+.venv/bin/python run.py --tags scrape,openai,summary
+
+# OpenAI only (all unique consolidated records)
+.venv/bin/python run.py --tags openai
+
+# OpenAI only for selected properties
+.venv/bin/python run.py --tags openai \
+  --property-number 70049 \
+  --property-number 69199 \
+  --property-number 69071 \
+  --property-number 70039 \
+  --property-number 70023
+
+# Summary XLS only
+.venv/bin/python run.py --tags summary
+```
+
+Legacy direct entry points are still available:
+
+```bash
+.venv/bin/python run_ryokan_licence_eligibility.py
+.venv/bin/python ryokan-summary.py
+```
 
 
 
