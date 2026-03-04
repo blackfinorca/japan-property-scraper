@@ -6,6 +6,10 @@ from typing import Any
 
 
 REQUIRED_ADDITIONAL_FIELDS = [
+    "property_price_text",
+    "type_conditions",
+    "size",
+    "renovations",
     "transportations",
     "private_street_area_included",
     "building_structure",

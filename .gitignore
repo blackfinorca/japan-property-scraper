@@ -7,5 +7,9 @@ output/raw/*.json
 output/raw/*.xlsx
 output/consolidated/*.json
 output/consolidated/*.csv
+output/consolidated/*.xls
+output/history_data/*.json
+output/history_data/*.csv
+output/history_data/*.xls
 
 .DS_Store

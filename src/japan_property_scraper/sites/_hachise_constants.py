@@ -18,6 +18,7 @@ MAX_FETCH_RETRIES = 3
 RETRY_DELAY_SECONDS = 0.6
 
 DETAIL_LABEL_TO_KEY = {
+    "property price": "property_price_text",
     "location": "detail_location",
     "transportations": "transportations",
     "land area": "detail_land_area",
@@ -43,6 +44,7 @@ DETAIL_LABEL_TO_KEY = {
     "elementary school": "elementary_school",
     "junior high school": "junior_high_school",
     "city planning act": "city_planning_act",
+    "renovations": "renovations",
     "remarks": "remarks",
     "transaction terms": "transaction_terms",
     "sales representative": "sales_representative",
@@ -66,6 +68,13 @@ LABEL_ALIASES = {
     "dealer (real estate agent)": "transaction terms",
     "conditions": "type & conditions",
     "property": "type & conditions",
+    "renovation": "renovations",
+    "renovation(s)": "renovations",
+    "city pning act": "city planning act",
+    "city panning act": "city planning act",
+    "city planning": "city planning act",
+    "land category/": "land category",
+    "legal restrictions/": "legal restrictions",
     "notification according to national land use law": (
         "notification according to national land utilization law"
     ),

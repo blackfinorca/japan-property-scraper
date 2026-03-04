@@ -17,6 +17,7 @@ from japan_property_scraper.sites._hachise_constants import (
 
 
 DETAIL_REGEX_LABEL_PATTERNS = build_detail_regex_label_patterns()
+REQUIRED_CORE_KEYS = {"legal_restrictions", "city_planning_act", "land_category"}
 
 
 def parse_detail_fields(detail_html: str) -> dict[str, Any]:
@@ -33,6 +34,7 @@ def parse_detail_fields(detail_html: str) -> dict[str, Any]:
         _merge_parsed_details(parsed, _parse_details_dl(details_dl))
 
     _apply_regex_fallback(detail_html, parsed)
+    _ensure_required_core_keys(soup, parsed)
     _apply_detail_value_fixes(parsed)
     return parsed
 
@@ -321,7 +323,10 @@ def _split_html_lines(html_fragment: str) -> list[str]:
 
 
 def _clean_html_fragment(html_fragment: str) -> str:
-    text = BeautifulSoup(html_fragment, "lxml").get_text(" ", strip=True)
+    if "<" not in html_fragment and ">" not in html_fragment:
+        text = html_fragment
+    else:
+        text = BeautifulSoup(html_fragment, "lxml").get_text(" ", strip=True)
     return re.sub(r"\s+", " ", text).strip()
 
 
@@ -376,6 +381,86 @@ def _apply_detail_value_fixes(parsed: dict[str, Any]) -> None:
 
         if likely_geo and not parsed.get("geographical_features"):
             parsed["geographical_features"] = likely_geo
+
+
+def _ensure_required_core_keys(soup: BeautifulSoup, parsed: dict[str, Any]) -> None:
+    missing_keys = {key for key in REQUIRED_CORE_KEYS if not parsed.get(key)}
+    if not missing_keys:
+        return
+
+    _fill_missing_from_all_dls(soup, parsed, missing_keys)
+    missing_keys = {key for key in REQUIRED_CORE_KEYS if not parsed.get(key)}
+    if not missing_keys:
+        return
+
+    _fill_missing_from_all_tables(soup, parsed, missing_keys)
+
+
+def _fill_missing_from_all_dls(
+    soup: BeautifulSoup,
+    parsed: dict[str, Any],
+    missing_keys: set[str],
+) -> None:
+    for dl in soup.select("dl"):
+        headings = dl.find_all("dt")
+        values = dl.find_all("dd")
+        for heading, value_cell in zip(headings, values):
+            normalized_label = _normalize_label(_safe_text(heading))
+            detail_keys = _resolve_detail_keys(normalized_label)
+            if not detail_keys:
+                continue
+            for detail_key in detail_keys:
+                if detail_key not in missing_keys:
+                    continue
+                values_extracted = _extract_values_from_cell(
+                    value_cell=value_cell,
+                    split_lines=detail_key in MULTI_VALUE_DETAIL_KEYS,
+                )
+                if not values_extracted:
+                    continue
+                parsed[detail_key] = values_extracted
+                missing_keys.discard(detail_key)
+        if not missing_keys:
+            return
+
+
+def _fill_missing_from_all_tables(
+    soup: BeautifulSoup,
+    parsed: dict[str, Any],
+    missing_keys: set[str],
+) -> None:
+    for table in soup.select("table"):
+        active_keys: list[str] = []
+        remaining_rowspan_rows = 0
+
+        for row in table.select("tr"):
+            heading = row.find("th")
+            if heading is not None:
+                normalized_label = _normalize_label(_safe_text(heading))
+                active_keys = _resolve_detail_keys(normalized_label)
+                remaining_rowspan_rows = _parse_rowspan(heading) - 1
+            elif remaining_rowspan_rows <= 0:
+                active_keys = []
+
+            value_cell = row.find("td")
+            if value_cell is not None and active_keys:
+                for detail_key in active_keys:
+                    if detail_key not in missing_keys:
+                        continue
+                    values_extracted = _extract_values_from_cell(
+                        value_cell=value_cell,
+                        split_lines=detail_key in MULTI_VALUE_DETAIL_KEYS,
+                    )
+                    if not values_extracted:
+                        continue
+                    parsed[detail_key] = values_extracted
+                    missing_keys.discard(detail_key)
+
+            if heading is None and remaining_rowspan_rows > 0:
+                remaining_rowspan_rows -= 1
+
+            if not missing_keys:
+                return
 
 
 def _safe_text(tag) -> str:

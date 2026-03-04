@@ -2,6 +2,19 @@
 
 Python web scraping app for Japanese real estate listings.
 
+## Run scripts:
+
+.venv/bin/python run.py
+
+# Ai only:
+zsh -ic '.venv/bin/python run_ryokan_licence_eligibility.py'
+
+# If you want OpenAI-only for specific properties:
+zsh -ic '.venv/bin/python run_ryokan_licence_eligibility.py --property-number 70049 --property-number 69199 --property-number 69071 --property-number 70039 --property-number 70023'
+
+
+
+
 ## App Description
 
 - Dedicated scraper function pattern for each real estate site (currently

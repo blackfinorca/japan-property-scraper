@@ -35,6 +35,10 @@ MULTI_DETAIL_FIELDS = (
 )
 
 SCALAR_DETAIL_FIELDS = (
+    "property_price_text",
+    "type_conditions",
+    "size",
+    "renovations",
     "private_street_area_included",
     "building_structure",
     "building_date",
@@ -177,8 +181,17 @@ def _parse_card(
     detail_land_area = _first_or_empty_list(details.get("detail_land_area"))
     detail_floor_area = _first_or_empty_list(details.get("detail_floor_area"))
     type_conditions = _first_or_empty_list(details.get("type_conditions"))
+    detail_price_text = _first_or_empty_list(details.get("property_price_text"))
     if type_conditions != []:
         type_source = str(type_conditions)
+
+    if price_jpy is None and detail_price_text != []:
+        price_jpy = _extract_number(str(detail_price_text))
+        detail_price_usd = _extract_approx_usd(str(detail_price_text))
+        if detail_price_usd is not None:
+            price_usd = detail_price_usd
+        elif price_jpy:
+            price_usd = math.ceil(price_jpy * usd_rate)
 
     resolved_location = (
         detail_location if detail_location != [] else _empty_list_or_value(location)
@@ -214,7 +227,14 @@ def _parse_card(
         "title": property_name,
         "url": _empty_list_or_value(detail_url),
     }
-    listing.update(_build_detail_fields(details))
+    detail_fields = _build_detail_fields(details)
+    detail_fields["property_price_text"] = _resolve_property_price_text(
+        detail_price_text=detail_price_text,
+        price_jpy=price_jpy,
+        price_usd=price_usd,
+        usd_rate=usd_rate,
+    )
+    listing.update(detail_fields)
     return listing
 
 
@@ -285,6 +305,54 @@ def _extract_number(text: str) -> int | None:
     if not digits:
         return None
     return int(digits)
+
+
+def _extract_approx_usd(text: str) -> int | None:
+    match = re.search(r"approx\.\s*([\d,]+)\s*usd", text, flags=re.IGNORECASE)
+    if not match:
+        return None
+    digits = re.sub(r"[^\d]", "", match.group(1))
+    if not digits:
+        return None
+    return int(digits)
+
+
+def _resolve_property_price_text(
+    *,
+    detail_price_text: Any,
+    price_jpy: int | None,
+    price_usd: Any,
+    usd_rate: float,
+) -> Any:
+    raw = str(detail_price_text).strip() if detail_price_text not in (None, []) else ""
+    if raw and not _looks_like_price_placeholder(raw):
+        return raw
+
+    if price_jpy is None:
+        return _empty_list_or_value(raw)
+
+    usd_value: int
+    if isinstance(price_usd, int):
+        usd_value = price_usd
+    else:
+        usd_value = math.ceil(price_jpy * usd_rate)
+
+    return (
+        f"{price_jpy:,} JPY "
+        f"(Approx. {usd_value:,} USD *1JPY={usd_rate:.4f} USD)"
+    )
+
+
+def _looks_like_price_placeholder(text: str) -> bool:
+    lowered = text.lower()
+    if not lowered:
+        return True
+    # Hachise injects USD and FX-rate via JS into empty spans on the client.
+    if re.search(r"approx\.\s*usd", lowered):
+        return True
+    if re.search(r"1jpy\s*=\s*usd", lowered):
+        return True
+    return False
 
 
 def _to_snake_case(text: str) -> str:

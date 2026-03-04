@@ -7,5 +7,6 @@ BASE_DIR = Path(__file__).resolve().parents[2]
 OUTPUT_DIR = BASE_DIR / "output"
 RAW_DIR = OUTPUT_DIR / "raw"
 CONSOLIDATED_DIR = OUTPUT_DIR / "consolidated"
+HISTORY_DATA_DIR = OUTPUT_DIR / "history_data"
 
 TIMESTAMP_FORMAT = "%Y%m%d_%H%M%S"
