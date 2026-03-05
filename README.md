@@ -56,6 +56,11 @@ Run from project root:
 
 ```bash
 python3 -m http.server 8000
+
+# app auto-tries (in order):
+# 1) /output/consolidated/listings_map_payload.json
+# 2) ./data/listings_map_payload.json
+# 3) /api/listings-map-payload
 ```
 
 Preferred (safer) key setup: local git-ignored file
@@ -84,6 +89,7 @@ Note:
 - Backend geocoding requires `Geocoding API` enabled for the key/project.
 - Recommended server env var:
   - `GOOGLE_GEOCODING_API_KEY=<your_key>`
+  - optional alias: `GOOGLE_MAPS_SERVER_API_KEY=<your_key>`
 
 Alternative: pass key in URL:
 
@@ -113,6 +119,38 @@ Standalone map payload command:
 ```bash
 .venv/bin/python run_map_payload.py --help
 ```
+
+### Vercel Deployment
+
+This repo is prepared for Vercel with:
+
+- `vercel.json` redirecting `/` to `/frontend/listings_map/`
+- `/api/maps-config` serving browser map key from env var
+- `/api/listings-map-payload` serving map payload JSON
+
+Set Vercel environment variable:
+
+- `GOOGLE_MAPS_BROWSER_API_KEY=YOUR_BROWSER_KEY`
+
+Recommended key restrictions:
+
+- API restrictions: `Maps JavaScript API`
+- HTTP referrer restrictions:
+  - `https://<your-vercel-domain>/*`
+  - `https://*.vercel.app/*`
+
+Deploy payload refresh flow before pushing:
+
+```bash
+# update payload data in tracked frontend folder for Vercel
+.venv/bin/python run.py --tags geocode --map-payload-path frontend/listings_map/data/listings_map_payload.json
+```
+
+After deployment:
+
+- App URL: `/frontend/listings_map/` (or root `/`, redirected)
+- Data endpoint: `/api/listings-map-payload`
+- Key endpoint: `/api/maps-config`
 
 
 

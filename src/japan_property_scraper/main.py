@@ -245,7 +245,7 @@ def cli(argv: Sequence[str] | None = None) -> None:
         default=None,
         help=(
             "Google Geocoding API key override for --tags geocode. "
-            "If omitted, uses GOOGLE_GEOCODING_API_KEY or GOOGLE_MAPS_API_KEY."
+            "If omitted, uses GOOGLE_GEOCODING_API_KEY or GOOGLE_MAPS_SERVER_API_KEY."
         ),
     )
     args = parser.parse_args(argv)

@@ -6,24 +6,26 @@ import argparse
 from dataclasses import dataclass
 from datetime import datetime, timezone
 import json
+import logging
 import os
+import tempfile
 from pathlib import Path
 import time
 from typing import Any
 
 import requests
 
-from japan_property_scraper.config import BASE_DIR, CONSOLIDATED_DIR
+from japan_property_scraper.config import CONSOLIDATED_DIR
 from japan_property_scraper.services.consolidation import load_consolidated_unique_records
 
 
 DEFAULT_CONSOLIDATED_JSON_PATH = CONSOLIDATED_DIR / "consolidated_changes.json"
 DEFAULT_MAP_PAYLOAD_PATH = CONSOLIDATED_DIR / "listings_map_payload.json"
 DEFAULT_GEOCODE_CACHE_PATH = CONSOLIDATED_DIR / "geocode_cache.json"
-DEFAULT_LOCAL_MAP_CONFIG_PATH = BASE_DIR / "frontend" / "listings_map" / "config.local.json"
 
 GEOCODE_API_URL = "https://maps.googleapis.com/maps/api/geocode/json"
 RETRYABLE_GEOCODE_STATUSES = {"OVER_QUERY_LIMIT", "UNKNOWN_ERROR"}
+LOGGER = logging.getLogger(__name__)
 
 
 @dataclass
@@ -114,13 +116,8 @@ def build_listings_map_payload(
             },
         )
 
-    payload_path.parent.mkdir(parents=True, exist_ok=True)
-    with payload_path.open("w", encoding="utf-8") as file:
-        json.dump(rows, file, ensure_ascii=False, indent=2)
-
-    geocode_cache_path.parent.mkdir(parents=True, exist_ok=True)
-    with geocode_cache_path.open("w", encoding="utf-8") as file:
-        json.dump(cache, file, ensure_ascii=False, indent=2)
+    _write_json_atomic(payload_path, rows)
+    _write_json_atomic(geocode_cache_path, cache)
 
     rows_with_coordinates = sum(
         1 for row in rows if _to_float(row.get("lat")) is not None and _to_float(row.get("lng")) is not None
@@ -146,30 +143,11 @@ def _resolve_geocode_api_key(explicit_key: str | None) -> tuple[str | None, str]
     if env and _to_text(env):
         return _to_text(env), "GOOGLE_GEOCODING_API_KEY"
 
-    env_maps = os.getenv("GOOGLE_MAPS_API_KEY")
-    if env_maps and _to_text(env_maps):
-        return _to_text(env_maps), "GOOGLE_MAPS_API_KEY"
-
-    local_config_key = _load_local_maps_key(DEFAULT_LOCAL_MAP_CONFIG_PATH)
-    if local_config_key:
-        return local_config_key, str(DEFAULT_LOCAL_MAP_CONFIG_PATH)
+    env_server = os.getenv("GOOGLE_MAPS_SERVER_API_KEY")
+    if env_server and _to_text(env_server):
+        return _to_text(env_server), "GOOGLE_MAPS_SERVER_API_KEY"
 
     return None, "none"
-
-
-def _load_local_maps_key(path: Path) -> str | None:
-    if not path.exists():
-        return None
-    try:
-        with path.open("r", encoding="utf-8") as file:
-            payload = json.load(file)
-    except (json.JSONDecodeError, OSError):
-        return None
-
-    if not isinstance(payload, dict):
-        return None
-    key = _to_text(payload.get("mapsApiKey") or payload.get("googleMapsApiKey"))
-    return key or None
 
 
 def _geocode_address(address: str, api_key: str) -> dict[str, Any]:
@@ -238,8 +216,12 @@ def _normalize_address_key(address: str) -> str:
 def _load_cache(path: Path) -> dict[str, dict[str, Any]]:
     if not path.exists():
         return {}
-    with path.open("r", encoding="utf-8") as file:
-        payload = json.load(file)
+    try:
+        with path.open("r", encoding="utf-8") as file:
+            payload = json.load(file)
+    except (json.JSONDecodeError, OSError) as error:
+        LOGGER.warning("Ignoring invalid geocode cache at %s: %s", path, error)
+        return {}
     if not isinstance(payload, dict):
         return {}
     normalized: dict[str, dict[str, Any]] = {}
@@ -275,6 +257,26 @@ def _to_text(value: Any) -> str:
     return str(value).strip()
 
 
+def _write_json_atomic(path: Path, data: Any) -> None:
+    """Write JSON to path atomically (temp file + os.replace)."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp_fd, tmp_path = tempfile.mkstemp(
+        dir=str(path.parent),
+        prefix=path.stem + "_",
+        suffix=".tmp",
+    )
+    try:
+        with os.fdopen(tmp_fd, "w", encoding="utf-8") as file:
+            json.dump(data, file, ensure_ascii=False, indent=2)
+        os.replace(tmp_path, path)
+    except Exception:
+        try:
+            os.unlink(tmp_path)
+        except OSError:
+            pass
+        raise
+
+
 def _utc_now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()
 
@@ -305,7 +307,7 @@ def cli() -> None:
         default=None,
         help=(
             "Google Geocoding API key override. "
-            "If omitted, uses GOOGLE_GEOCODING_API_KEY or GOOGLE_MAPS_API_KEY."
+            "If omitted, uses GOOGLE_GEOCODING_API_KEY or GOOGLE_MAPS_SERVER_API_KEY."
         ),
     )
     parser.add_argument(

@@ -1,4 +1,8 @@
-const DEFAULT_JSON_PATH = "/output/consolidated/listings_map_payload.json";
+const DEFAULT_JSON_PATHS = [
+  "/output/consolidated/listings_map_payload.json",
+  "./data/listings_map_payload.json",
+  "/api/listings-map-payload",
+];
 const API_KEY_STORAGE_KEY = "jp_property_google_maps_api_key";
 
 const ELIGIBILITY_COLORS = {
@@ -15,6 +19,8 @@ const state = {
   records: [],
   markerEntries: [],
   localConfigKey: "",
+  remoteConfigKey: "",
+  activeDataPath: "",
   selectedMarker: null,
   ignoreMapClicksUntilMs: 0,
 };
@@ -28,12 +34,18 @@ bootstrap().catch((error) => {
 async function bootstrap() {
   const params = new URLSearchParams(window.location.search);
   state.localConfigKey = await loadLocalConfigKey();
+  state.remoteConfigKey = await loadRemoteConfigKey();
   if (params.get("resetMapsKey") === "1") {
     window.localStorage.removeItem(API_KEY_STORAGE_KEY);
   }
-  const dataPath = params.get("data") || DEFAULT_JSON_PATH;
-  const { apiKey, source } = resolveMapsApiKey(params, state.localConfigKey);
-  document.getElementById("data-path-label").textContent = dataPath;
+  const dataFromQuery = toText(params.get("data"));
+  const dataCandidates = dataFromQuery ? [dataFromQuery] : DEFAULT_JSON_PATHS;
+  const { apiKey, source } = resolveMapsApiKey(
+    params,
+    state.localConfigKey,
+    state.remoteConfigKey,
+  );
+  document.getElementById("data-path-label").textContent = dataCandidates.join(" | ");
 
   try {
     await loadGoogleMaps(apiKey);
@@ -45,29 +57,12 @@ async function bootstrap() {
   }
   initMap();
   wireFilters();
-  await loadRecords(dataPath);
+  await loadRecords(dataCandidates);
   await createMarkersFromRecords();
   applyFilters();
 }
 
-function resolveMapsApiKey(params, localConfigKey = "") {
-  const fromLocalConfig = toText(localConfigKey);
-  if (fromLocalConfig) {
-    const classified = classifyApiKeyInput(fromLocalConfig);
-    if (classified === "placeholder") {
-      throw new Error(
-        "Local config key is a placeholder. Update frontend/listings_map/config.local.json.",
-      );
-    }
-    if (classified === "openai") {
-      throw new Error(
-        "Local config key looks like an OpenAI key. Use a Google Maps API key instead.",
-      );
-    }
-    window.localStorage.setItem(API_KEY_STORAGE_KEY, fromLocalConfig);
-    return { apiKey: fromLocalConfig, source: "local-config" };
-  }
-
+function resolveMapsApiKey(params, localConfigKey = "", remoteConfigKey = "") {
   const fromQuery = toText(params.get("mapsApiKey"));
   if (fromQuery) {
     const classified = classifyApiKeyInput(fromQuery);
@@ -85,6 +80,32 @@ function resolveMapsApiKey(params, localConfigKey = "") {
     return { apiKey: fromQuery, source: "query" };
   }
 
+  const fromLocalConfig = toText(localConfigKey);
+  if (fromLocalConfig) {
+    const classified = classifyApiKeyInput(fromLocalConfig);
+    if (classified === "placeholder") {
+      throw new Error(
+        "Local config key is a placeholder. Update frontend/listings_map/config.local.json.",
+      );
+    }
+    if (classified === "openai") {
+      throw new Error(
+        "Local config key looks like an OpenAI key. Use a Google Maps API key instead.",
+      );
+    }
+    window.localStorage.setItem(API_KEY_STORAGE_KEY, fromLocalConfig);
+    return { apiKey: fromLocalConfig, source: "local-config" };
+  }
+
+  const fromRemoteConfig = toText(remoteConfigKey);
+  if (fromRemoteConfig) {
+    const classified = classifyApiKeyInput(fromRemoteConfig);
+    if (classified === "ok") {
+      window.localStorage.setItem(API_KEY_STORAGE_KEY, fromRemoteConfig);
+      return { apiKey: fromRemoteConfig, source: "remote-config" };
+    }
+  }
+
   const fromStorage = toText(window.localStorage.getItem(API_KEY_STORAGE_KEY));
   const classifiedStorage = classifyApiKeyInput(fromStorage);
   if (fromStorage && classifiedStorage === "ok") {
@@ -96,7 +117,8 @@ function resolveMapsApiKey(params, localConfigKey = "") {
 
   throw new Error(
     (
-      "Google Maps API key missing. Add frontend/listings_map/config.local.json or ?mapsApiKey=YOUR_KEY. " +
+      "Google Maps API key missing. Use frontend/listings_map/config.local.json, " +
+      "Vercel env (GOOGLE_MAPS_BROWSER_API_KEY), or ?mapsApiKey=YOUR_KEY. " +
       "If you had a bad cached key, use ?resetMapsKey=1 once."
     ),
   );
@@ -176,18 +198,43 @@ function initMap() {
   });
 }
 
-async function loadRecords(path) {
+async function loadRecords(paths) {
   setStatus("Loading listings...");
-  const response = await fetch(path);
-  if (!response.ok) {
-    throw new Error(`Failed to load JSON: ${path} (HTTP ${response.status})`);
+
+  const candidates = Array.isArray(paths) ? paths : [paths];
+  const attempts = [];
+
+  for (const path of candidates) {
+    const candidate = toText(path);
+    if (!candidate) {
+      continue;
+    }
+
+    try {
+      const response = await fetch(candidate, { cache: "no-store" });
+      if (!response.ok) {
+        attempts.push(`${candidate} (HTTP ${response.status})`);
+        continue;
+      }
+
+      const payload = await response.json();
+      if (!Array.isArray(payload)) {
+        attempts.push(`${candidate} (payload is not JSON array)`);
+        continue;
+      }
+
+      state.records = payload;
+      state.activeDataPath = candidate;
+      document.getElementById("data-path-label").textContent = candidate;
+      setStatus(`Loaded ${payload.length} listings.`);
+      return;
+    } catch (error) {
+      attempts.push(`${candidate} (${error.message})`);
+    }
   }
-  const payload = await response.json();
-  if (!Array.isArray(payload)) {
-    throw new Error("Expected consolidated_changes.json to be a JSON array.");
-  }
-  state.records = payload;
-  setStatus(`Loaded ${payload.length} listings.`);
+
+  const detail = attempts.length ? attempts.join("; ") : "No data paths provided.";
+  throw new Error(`Failed to load listings JSON. Tried: ${detail}`);
 }
 
 async function createMarkersFromRecords() {
@@ -253,12 +300,18 @@ function buildPopupHtml(record) {
   const priceJpy = formatPriceJpy(record.price_jpy);
   const url = toText(record.url);
   const safeUrl = escapeHtml(url);
+  const eligibility = eligibilityBucket(record.ryokan_licence_eligibility);
+  const eligibilityColor = ELIGIBILITY_COLORS[eligibility] || ELIGIBILITY_COLORS.OTHER;
+  const safeEligibility = escapeHtml(eligibility);
+  const safeAddress = escapeHtml(toText(record.address));
 
   return `
     <div class="popup">
       <h3>${propertyName || "(No Name)"}</h3>
       <p><strong>property_number:</strong> ${propertyNumber || "-"}</p>
+      <p><strong>eligibility:</strong> <span style="color:${eligibilityColor};font-weight:bold">${safeEligibility}</span></p>
       <p><strong>price_jpy:</strong> ${priceJpy}</p>
+      ${safeAddress ? `<p><strong>address:</strong> ${safeAddress}</p>` : ""}
       <p><strong>url:</strong> ${
         url ? `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer">${safeUrl}</a>` : "-"
       }</p>
@@ -266,6 +319,14 @@ function buildPopupHtml(record) {
   `;
 }
 
+
+function debounce(fn, delayMs) {
+  let timer = null;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delayMs);
+  };
+}
 
 function wireFilters() {
   const ids = [
@@ -276,9 +337,10 @@ function wireFilters() {
     "filter-url",
   ];
 
+  const debouncedApply = debounce(applyFilters, 200);
   for (const id of ids) {
     const element = document.getElementById(id);
-    element.addEventListener("input", applyFilters);
+    element.addEventListener("input", debouncedApply);
   }
 
   const eligibilityCheckboxes = document.querySelectorAll(".filter-eligibility");
@@ -309,6 +371,7 @@ function applyFilters() {
   const selectedEligibility = getSelectedEligibility();
 
   let visible = 0;
+  let selectedStillVisible = false;
   const bounds = new google.maps.LatLngBounds();
 
   for (const entry of state.markerEntries) {
@@ -327,7 +390,15 @@ function applyFilters() {
     if (matches) {
       visible += 1;
       bounds.extend(marker.getPosition());
+      if (state.selectedMarker && marker === state.selectedMarker) {
+        selectedStillVisible = true;
+      }
     }
+  }
+
+  if (state.selectedMarker && !selectedStillVisible) {
+    state.infoWindow.close();
+    state.selectedMarker = null;
   }
 
   if (visible > 0) {
@@ -486,6 +557,19 @@ function toNumber(value) {
 async function loadLocalConfigKey() {
   try {
     const response = await fetch("./config.local.json", { cache: "no-store" });
+    if (!response.ok) {
+      return "";
+    }
+    const payload = await response.json();
+    return toText(payload.mapsApiKey || payload.googleMapsApiKey);
+  } catch {
+    return "";
+  }
+}
+
+async function loadRemoteConfigKey() {
+  try {
+    const response = await fetch("/api/maps-config", { cache: "no-store" });
     if (!response.ok) {
       return "";
     }
