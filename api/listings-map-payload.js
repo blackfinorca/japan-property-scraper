@@ -4,6 +4,14 @@ const path = require("path");
 function readPayload() {
   const candidates = [
     path.join(
+      __dirname,
+      "..",
+      "frontend",
+      "listings_map",
+      "data",
+      "listings_map_payload.json",
+    ),
+    path.join(
       process.cwd(),
       "output",
       "consolidated",

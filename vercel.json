@@ -2,10 +2,15 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "/frontend/listings_map/",
+      "destination": "/frontend/listings_map/index.html",
       "permanent": false
     }
   ],
+  "functions": {
+    "api/listings-map-payload.js": {
+      "includeFiles": "frontend/listings_map/data/listings_map_payload.json"
+    }
+  },
   "headers": [
     {
       "source": "/api/(.*)",
