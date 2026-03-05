@@ -1,0 +1,9 @@
+{
+  "name": "japan-property-map",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vercel runtime marker for map frontend and API functions",
+  "engines": {
+    "node": ">=18"
+  }
+}
