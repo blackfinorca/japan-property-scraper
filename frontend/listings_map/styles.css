@@ -1,0 +1,223 @@
+:root {
+  --bg: #f4f7f2;
+  --panel: #1b2a22;
+  --panel-text: #eef6f0;
+  --muted: #b8c8be;
+  --border: #30453a;
+  --input-bg: #22352b;
+  --accent: #ffb347;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family: "Avenir Next", "Space Grotesk", "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top right, #d7ead8, var(--bg) 45%);
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  height: 100vh;
+}
+
+.panel {
+  padding: 18px;
+  color: var(--panel-text);
+  background:
+    linear-gradient(165deg, rgba(255, 179, 71, 0.12), rgba(0, 0, 0, 0)),
+    var(--panel);
+  border-right: 1px solid var(--border);
+  overflow: auto;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: 0.98rem;
+  color: var(--accent);
+}
+
+.hint {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+code {
+  font-size: 0.82rem;
+  word-break: break-all;
+}
+
+.filters,
+.legend,
+.status {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+label {
+  display: block;
+  margin: 8px 0 4px;
+  font-size: 0.84rem;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #496152;
+  background: var(--input-bg);
+  color: var(--panel-text);
+  font-size: 0.9rem;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 0;
+}
+
+.subheading {
+  margin: 14px 0 8px;
+  font-size: 0.84rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.eligibility-filter {
+  display: grid;
+  gap: 6px;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 0.86rem;
+}
+
+.checkbox-row input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  accent-color: #f2bf68;
+}
+
+.checkbox-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+button {
+  margin-top: 12px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: #f2bf68;
+  color: #222;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(0.94);
+}
+
+.legend ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 7px 0;
+  font-size: 0.88rem;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.c-already {
+  background: #157f1f;
+}
+.c-likely {
+  background: #2a9d8f;
+}
+.c-not {
+  background: #c0392b;
+}
+.c-uncertain {
+  background: #f4a261;
+}
+.c-other {
+  background: #64748b;
+}
+
+.map-wrap {
+  position: relative;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  min-height: 460px;
+}
+
+.popup {
+  font-family: "Avenir Next", "Space Grotesk", "Segoe UI", sans-serif;
+  min-width: 220px;
+}
+
+.popup h3 {
+  margin: 0 0 6px;
+  font-size: 0.96rem;
+}
+
+.popup p {
+  margin: 2px 0;
+  font-size: 0.86rem;
+}
+
+.popup a {
+  color: #1a4dff;
+  text-decoration: none;
+}
+
+.popup a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .panel {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    max-height: 45vh;
+  }
+}

@@ -16,6 +16,12 @@ Run selected pipeline stages with `--tags`:
 # scrape + OpenAI eligibility + ryokan summary
 .venv/bin/python run.py --tags scrape,openai,summary
 
+# geocode backend cache + export map payload JSON
+.venv/bin/python run.py --tags geocode
+
+# export map payload JSON from cache only
+.venv/bin/python run.py --tags map-export
+
 # OpenAI only (all unique consolidated records)
 .venv/bin/python run.py --tags openai
 
@@ -36,6 +42,76 @@ Legacy direct entry points are still available:
 ```bash
 .venv/bin/python run_ryokan_licence_eligibility.py
 .venv/bin/python ryokan-summary.py
+```
+
+## Listings Map Frontend (Google Maps)
+
+Separate frontend app:
+
+- `frontend/listings_map/index.html`
+- `frontend/listings_map/app.js`
+- `frontend/listings_map/styles.css`
+
+Run from project root:
+
+```bash
+python3 -m http.server 8000
+```
+
+Preferred (safer) key setup: local git-ignored file
+
+Create `frontend/listings_map/config.local.json`:
+
+```json
+{
+  "mapsApiKey": "YOUR_GOOGLE_MAPS_API_KEY"
+}
+```
+
+Then open:
+
+```text
+http://localhost:8000/frontend/listings_map/index.html
+```
+
+Build backend map payload first:
+
+```bash
+.venv/bin/python run.py --tags geocode
+```
+
+Note:
+- Backend geocoding requires `Geocoding API` enabled for the key/project.
+- Recommended server env var:
+  - `GOOGLE_GEOCODING_API_KEY=<your_key>`
+
+Alternative: pass key in URL:
+
+```text
+http://localhost:8000/frontend/listings_map/index.html?mapsApiKey=YOUR_GOOGLE_MAPS_API_KEY
+```
+
+Optional custom data path:
+
+```text
+http://localhost:8000/frontend/listings_map/index.html?mapsApiKey=YOUR_GOOGLE_MAPS_API_KEY&data=/output/consolidated/listings_map_payload.json
+```
+
+If Google shows "This page didn't load Google Maps correctly":
+
+1. Ensure Google Cloud billing is enabled for the project.
+2. Enable both APIs:
+   - Maps JavaScript API
+   - Geocoding API
+3. Add HTTP referrer restriction for local dev (example):
+   - `http://localhost:8000/*`
+4. Clear cached key once:
+   - `http://localhost:8000/frontend/listings_map/index.html?resetMapsKey=1&mapsApiKey=YOUR_GOOGLE_MAPS_API_KEY`
+
+Standalone map payload command:
+
+```bash
+.venv/bin/python run_map_payload.py --help
 ```
 
 

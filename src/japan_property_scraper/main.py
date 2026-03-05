@@ -11,6 +11,11 @@ from typing import Callable, Sequence
 from japan_property_scraper.config import CONSOLIDATED_DIR, TIMESTAMP_FORMAT
 from japan_property_scraper.services.consolidation import append_new_or_changed_listings
 from japan_property_scraper.services.exporters import export_site_results
+from japan_property_scraper.services.map_payload import (
+    DEFAULT_GEOCODE_CACHE_PATH,
+    DEFAULT_MAP_PAYLOAD_PATH,
+    build_listings_map_payload,
+)
 from japan_property_scraper.services.ryokan_licence_eligibility import (
     DEFAULT_MODEL as DEFAULT_OPENAI_MODEL,
     DEFAULT_PROMPT_PATH as DEFAULT_RYOKAN_PROMPT_PATH,
@@ -33,7 +38,7 @@ SITE_SCRAPERS: dict[str, Callable[[], list[dict]]] = {
     "hachise": scrape_hachise,
 }
 
-PIPELINE_TAGS = ("scrape", "openai", "summary")
+PIPELINE_TAGS = ("scrape", "openai", "summary", "geocode", "map-export")
 DEFAULT_PIPELINE_TAGS = ("scrape",)
 DEFAULT_CONSOLIDATED_JSON_PATH = CONSOLIDATED_DIR / "consolidated_changes.json"
 
@@ -46,8 +51,11 @@ def run(
     consolidated_json_path: Path = DEFAULT_CONSOLIDATED_JSON_PATH,
     prompt_path: Path = DEFAULT_RYOKAN_PROMPT_PATH,
     summary_xls_path: Path = DEFAULT_SUMMARY_XLS_PATH,
+    map_payload_path: Path = DEFAULT_MAP_PAYLOAD_PATH,
+    geocode_cache_path: Path = DEFAULT_GEOCODE_CACHE_PATH,
+    geocode_api_key: str | None = None,
 ) -> None:
-    """Run selected pipeline stages in order (scrape -> openai -> summary)."""
+    """Run selected pipeline stages in order."""
     selected_tags = _normalize_pipeline_tags(tags)
     LOGGER.info("Pipeline tags: %s", ", ".join(selected_tags))
 
@@ -77,6 +85,49 @@ def run(
             summary_xls_path=summary_xls_path,
         )
         LOGGER.info("Ryokan summary stage complete. Rows=%s", rows)
+
+    map_payload_written = False
+    if "geocode" in selected_tags:
+        map_summary = build_listings_map_payload(
+            consolidated_json_path=consolidated_json_path,
+            payload_path=map_payload_path,
+            geocode_cache_path=geocode_cache_path,
+            geocode_api_key=geocode_api_key,
+            geocode_missing=True,
+        )
+        LOGGER.info(
+            (
+                "Geocode stage complete. Exported=%s WithCoords=%s CacheHits=%s "
+                "Geocoded=%s Failed=%s KeySource=%s Payload=%s"
+            ),
+            map_summary.rows_exported,
+            map_summary.rows_with_coordinates,
+            map_summary.cache_hits,
+            map_summary.geocoded_count,
+            map_summary.failed_geocode_count,
+            map_summary.key_source,
+            map_summary.payload_path,
+        )
+        map_payload_written = True
+
+    if "map-export" in selected_tags and not map_payload_written:
+        map_summary = build_listings_map_payload(
+            consolidated_json_path=consolidated_json_path,
+            payload_path=map_payload_path,
+            geocode_cache_path=geocode_cache_path,
+            geocode_api_key=geocode_api_key,
+            geocode_missing=False,
+        )
+        LOGGER.info(
+            (
+                "Map-export stage complete. Exported=%s WithCoords=%s CacheHits=%s "
+                "Payload=%s"
+            ),
+            map_summary.rows_exported,
+            map_summary.rows_with_coordinates,
+            map_summary.cache_hits,
+            map_summary.payload_path,
+        )
 
 
 def _run_scrape_stage() -> None:
@@ -112,6 +163,8 @@ def _normalize_pipeline_tags(tags: Sequence[str] | None) -> list[str]:
     aliases = {
         "ai": "openai",
         "ryokan": "openai",
+        "map": "map-export",
+        "geo": "geocode",
     }
     normalized: list[str] = []
     for token in raw_tokens:
@@ -131,7 +184,7 @@ def cli(argv: Sequence[str] | None = None) -> None:
     parser = argparse.ArgumentParser(
         description=(
             "Run the property pipeline by stage tags. "
-            "Supported tags: scrape, openai, summary, all."
+            "Supported tags: scrape, openai, summary, geocode, map-export, all."
         ),
     )
     parser.add_argument(
@@ -177,6 +230,24 @@ def cli(argv: Sequence[str] | None = None) -> None:
         default=str(DEFAULT_SUMMARY_XLS_PATH),
         help="Output path for --tags summary.",
     )
+    parser.add_argument(
+        "--map-payload-path",
+        default=str(DEFAULT_MAP_PAYLOAD_PATH),
+        help="Output path for --tags map-export/geocode payload JSON.",
+    )
+    parser.add_argument(
+        "--geocode-cache-path",
+        default=str(DEFAULT_GEOCODE_CACHE_PATH),
+        help="Cache path for --tags geocode/map-export.",
+    )
+    parser.add_argument(
+        "--geocode-api-key",
+        default=None,
+        help=(
+            "Google Geocoding API key override for --tags geocode. "
+            "If omitted, uses GOOGLE_GEOCODING_API_KEY or GOOGLE_MAPS_API_KEY."
+        ),
+    )
     args = parser.parse_args(argv)
 
     run(
@@ -186,6 +257,9 @@ def cli(argv: Sequence[str] | None = None) -> None:
         consolidated_json_path=Path(args.json_path),
         prompt_path=Path(args.prompt_path),
         summary_xls_path=Path(args.summary_xls_path),
+        map_payload_path=Path(args.map_payload_path),
+        geocode_cache_path=Path(args.geocode_cache_path),
+        geocode_api_key=args.geocode_api_key,
     )
 
 

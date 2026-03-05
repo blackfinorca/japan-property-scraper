@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ryokan Listing Map</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="panel">
+        <h1>Ryokan Listing Map</h1>
+        <p class="hint">
+          Data source:
+          <code id="data-path-label">/output/consolidated/listings_map_payload.json</code>
+        </p>
+        <p class="hint">
+          API key source:
+          <code>frontend/listings_map/config.local.json</code>
+          or URL param
+          <code>?mapsApiKey=YOUR_KEY</code>
+        </p>
+
+        <section class="filters">
+          <h2>Filters</h2>
+
+          <label for="filter-property-number">Property Number</label>
+          <input id="filter-property-number" type="text" placeholder="e.g. 70023" />
+
+          <label for="filter-property-name">Property Name</label>
+          <input
+            id="filter-property-name"
+            type="text"
+            placeholder="name contains..."
+          />
+
+          <label for="filter-price-min">Price JPY Min</label>
+          <input id="filter-price-min" type="number" min="0" step="1" placeholder="0" />
+
+          <label for="filter-price-max">Price JPY Max</label>
+          <input id="filter-price-max" type="number" min="0" step="1" placeholder="200000000" />
+
+          <label for="filter-url">URL</label>
+          <input id="filter-url" type="text" placeholder="url contains..." />
+
+          <h3 class="subheading">Eligibility</h3>
+          <div class="eligibility-filter">
+            <label class="checkbox-row">
+              <input
+                type="checkbox"
+                class="filter-eligibility"
+                value="ALREADY A RYOKAN"
+                checked
+              />
+              <span><span class="dot c-already"></span>ALREADY A RYOKAN</span>
+            </label>
+            <label class="checkbox-row">
+              <input
+                type="checkbox"
+                class="filter-eligibility"
+                value="LIKELY ELIGIBLE"
+                checked
+              />
+              <span><span class="dot c-likely"></span>LIKELY ELIGIBLE</span>
+            </label>
+            <label class="checkbox-row">
+              <input
+                type="checkbox"
+                class="filter-eligibility"
+                value="LIKELY NOT ELIGIBLE"
+                checked
+              />
+              <span><span class="dot c-not"></span>LIKELY NOT ELIGIBLE</span>
+            </label>
+            <label class="checkbox-row">
+              <input
+                type="checkbox"
+                class="filter-eligibility"
+                value="UNCERTAIN"
+                checked
+              />
+              <span><span class="dot c-uncertain"></span>UNCERTAIN</span>
+            </label>
+            <label class="checkbox-row">
+              <input
+                type="checkbox"
+                class="filter-eligibility"
+                value="OTHER"
+                checked
+              />
+              <span><span class="dot c-other"></span>OTHER / MISSING</span>
+            </label>
+          </div>
+
+          <button id="clear-filters" type="button">Clear Filters</button>
+        </section>
+
+        <section class="legend">
+          <h2>Eligibility Colors</h2>
+          <ul>
+            <li><span class="dot c-already"></span>ALREADY A RYOKAN</li>
+            <li><span class="dot c-likely"></span>LIKELY ELIGIBLE</li>
+            <li><span class="dot c-not"></span>LIKELY NOT ELIGIBLE</li>
+            <li><span class="dot c-uncertain"></span>UNCERTAIN</li>
+            <li><span class="dot c-other"></span>OTHER / MISSING</li>
+          </ul>
+        </section>
+
+        <section class="status">
+          <h2>Status</h2>
+          <p id="status-text">Initializing...</p>
+          <p id="visible-count"></p>
+        </section>
+      </aside>
+
+      <main class="map-wrap">
+        <div id="map"></div>
+      </main>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
