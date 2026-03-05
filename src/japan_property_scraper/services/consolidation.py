@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -86,8 +88,16 @@ def _load_or_migrate_storage_state(
     history_json_path = _resolve_history_json_path(consolidated_json_path)
     history_json_path.parent.mkdir(parents=True, exist_ok=True)
 
-    unique_records = normalize_listings_schema(_load_json_array(consolidated_json_path))
-    history_records = normalize_listings_schema(_load_json_array(history_json_path))
+    raw_unique_records = _load_json_array(consolidated_json_path)
+    raw_history_records = _load_json_array(history_json_path)
+    unique_records = normalize_listings_schema(raw_unique_records)
+    history_records = normalize_listings_schema(raw_history_records)
+
+    if unique_records != raw_unique_records:
+        _write_json_array(consolidated_json_path, unique_records)
+        export_consolidated_tabular_files(unique_records, consolidated_json_path)
+    if history_records != raw_history_records:
+        _write_json_array(history_json_path, history_records)
 
     if history_records and not unique_records:
         unique_records = _dedupe_to_latest(history_records)
@@ -150,10 +160,28 @@ def _load_json_array(path: Path) -> list[dict[str, Any]]:
     return payload
 
 
-def _write_json_array(path: Path, records: list[dict[str, Any]]) -> None:
+def write_json_atomic(path: Path, records: list[dict[str, Any]]) -> None:
+    """Write JSON array to path atomically (via temp file + os.replace)."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", encoding="utf-8") as file:
-        json.dump(records, file, ensure_ascii=False, indent=2)
+    tmp_fd, tmp_path = tempfile.mkstemp(
+        dir=str(path.parent),
+        prefix=path.stem + "_",
+        suffix=".tmp",
+    )
+    try:
+        with os.fdopen(tmp_fd, "w", encoding="utf-8") as file:
+            json.dump(records, file, ensure_ascii=False, indent=2)
+        os.replace(tmp_path, path)
+    except Exception:
+        try:
+            os.unlink(tmp_path)
+        except OSError:
+            pass
+        raise
+
+
+def _write_json_array(path: Path, records: list[dict[str, Any]]) -> None:
+    write_json_atomic(path, records)
 
 
 def _dedupe_to_latest(records: list[dict[str, Any]]) -> list[dict[str, Any]]:

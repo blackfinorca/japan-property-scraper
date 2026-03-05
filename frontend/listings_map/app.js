@@ -298,6 +298,13 @@ function buildPopupHtml(record) {
   const propertyNumber = escapeHtml(toText(record.property_number));
   const propertyName = escapeHtml(toText(record.property_name));
   const priceJpy = formatPriceJpy(record.price_jpy);
+  const pricePerM2 = parsePrice(record.price_per_m2);
+  const benchmarkPerM2 = parsePrice(record.price_per_m2_benchmark);
+  const pricePerM2Text = formatPricePerM2(record.price_per_m2);
+  const benchmarkPerM2Text = formatPricePerM2(record.price_per_m2_benchmark);
+  const deltaPct = computeDeltaPercent(pricePerM2, benchmarkPerM2);
+  const deltaText = deltaPct === null ? "" : `${deltaPct > 0 ? "+" : ""}${deltaPct.toFixed(1)}%`;
+  const deltaColor = deltaPct === null ? "#64748b" : (deltaPct >= 0 ? "#157f1f" : "#c0392b");
   const url = toText(record.url);
   const safeUrl = escapeHtml(url);
   const eligibility = eligibilityBucket(record.ryokan_licence_eligibility);
@@ -311,6 +318,10 @@ function buildPopupHtml(record) {
       <p><strong>property_number:</strong> ${propertyNumber || "-"}</p>
       <p><strong>eligibility:</strong> <span style="color:${eligibilityColor};font-weight:bold">${safeEligibility}</span></p>
       <p><strong>price_jpy:</strong> ${priceJpy}</p>
+      <p><strong>price_per_m2:</strong> ${pricePerM2Text}${
+        deltaText ? ` <small style="color:${deltaColor};font-weight:600">(${deltaText})</small>` : ""
+      }</p>
+      <p><strong>price_per_m2_benchmark:</strong> ${benchmarkPerM2Text}</p>
       ${safeAddress ? `<p><strong>address:</strong> ${safeAddress}</p>` : ""}
       <p><strong>url:</strong> ${
         url ? `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer">${safeUrl}</a>` : "-"
@@ -462,6 +473,21 @@ function formatPriceJpy(value) {
     return "-";
   }
   return `${parsed.toLocaleString("en-US")} JPY`;
+}
+
+function formatPricePerM2(value) {
+  const parsed = parsePrice(value);
+  if (parsed === null) {
+    return "-";
+  }
+  return `${parsed.toLocaleString("en-US")} JPY/m²`;
+}
+
+function computeDeltaPercent(value, benchmark) {
+  if (value === null || benchmark === null || benchmark <= 0) {
+    return null;
+  }
+  return ((value - benchmark) / benchmark) * 100;
 }
 
 function normalizeEligibility(value) {
