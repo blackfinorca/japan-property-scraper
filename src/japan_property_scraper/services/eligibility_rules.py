@@ -52,7 +52,6 @@ def detect_already_ryokan_fast_pass(record: dict[str, Any]) -> str | None:
 
     operation_markers = [
         "in operation as an inn",
-        "in operation as in inn",
         "currently in operation as an inn",
         "operating as an inn",
     ]

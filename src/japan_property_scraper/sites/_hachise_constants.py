@@ -5,7 +5,7 @@ from __future__ import annotations
 
 LIST_URL = "https://www.hachise.com/buy/list.html"
 RATE_URL = "https://www.hachise.com/common/js/rate.js"
-DEFAULT_USD_RATE = 0.0065
+DEFAULT_USD_RATE = 0.0067  # Fallback (~¥149/$1); update if live fetch fails consistently
 REQUEST_HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "

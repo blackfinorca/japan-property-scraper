@@ -18,6 +18,7 @@ from japan_property_scraper.sites._hachise_constants import (
     DEFAULT_USD_RATE,
     LIST_URL,
     MAX_FETCH_RETRIES,
+    MULTI_VALUE_DETAIL_KEYS,
     RATE_URL,
     REQUEST_HEADERS,
     RETRY_DELAY_SECONDS,
@@ -27,12 +28,6 @@ from japan_property_scraper.sites._hachise_detail_parser import parse_detail_fie
 
 
 LOGGER = logging.getLogger(__name__)
-
-MULTI_DETAIL_FIELDS = (
-    "transportations",
-    "adjoining_street",
-    "remarks",
-)
 
 SCALAR_DETAIL_FIELDS = (
     "property_price_text",
@@ -164,7 +159,7 @@ def _parse_card(
 
     price_jpy_text = _safe_text(card.select_one("li.price span.jpy"))
     price_jpy = _extract_number(price_jpy_text)
-    price_usd = math.ceil(price_jpy * usd_rate) if price_jpy else []
+    price_usd = math.ceil(price_jpy * usd_rate) if price_jpy else None
 
     status_values = [
         _safe_text(tag)
@@ -240,7 +235,7 @@ def _parse_card(
 
 def _build_detail_fields(details: dict[str, Any]) -> dict[str, Any]:
     detail_fields: dict[str, Any] = {}
-    for key in MULTI_DETAIL_FIELDS:
+    for key in MULTI_VALUE_DETAIL_KEYS:
         detail_fields[key] = _multi_or_empty_list(details.get(key))
     for key in SCALAR_DETAIL_FIELDS:
         detail_fields[key] = _first_or_empty_list(details.get(key))

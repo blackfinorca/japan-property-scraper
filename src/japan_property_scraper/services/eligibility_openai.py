@@ -3,11 +3,16 @@
 from __future__ import annotations
 
 import json
+import logging
 import os
+import time
 from pathlib import Path
 from typing import Any
 
-from openai import OpenAI
+from openai import APIError, OpenAI, RateLimitError
+
+LOGGER = logging.getLogger(__name__)
+_MAX_RETRIES = 4
 
 
 def build_openai_client() -> OpenAI:
@@ -30,17 +35,32 @@ def request_model_json(
     prompt_text: str,
     record: dict[str, Any],
 ) -> dict[str, Any]:
-    response = client.chat.completions.create(
-        model=model,
-        temperature=0,
-        response_format={"type": "json_object"},
-        messages=[
-            {"role": "system", "content": prompt_text},
-            {"role": "user", "content": build_record_prompt(record)},
-        ],
-    )
-    content = response.choices[0].message.content or ""
-    return parse_model_output(content)
+    for attempt in range(1, _MAX_RETRIES + 1):
+        try:
+            response = client.chat.completions.create(
+                model=model,
+                temperature=0,
+                response_format={"type": "json_object"},
+                messages=[
+                    {"role": "system", "content": prompt_text},
+                    {"role": "user", "content": build_record_prompt(record)},
+                ],
+            )
+            content = response.choices[0].message.content or ""
+            return parse_model_output(content)
+        except RateLimitError as error:
+            if attempt >= _MAX_RETRIES:
+                raise
+            wait = 2**attempt  # 2, 4, 8 seconds
+            LOGGER.warning("OpenAI rate limit (attempt %d/%d); retrying in %ds.", attempt, _MAX_RETRIES, wait)
+            time.sleep(wait)
+        except APIError as error:
+            if attempt >= _MAX_RETRIES:
+                raise
+            wait = 2 ** (attempt - 1)  # 1, 2, 4 seconds
+            LOGGER.warning("OpenAI API error (attempt %d/%d): %s; retrying in %ds.", attempt, _MAX_RETRIES, error, wait)
+            time.sleep(wait)
+    raise RuntimeError("Unreachable: OpenAI retry loop exhausted without returning or raising.")
 
 
 def build_record_prompt(record: dict[str, Any]) -> str:

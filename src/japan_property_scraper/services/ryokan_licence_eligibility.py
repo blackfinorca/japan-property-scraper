@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import argparse
-import json
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -14,6 +13,7 @@ from japan_property_scraper.config import CONSOLIDATED_DIR
 from japan_property_scraper.services.consolidation import (
     export_consolidated_tabular_files,
     load_consolidated_unique_records,
+    write_json_atomic,
 )
 from japan_property_scraper.services.eligibility_models import (
     UpdateSummary,
@@ -67,6 +67,7 @@ def update_ryokan_licence_eligibility(
     prompt_text: str | None = None
     client: OpenAI | None = None
     updated_records = 0
+    _CHECKPOINT_EVERY = 10
 
     for index in tqdm(selected_indices, desc="Ryokan eligibility", unit="record"):
         record = records[index]
@@ -89,7 +90,6 @@ def update_ryokan_licence_eligibility(
             )
 
         record["ryokan_licence_eligibility"] = assessment["ryokan_licence_eligibility"]
-        record["ryokan_eligibility"] = assessment["ryokan_licence_eligibility"]
         record["ryokan_licence_blockers"] = assessment["ryokan_licence_blockers"]
         record["ryokan_licence_dealbreaker"] = assessment["ryokan_licence_dealbreaker"]
         record["ryokan_licence_dealbreaker_checklist"] = assessment[
@@ -98,9 +98,10 @@ def update_ryokan_licence_eligibility(
         record["ryokan_licence_risk_notes"] = assessment["ryokan_licence_risk_notes"]
         updated_records += 1
 
-    with consolidated_json_path.open("w", encoding="utf-8") as file:
-        json.dump(records, file, ensure_ascii=False, indent=2)
+        if updated_records % _CHECKPOINT_EVERY == 0:
+            write_json_atomic(consolidated_json_path, records)
 
+    write_json_atomic(consolidated_json_path, records)
     export_consolidated_tabular_files(records, consolidated_json_path)
     export_ryokan_summary_xls(consolidated_json_path)
 

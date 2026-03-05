@@ -104,6 +104,8 @@ def build_listings_map_payload(
                 "property_number": _to_text(record.get("property_number")),
                 "property_name": _to_text(record.get("property_name")),
                 "price_jpy": record.get("price_jpy"),
+                "price_per_m2": record.get("price_per_m2"),
+                "price_per_m2_benchmark": record.get("price_per_m2_benchmark"),
                 "url": _to_text(record.get("url")),
                 "address": address,
                 "ryokan_licence_eligibility": _to_text(

@@ -2,8 +2,11 @@
 
 from __future__ import annotations
 
+import logging
 import re
 from typing import Any
+
+LOGGER = logging.getLogger(__name__)
 
 from bs4 import BeautifulSoup
 
@@ -148,6 +151,15 @@ def _parse_details_dl(details_dl) -> dict[str, Any]:
     parsed: dict[str, Any] = {}
     headings = details_dl.find_all("dt")
     values = details_dl.find_all("dd")
+
+    if len(headings) != len(values):
+        LOGGER.warning(
+            "_parse_details_dl: dt/dd count mismatch (%d dt vs %d dd); "
+            "%d entries will be skipped.",
+            len(headings),
+            len(values),
+            abs(len(headings) - len(values)),
+        )
 
     for heading, value_cell in zip(headings, values):
         normalized_label = _normalize_label(_safe_text(heading))
@@ -404,6 +416,12 @@ def _fill_missing_from_all_dls(
     for dl in soup.select("dl"):
         headings = dl.find_all("dt")
         values = dl.find_all("dd")
+        if len(headings) != len(values):
+            LOGGER.warning(
+                "_fill_missing_from_all_dls: dt/dd count mismatch (%d dt vs %d dd).",
+                len(headings),
+                len(values),
+            )
         for heading, value_cell in zip(headings, values):
             normalized_label = _normalize_label(_safe_text(heading))
             detail_keys = _resolve_detail_keys(normalized_label)

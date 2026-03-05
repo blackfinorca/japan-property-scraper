@@ -14,5 +14,10 @@ output/history_data/*.xls
 
 .DS_Store
 
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
 # Local frontend secrets
 frontend/listings_map/config.local.json
