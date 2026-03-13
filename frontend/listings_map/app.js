@@ -1,3 +1,6 @@
+const NOTES_STORAGE_KEY = "jp_property_notes";
+const SHORTLIST_STORAGE_KEY = "jp_property_shortlist";
+
 const DEFAULT_JSON_PATHS = [
   "/output/consolidated/listings_map_payload.json",
   "./data/listings_map_payload.json",
@@ -45,8 +48,6 @@ async function bootstrap() {
     state.localConfigKey,
     state.remoteConfigKey,
   );
-  document.getElementById("data-path-label").textContent = dataCandidates.join(" | ");
-
   try {
     await loadGoogleMaps(apiKey);
   } catch (error) {
@@ -225,7 +226,6 @@ async function loadRecords(paths) {
 
       state.records = payload;
       state.activeDataPath = candidate;
-      document.getElementById("data-path-label").textContent = candidate;
       setStatus(`Loaded ${payload.length} listings.`);
       return;
     } catch (error) {
@@ -289,6 +289,9 @@ function buildMarker(record, coords) {
     state.selectedMarker = marker;
     state.infoWindow.setContent(buildPopupHtml(record));
     state.infoWindow.open({ anchor: marker, map: state.map, shouldFocus: false });
+    google.maps.event.addListenerOnce(state.infoWindow, "domready", () => {
+      wirePopupNote(toText(record.property_number));
+    });
   });
 
   return marker;
@@ -297,6 +300,9 @@ function buildMarker(record, coords) {
 function buildPopupHtml(record) {
   const propertyNumber = escapeHtml(toText(record.property_number));
   const propertyName = escapeHtml(toText(record.property_name));
+  const existingNote = escapeHtml(loadNote(toText(record.property_number)));
+  const isShortlisted = loadShortlist().has(toText(record.property_number));
+  const checkedAttr = isShortlisted ? " checked" : "";
   const priceJpy = formatPriceJpy(record.price_jpy);
   const pricePerM2 = parsePrice(record.price_per_m2);
   const benchmarkPerM2 = parsePrice(record.price_per_m2_benchmark);
@@ -326,10 +332,95 @@ function buildPopupHtml(record) {
       <p><strong>url:</strong> ${
         url ? `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer">${safeUrl}</a>` : "-"
       }</p>
+      <label class="popup-shortlist">
+        <input type="checkbox" id="popup-shortlist-cb"${checkedAttr} />
+        <span>Shortlisted</span>
+      </label>
+      <div class="popup-note">
+        <label for="popup-note-textarea"><strong>Notes</strong></label>
+        <textarea
+          id="popup-note-textarea"
+          maxlength="200"
+          placeholder="Add a note..."
+        >${existingNote}</textarea>
+        <button id="popup-note-save" type="button">Save note</button>
+      </div>
     </div>
   `;
 }
 
+
+function loadShortlist() {
+  try {
+    return new Set(JSON.parse(localStorage.getItem(SHORTLIST_STORAGE_KEY) || "[]"));
+  } catch {
+    return new Set();
+  }
+}
+
+function setShortlisted(propertyNumber, checked) {
+  const list = loadShortlist();
+  if (checked) {
+    list.add(propertyNumber);
+  } else {
+    list.delete(propertyNumber);
+  }
+  try {
+    localStorage.setItem(SHORTLIST_STORAGE_KEY, JSON.stringify([...list]));
+  } catch {
+    // localStorage unavailable — silently ignore
+  }
+}
+
+function loadNote(propertyNumber) {
+  try {
+    const notes = JSON.parse(localStorage.getItem(NOTES_STORAGE_KEY) || "{}");
+    return toText(notes[propertyNumber]);
+  } catch {
+    return "";
+  }
+}
+
+function saveNote(propertyNumber, text) {
+  try {
+    const notes = JSON.parse(localStorage.getItem(NOTES_STORAGE_KEY) || "{}");
+    if (text) {
+      notes[propertyNumber] = text;
+    } else {
+      delete notes[propertyNumber];
+    }
+    localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(notes));
+  } catch {
+    // localStorage unavailable — silently ignore
+  }
+}
+
+function wirePopupNote(propertyNumber) {
+  const btn = document.getElementById("popup-note-save");
+  const textarea = document.getElementById("popup-note-textarea");
+  const shortlistCb = document.getElementById("popup-shortlist-cb");
+
+  if (shortlistCb) {
+    shortlistCb.addEventListener("change", () => {
+      setShortlisted(propertyNumber, shortlistCb.checked);
+      applyFilters();
+    });
+  }
+
+  if (!btn || !textarea) {
+    return;
+  }
+  btn.addEventListener("click", () => {
+    const note = textarea.value.slice(0, 200);
+    saveNote(propertyNumber, note);
+    btn.textContent = "Saved!";
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = "Save note";
+      btn.disabled = false;
+    }, 1500);
+  });
+}
 
 function debounce(fn, delayMs) {
   let timer = null;
@@ -359,6 +450,8 @@ function wireFilters() {
     checkbox.addEventListener("change", applyFilters);
   }
 
+  document.getElementById("filter-shortlist").addEventListener("change", applyFilters);
+
   document.getElementById("clear-filters").addEventListener("click", () => {
     for (const id of ids) {
       document.getElementById(id).value = "";
@@ -366,6 +459,7 @@ function wireFilters() {
     for (const checkbox of eligibilityCheckboxes) {
       checkbox.checked = true;
     }
+    document.getElementById("filter-shortlist").checked = false;
     applyFilters();
   });
 }
@@ -376,10 +470,12 @@ function applyFilters() {
   const urlNeedle = toLower(document.getElementById("filter-url").value);
   const minPriceRaw = document.getElementById("filter-price-min").value.trim();
   const maxPriceRaw = document.getElementById("filter-price-max").value.trim();
+  const shortlistOnly = document.getElementById("filter-shortlist").checked;
 
   const minPrice = minPriceRaw ? Number(minPriceRaw) : null;
   const maxPrice = maxPriceRaw ? Number(maxPriceRaw) : null;
   const selectedEligibility = getSelectedEligibility();
+  const shortlist = shortlistOnly ? loadShortlist() : null;
 
   let visible = 0;
   let selectedStillVisible = false;
@@ -395,6 +491,7 @@ function applyFilters() {
       minPrice,
       maxPrice,
       selectedEligibility,
+      shortlist,
     });
 
     marker.setMap(matches ? state.map : null);
@@ -426,6 +523,7 @@ function matchesFilters({
   minPrice,
   maxPrice,
   selectedEligibility,
+  shortlist,
 }) {
   const propertyNumber = toLower(toText(record.property_number));
   const propertyName = toLower(toText(record.property_name));
@@ -449,6 +547,9 @@ function matchesFilters({
     return false;
   }
   if (!selectedEligibility.has(eligibility)) {
+    return false;
+  }
+  if (shortlist !== null && !shortlist.has(toText(record.property_number))) {
     return false;
   }
 

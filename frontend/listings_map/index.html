@@ -10,18 +10,6 @@
     <div class="app-shell">
       <aside class="panel">
         <h1>Ryokan Listing Map</h1>
-        <p class="hint">
-          Data source:
-          <code id="data-path-label">/output/consolidated/listings_map_payload.json</code>
-        </p>
-        <p class="hint">
-          API key source:
-          <code>frontend/listings_map/config.local.json</code>
-          or Vercel env via
-          <code>/api/maps-config</code>
-          or URL param
-          <code>?mapsApiKey=YOUR_KEY</code>
-        </p>
 
         <section class="filters">
           <h2>Filters</h2>
@@ -44,6 +32,11 @@
 
           <label for="filter-url">URL</label>
           <input id="filter-url" type="text" placeholder="url contains..." />
+
+          <label class="checkbox-row shortlist-filter-row">
+            <input type="checkbox" id="filter-shortlist" />
+            <span>&#9733; Shortlisted only</span>
+          </label>
 
           <h3 class="subheading">Eligibility</h3>
           <div class="eligibility-filter">

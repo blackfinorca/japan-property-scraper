@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "Vercel runtime marker for map frontend and API functions",
+  "scripts": {
+    "dev": "npx serve frontend/listings_map"
+  },
   "engines": {
     "node": ">=18"
   }

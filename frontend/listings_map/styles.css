@@ -209,6 +209,82 @@ button:hover {
   text-decoration: underline;
 }
 
+.popup-shortlist {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 10px 0 2px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.popup-shortlist input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  accent-color: #f2bf68;
+  cursor: pointer;
+}
+
+.shortlist-filter-row {
+  margin: 10px 0 8px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #f2bf68;
+}
+
+.popup-note {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #d0d7de;
+}
+
+.popup-note label {
+  display: block;
+  margin: 0 0 4px;
+  font-size: 0.84rem;
+}
+
+.popup-note textarea {
+  width: 100%;
+  min-height: 64px;
+  padding: 6px 8px;
+  border: 1px solid #c8d0d8;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.84rem;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.popup-note textarea:focus {
+  outline: 2px solid #1a4dff;
+  outline-offset: 0;
+}
+
+.popup-note button {
+  margin-top: 6px;
+  width: 100%;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: #1a4dff;
+  color: #fff;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.popup-note button:hover {
+  filter: brightness(0.9);
+}
+
+.popup-note button:disabled {
+  background: #5c8a4a;
+  cursor: default;
+  filter: none;
+}
+
 @media (max-width: 980px) {
   .app-shell {
     grid-template-columns: 1fr;
