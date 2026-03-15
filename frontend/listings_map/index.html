@@ -33,57 +33,51 @@
           <label for="filter-url">URL</label>
           <input id="filter-url" type="text" placeholder="url contains..." />
 
+          <label for="filter-reno-status">Reno Status</label>
+          <input id="filter-reno-status" type="text" placeholder="reno status contains..." />
+
           <label class="checkbox-row shortlist-filter-row">
             <input type="checkbox" id="filter-shortlist" />
             <span>&#9733; Shortlisted only</span>
           </label>
 
-          <h3 class="subheading">Eligibility</h3>
+          <h3 class="subheading">License Type</h3>
           <div class="eligibility-filter">
             <label class="checkbox-row">
               <input
                 type="checkbox"
                 class="filter-eligibility"
-                value="ALREADY A RYOKAN"
+                value="SIMPLE LODGING"
                 checked
               />
-              <span><span class="dot c-already"></span>ALREADY A RYOKAN</span>
+              <span><span class="dot c-simple"></span>Simple Lodging (365 days)</span>
             </label>
             <label class="checkbox-row">
               <input
                 type="checkbox"
                 class="filter-eligibility"
-                value="LIKELY ELIGIBLE"
+                value="MINPAKU"
                 checked
               />
-              <span><span class="dot c-likely"></span>LIKELY ELIGIBLE</span>
+              <span><span class="dot c-minpaku"></span>Minpaku (180 days)</span>
             </label>
             <label class="checkbox-row">
               <input
                 type="checkbox"
                 class="filter-eligibility"
-                value="LIKELY NOT ELIGIBLE"
+                value="SPECIAL ZONE"
                 checked
               />
-              <span><span class="dot c-not"></span>LIKELY NOT ELIGIBLE</span>
+              <span><span class="dot c-special"></span>Special Zone (365 days)</span>
             </label>
             <label class="checkbox-row">
               <input
                 type="checkbox"
                 class="filter-eligibility"
-                value="UNCERTAIN"
+                value="UNCERTAIN / MISSING"
                 checked
               />
-              <span><span class="dot c-uncertain"></span>UNCERTAIN</span>
-            </label>
-            <label class="checkbox-row">
-              <input
-                type="checkbox"
-                class="filter-eligibility"
-                value="OTHER"
-                checked
-              />
-              <span><span class="dot c-other"></span>OTHER / MISSING</span>
+              <span><span class="dot c-uncertain-new"></span>Uncertain / Missing</span>
             </label>
           </div>
 
@@ -91,13 +85,12 @@
         </section>
 
         <section class="legend">
-          <h2>Eligibility Colors</h2>
+          <h2>License Type</h2>
           <ul>
-            <li><span class="dot c-already"></span>ALREADY A RYOKAN</li>
-            <li><span class="dot c-likely"></span>LIKELY ELIGIBLE</li>
-            <li><span class="dot c-not"></span>LIKELY NOT ELIGIBLE</li>
-            <li><span class="dot c-uncertain"></span>UNCERTAIN</li>
-            <li><span class="dot c-other"></span>OTHER / MISSING</li>
+            <li><span class="dot c-simple"></span>Simple Lodging (365 days/yr)</li>
+            <li><span class="dot c-minpaku"></span>Minpaku (180 days/yr)</li>
+            <li><span class="dot c-special"></span>Special Zone (365 days/yr)</li>
+            <li><span class="dot c-uncertain-new"></span>Uncertain / Missing</li>
           </ul>
         </section>
 

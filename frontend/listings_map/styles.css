@@ -159,20 +159,17 @@ button:hover {
   display: inline-block;
 }
 
-.c-already {
+.c-simple {
   background: #157f1f;
 }
-.c-likely {
-  background: #2a9d8f;
-}
-.c-not {
-  background: #c0392b;
-}
-.c-uncertain {
+.c-minpaku {
   background: #f4a261;
 }
-.c-other {
-  background: #64748b;
+.c-special {
+  background: #4a90d9;
+}
+.c-uncertain-new {
+  background: #94a3b8;
 }
 
 .map-wrap {
@@ -207,6 +204,85 @@ button:hover {
 
 .popup a:hover {
   text-decoration: underline;
+}
+
+.popup-elig {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #d0d7de;
+  font-size: 0.82rem;
+}
+
+.popup-elig summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 3px 0;
+  user-select: none;
+}
+
+.popup-elig summary::-webkit-details-marker {
+  display: none;
+}
+
+.elig-badge {
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.elig-summary-label {
+  font-weight: 700;
+  font-size: 0.84rem;
+}
+
+.elig-toggle {
+  margin-left: auto;
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+.popup-elig[open] .elig-toggle {
+  transform: rotate(180deg);
+  display: inline-block;
+}
+
+.elig-body {
+  margin-top: 6px;
+}
+
+.elig-rec-detail {
+  margin: 0 0 7px;
+  font-size: 0.8rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+.elig-check {
+  display: flex;
+  gap: 6px;
+  margin: 4px 0;
+  align-items: flex-start;
+  font-size: 0.79rem;
+  line-height: 1.4;
+}
+
+.elig-status {
+  flex-shrink: 0;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+  margin-top: 1px;
+}
+
+.elig-detail {
+  color: #333;
 }
 
 .popup-shortlist {

@@ -1,3 +1,5 @@
+import { evaluateProperty } from "./eligibility_engine.js";
+
 const NOTES_STORAGE_KEY = "jp_property_notes";
 const SHORTLIST_STORAGE_KEY = "jp_property_shortlist";
 
@@ -9,11 +11,10 @@ const DEFAULT_JSON_PATHS = [
 const API_KEY_STORAGE_KEY = "jp_property_google_maps_api_key";
 
 const ELIGIBILITY_COLORS = {
-  "ALREADY A RYOKAN": "#157f1f",
-  "LIKELY ELIGIBLE": "#2a9d8f",
-  "LIKELY NOT ELIGIBLE": "#c0392b",
-  UNCERTAIN: "#f4a261",
-  OTHER: "#64748b",
+  "SIMPLE LODGING": "#157f1f",
+  "MINPAKU": "#f4a261",
+  "SPECIAL ZONE": "#4a90d9",
+  "UNCERTAIN / MISSING": "#94a3b8",
 };
 
 const state = {
@@ -267,8 +268,8 @@ async function createMarkersFromRecords() {
 }
 
 function buildMarker(record, coords) {
-  const eligibility = eligibilityBucket(record.ryokan_licence_eligibility);
-  const color = ELIGIBILITY_COLORS[eligibility] || ELIGIBILITY_COLORS.OTHER;
+  const eligibility = eligibilityBucket(record);
+  const color = ELIGIBILITY_COLORS[eligibility] || ELIGIBILITY_COLORS["UNCERTAIN / MISSING"];
 
   const marker = new google.maps.Marker({
     map: state.map,
@@ -297,12 +298,63 @@ function buildMarker(record, coords) {
   return marker;
 }
 
+const SEVERITY_COLOR = {
+  pass: "#157f1f",
+  warn: "#c07000",
+  fail: "#c0392b",
+  info: "#64748b",
+};
+const SEVERITY_BG = {
+  pass: "#edf7ee",
+  warn: "#fff8ed",
+  fail: "#fdf2f2",
+  info: "#f4f6f8",
+};
+
+function buildEligibilityHtml(assessment) {
+  if (!assessment) return "";
+  const { results, recommendation, recommendation_severity } = assessment;
+
+  const dashIdx = recommendation.indexOf(" — ");
+  const recHeadline = dashIdx >= 0 ? recommendation.slice(0, dashIdx) : recommendation;
+  const recDetail = dashIdx >= 0 ? escapeHtml(recommendation.slice(dashIdx + 3)) : "";
+  const recColor = SEVERITY_COLOR[recommendation_severity] || SEVERITY_COLOR.info;
+  const recBg = SEVERITY_BG[recommendation_severity] || SEVERITY_BG.info;
+
+  const checksHtml = results.map((r) => {
+    const color = SEVERITY_COLOR[r.severity] || SEVERITY_COLOR.info;
+    const bg = SEVERITY_BG[r.severity] || SEVERITY_BG.info;
+    return (
+      `<div class="elig-check">` +
+      `<span class="elig-status" style="color:${color};background:${bg}">${escapeHtml(r.status)}</span>` +
+      `<span class="elig-detail"><strong>${escapeHtml(r.check)}:</strong> ${escapeHtml(r.detail)}</span>` +
+      `</div>`
+    );
+  }).join("");
+
+  return (
+    `<details class="popup-elig">` +
+    `<summary>` +
+    `<span class="elig-badge" style="color:${recColor};background:${recBg}">${escapeHtml(recHeadline)}</span>` +
+    `<span class="elig-summary-label">Lodging Assessment</span>` +
+    `<span class="elig-toggle">▼</span>` +
+    `</summary>` +
+    `<div class="elig-body">` +
+    (recDetail ? `<p class="elig-rec-detail">${recDetail}</p>` : "") +
+    checksHtml +
+    `</div>` +
+    `</details>`
+  );
+}
+
 function buildPopupHtml(record) {
   const propertyNumber = escapeHtml(toText(record.property_number));
   const propertyName = escapeHtml(toText(record.property_name));
   const existingNote = escapeHtml(loadNote(toText(record.property_number)));
   const isShortlisted = loadShortlist().has(toText(record.property_number));
   const checkedAttr = isShortlisted ? " checked" : "";
+  const assessment = evaluateProperty(record);
+  const eligibilityHtml = buildEligibilityHtml(assessment);
   const priceJpy = formatPriceJpy(record.price_jpy);
   const pricePerM2 = parsePrice(record.price_per_m2);
   const benchmarkPerM2 = parsePrice(record.price_per_m2_benchmark);
@@ -313,8 +365,8 @@ function buildPopupHtml(record) {
   const deltaColor = deltaPct === null ? "#64748b" : (deltaPct >= 0 ? "#157f1f" : "#c0392b");
   const url = toText(record.url);
   const safeUrl = escapeHtml(url);
-  const eligibility = eligibilityBucket(record.ryokan_licence_eligibility);
-  const eligibilityColor = ELIGIBILITY_COLORS[eligibility] || ELIGIBILITY_COLORS.OTHER;
+  const eligibility = assessment ? assessment.license_type : "UNCERTAIN / MISSING";
+  const eligibilityColor = ELIGIBILITY_COLORS[eligibility] || ELIGIBILITY_COLORS["UNCERTAIN / MISSING"];
   const safeEligibility = escapeHtml(eligibility);
   const safeAddress = escapeHtml(toText(record.address));
 
@@ -332,6 +384,7 @@ function buildPopupHtml(record) {
       <p><strong>url:</strong> ${
         url ? `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer">${safeUrl}</a>` : "-"
       }</p>
+      ${eligibilityHtml}
       <label class="popup-shortlist">
         <input type="checkbox" id="popup-shortlist-cb"${checkedAttr} />
         <span>Shortlisted</span>
@@ -437,6 +490,7 @@ function wireFilters() {
     "filter-price-min",
     "filter-price-max",
     "filter-url",
+    "filter-reno-status",
   ];
 
   const debouncedApply = debounce(applyFilters, 200);
@@ -468,6 +522,7 @@ function applyFilters() {
   const propertyNumberNeedle = toLower(document.getElementById("filter-property-number").value);
   const propertyNameNeedle = toLower(document.getElementById("filter-property-name").value);
   const urlNeedle = toLower(document.getElementById("filter-url").value);
+  const renoStatusNeedle = toLower(document.getElementById("filter-reno-status").value);
   const minPriceRaw = document.getElementById("filter-price-min").value.trim();
   const maxPriceRaw = document.getElementById("filter-price-max").value.trim();
   const shortlistOnly = document.getElementById("filter-shortlist").checked;
@@ -488,6 +543,7 @@ function applyFilters() {
       propertyNumberNeedle,
       propertyNameNeedle,
       urlNeedle,
+      renoStatusNeedle,
       minPrice,
       maxPrice,
       selectedEligibility,
@@ -520,6 +576,7 @@ function matchesFilters({
   propertyNumberNeedle,
   propertyNameNeedle,
   urlNeedle,
+  renoStatusNeedle,
   minPrice,
   maxPrice,
   selectedEligibility,
@@ -528,8 +585,9 @@ function matchesFilters({
   const propertyNumber = toLower(toText(record.property_number));
   const propertyName = toLower(toText(record.property_name));
   const url = toLower(toText(record.url));
+  const renoStatus = toLower(toText(record.reno_status));
   const price = parsePrice(record.price_jpy);
-  const eligibility = eligibilityBucket(record.ryokan_licence_eligibility);
+  const eligibility = eligibilityBucket(record);
 
   if (propertyNumberNeedle && !propertyNumber.includes(propertyNumberNeedle)) {
     return false;
@@ -538,6 +596,9 @@ function matchesFilters({
     return false;
   }
   if (urlNeedle && !url.includes(urlNeedle)) {
+    return false;
+  }
+  if (renoStatusNeedle && !renoStatus.includes(renoStatusNeedle)) {
     return false;
   }
   if (minPrice !== null && (price === null || price < minPrice)) {
@@ -591,17 +652,10 @@ function computeDeltaPercent(value, benchmark) {
   return ((value - benchmark) / benchmark) * 100;
 }
 
-function normalizeEligibility(value) {
-  const text = toText(value).toUpperCase();
-  return text || "OTHER";
-}
-
-function eligibilityBucket(value) {
-  const normalized = normalizeEligibility(value);
-  if (ELIGIBILITY_COLORS[normalized]) {
-    return normalized;
-  }
-  return "OTHER";
+function eligibilityBucket(record) {
+  const assessment = evaluateProperty(record);
+  if (!assessment) return "UNCERTAIN / MISSING";
+  return assessment.license_type;
 }
 
 function toText(value) {
