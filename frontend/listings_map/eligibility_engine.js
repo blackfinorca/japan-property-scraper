@@ -202,19 +202,75 @@ function classifyZone(rawZone) {
 
 // ─── REMARKS INFERENCE ────────────────────────────────────────────────────────
 
+function containsAny(text, patterns) {
+  return patterns.some((pattern) => text.includes(pattern));
+}
+
 function inferFromRemarks(prop) {
   const remarksList = Array.isArray(prop.remarks)
     ? prop.remarks
     : typeof prop.remarks === "string"
     ? [prop.remarks]
     : [];
-  const combined = remarksList.join(" ").toLowerCase();
+  const currentSituation = String(prop.current_situation || "").toLowerCase();
+  const combined = [currentSituation, ...remarksList.map((item) => String(item))]
+    .join(" ")
+    .toLowerCase();
+
+  const explicitLicenseSignals = [
+    "simple lodging business license obtained",
+    "simple lodging business licence obtained",
+    "simple lodging license obtained",
+    "simple lodging licence obtained",
+    "the property has obtained inn business license",
+    "the property has obtained inn business licence",
+    "obtained inn business license",
+    "obtained inn business licence",
+    "license in the inns and hotels act has been obtained",
+    "licence in the inns and hotels act has been obtained",
+    "common lodging house license in the inns and hotels act has been obtained",
+    "common lodging house licence in the inns and hotels act has been obtained",
+    "inn business licenses are registered",
+    "inn business licences are registered",
+  ];
+
+  const operatingLodgingSignals = [
+    "in operation as an inn",
+    "in operation as in inn",
+    "in operation as guesthouse",
+    "in operation as a guesthouse",
+    "in operation as guest house",
+    "in operation as a guest house",
+    "in operation as a lodging facility",
+    "currently in operation as a lodging facility",
+    "currently operating as a lodging facility",
+    "in operation as a short-term rental",
+    "currently in operation as a short-term rental",
+    "currently operating as a short-term rental",
+    "in opertaion as guesthouse",
+  ];
+
+  const transferOrRenewalSignals = [
+    "business succession",
+    "acquire succession",
+    "succession procedures",
+    "business transfer",
+    "name change is required",
+    "reapply inn business license",
+    "reapply inn business licence",
+    "renew inn business license",
+    "renew inn business licence",
+    "reapply for short-term rental",
+  ];
+
+  const hasExistingLicense =
+    prop.has_simple_lodging_license === true ||
+    containsAny(combined, explicitLicenseSignals) ||
+    containsAny(combined, operatingLodgingSignals) ||
+    containsAny(combined, transferOrRenewalSignals);
 
   return {
-    hasSimpleLodging:
-      prop.has_simple_lodging_license === true ||
-      combined.includes("simple lodging") ||
-      combined.includes("簡易宿所"),
+    hasExistingLicense,
     hasMachiyaKarte:
       prop.has_kyo_machiya_karte === true ||
       combined.includes("kyo-machiya karte") ||
@@ -374,16 +430,16 @@ function checkStreetWidth(prop) {
 }
 
 function checkExistingLicense(inferred) {
-  if (inferred.hasSimpleLodging) {
+  if (inferred.hasExistingLicense) {
     return {
-      check: "Existing Simple Lodging License",
+      check: "Existing Lodging License",
       status: "EXISTS",
       severity: "pass",
       detail: `License detected. Note: it is NOT auto-transferable on sale. New owner must apply for business succession (~${CFG.LICENSE_APPROVAL_BUSINESS_DAYS} business days) before operating.`,
     };
   }
   return {
-    check: "Existing Simple Lodging License",
+    check: "Existing Lodging License",
     status: "NONE",
     severity: "warn",
     detail: `No existing license. New application required (~${CFG.LICENSE_APPROVAL_BUSINESS_DAYS} business days). Engage an administrative scrivener (行政書士) early.`,
@@ -534,7 +590,7 @@ export function evaluateProperty(prop) {
     zoning_ok: results[0].status === "PASS",
     floor_area_ok: results[1].status === "PASS",
     street_width_ok: results[3].status === "PASS",
-    has_license: inferred.hasSimpleLodging,
+    has_license: inferred.hasExistingLicense,
     has_machiya_karte: inferred.hasMachiyaKarte,
     fire_safety_ok: results[6].status === "PASS",
     is_renovated: String(prop.reno_status || "").toLowerCase() === "renovated",

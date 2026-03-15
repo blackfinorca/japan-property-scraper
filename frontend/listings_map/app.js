@@ -505,6 +505,7 @@ function wireFilters() {
   }
 
   document.getElementById("filter-shortlist").addEventListener("change", applyFilters);
+  document.getElementById("filter-have-licence").addEventListener("change", applyFilters);
 
   document.getElementById("clear-filters").addEventListener("click", () => {
     for (const id of ids) {
@@ -514,6 +515,7 @@ function wireFilters() {
       checkbox.checked = true;
     }
     document.getElementById("filter-shortlist").checked = false;
+    document.getElementById("filter-have-licence").checked = false;
     applyFilters();
   });
 }
@@ -526,6 +528,7 @@ function applyFilters() {
   const minPriceRaw = document.getElementById("filter-price-min").value.trim();
   const maxPriceRaw = document.getElementById("filter-price-max").value.trim();
   const shortlistOnly = document.getElementById("filter-shortlist").checked;
+  const haveLicenceOnly = document.getElementById("filter-have-licence").checked;
 
   const minPrice = minPriceRaw ? Number(minPriceRaw) : null;
   const maxPrice = maxPriceRaw ? Number(maxPriceRaw) : null;
@@ -548,6 +551,7 @@ function applyFilters() {
       maxPrice,
       selectedEligibility,
       shortlist,
+      haveLicenceOnly,
     });
 
     marker.setMap(matches ? state.map : null);
@@ -581,13 +585,16 @@ function matchesFilters({
   maxPrice,
   selectedEligibility,
   shortlist,
+  haveLicenceOnly,
 }) {
   const propertyNumber = toLower(toText(record.property_number));
   const propertyName = toLower(toText(record.property_name));
   const url = toLower(toText(record.url));
   const renoStatus = toLower(toText(record.reno_status));
   const price = parsePrice(record.price_jpy);
-  const eligibility = eligibilityBucket(record);
+  const assessment = evaluateProperty(record);
+  const eligibility = assessment ? assessment.license_type : "UNCERTAIN / MISSING";
+  const hasLicence = Boolean(assessment?.flags?.has_license);
 
   if (propertyNumberNeedle && !propertyNumber.includes(propertyNumberNeedle)) {
     return false;
@@ -611,6 +618,9 @@ function matchesFilters({
     return false;
   }
   if (shortlist !== null && !shortlist.has(toText(record.property_number))) {
+    return false;
+  }
+  if (haveLicenceOnly && !hasLicence) {
     return false;
   }
 
