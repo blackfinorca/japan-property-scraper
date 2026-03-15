@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 import json
 import logging
 import os
+import re
 import tempfile
 from pathlib import Path
 import time
@@ -108,6 +109,17 @@ def build_listings_map_payload(
                 "price_per_m2_benchmark": record.get("price_per_m2_benchmark"),
                 "url": _to_text(record.get("url")),
                 "address": address,
+                "type": _to_text(record.get("type")),
+                "building_structure": _to_text(record.get("building_structure")),
+                "land_use_district": _to_text(record.get("land_use_district")),
+                "floor_area": _to_text(record.get("floor_area")),
+                "reno_status": _to_text(record.get("reno_status")),
+                "current_situation": _to_text(record.get("current_situation")),
+                "remarks": _to_text_list(record.get("remarks")),
+                "adjoining_street": _to_text_list(record.get("adjoining_street")),
+                "adjoining_street_widths": _extract_street_widths(
+                    record.get("adjoining_street"),
+                ),
                 "ryokan_licence_eligibility": _to_text(
                     record.get("ryokan_licence_eligibility"),
                 ),
@@ -257,6 +269,33 @@ def _to_text(value: Any) -> str:
     if isinstance(value, list):
         return ", ".join(str(item).strip() for item in value if str(item).strip())
     return str(value).strip()
+
+
+def _to_text_list(value: Any) -> list[str]:
+    if value in (None, ""):
+        return []
+    if isinstance(value, list):
+        return [str(item).strip() for item in value if str(item).strip()]
+    text = str(value).strip()
+    return [text] if text else []
+
+
+def _extract_street_widths(value: Any) -> list[float]:
+    widths: list[float] = []
+    for item in _to_text_list(value):
+        match = re.search(
+            r"street\s*width(?:\([^)]*\))?\s*[:：]?\s*([^,]+)",
+            item,
+            flags=re.IGNORECASE,
+        )
+        if not match:
+            continue
+        for number in re.findall(r"[0-9]+(?:\.[0-9]+)?", match.group(1)):
+            try:
+                widths.append(float(number))
+            except ValueError:
+                continue
+    return widths
 
 
 def _write_json_atomic(path: Path, data: Any) -> None:

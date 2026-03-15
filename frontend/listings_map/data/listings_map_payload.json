@@ -4,9 +4,31 @@
     "property_name": "Kyomachiya East of Nijo Castle in Grace & Shadow",
     "price_jpy": 81800000,
     "price_per_m2": 1163419,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70075/index.html",
     "address": "487-11 Hashimotocho, Nakagyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Neighborhood Commercial District",
+    "floor_area": "70.31 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※approx. 4.3 sqm setback",
+      "※This property has obtained Kyo-machiya profile.",
+      "※Furniture is not included in the property price.",
+      "※The property will be handed over as is.",
+      "※The southern passage of this property is not recognized as a road under the Building Standards Act."
+    ],
+    "adjoining_street": [
+      "Street Width(private road) : 2.15m, Frontage: 4.6m, Direction: North (approx. number)",
+      "Street Width(unrecognized public road) : 2.18m~2.26m, Frontage: 4.6m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      2.15,
+      2.18,
+      2.26
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0153616,
     "lng": 135.7526404,
@@ -18,9 +40,24 @@
     "property_name": "My Base in Kyoto, Ready to Roll",
     "price_jpy": 21500000,
     "price_per_m2": 339117,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70007/index.html",
     "address": "42-5 Murasakino-Higashigoshodencho, Kita Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "63.4 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street width: 6m (public street), Frontage: 5.03m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      6.0
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0393841,
     "lng": 135.7535467,
@@ -32,9 +69,30 @@
     "property_name": "Renovated House 4 Min from Tambabashi Station",
     "price_jpy": 29800000,
     "price_per_m2": 486928,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70005/index.html",
     "address": "229-7 Ryogaemachi 12-choume, Fushimi Ward, Kyoto",
+    "type": "old_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Neighborhood Commercial District",
+    "floor_area": "61.2 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※approx. 4.88 sqm setback",
+      "※This property is regulated by the escarpment regulations.",
+      "※Furniture is not included in the property price.",
+      "※The property will be handed over as is.",
+      "※Fully renovated by the seller in May 2025.",
+      "Renovation works done:Renewed water plumbing facilities (bathroom, kitchen, toilet, basin, etc.), The roof tiles were replaced, Repaired and repainted exterior walls, Renewed exterior and interior fittings, Replaced window frames, Interior refurbishments, Replaced flooring materials, Renewed ceiling and wall paper, Added a new balcony, etc."
+    ],
+    "adjoining_street": [
+      "Street Width(private road) : 1.2~2.6m, Frontage: 7.5m, Direction: North (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      1.2,
+      2.6
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 34.9416049,
     "lng": 135.7640941,
@@ -46,9 +104,27 @@
     "property_name": "A Serene Home Tucked Away off Kiyomizu-zaka",
     "price_jpy": 51800000,
     "price_per_m2": 657861,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70084/index.html",
     "address": "172-12, 172-1 Kiyomizu monzenmatsubara sanneizakanishiiri Kiyomizuyonchome, Higashiyama Word, Kyoto",
+    "type": "old_house",
+    "building_structure": "Two Storey Steel House",
+    "land_use_district": "Category 2 Residential District",
+    "floor_area": "78.74 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※This property is unrebuildable. You cannot rebuild any architectural structure on this land when the existing one is demolished or collapsed. » Check here for more about rebuilding prohibited lands",
+      "※Renovation work is required due to it's aged deterioration.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width: 2m~2.2m (not a road in law), Frontage: 15.25m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      2.0,
+      2.2
+    ],
     "ryokan_licence_eligibility": "UNCERTAIN",
     "lat": 34.9949494,
     "lng": 135.7832045,
@@ -60,10 +136,33 @@
     "property_name": "A Cozy Kyomachiya East of the Kamo River",
     "price_jpy": 53800000,
     "price_per_m2": 941712,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70080/index.html",
     "address": "7-11 Yoshida Nakaadachi cho, Sakyo Ward, Kyoto",
-    "ryokan_licence_eligibility": "UNCERTAIN",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Residential District",
+    "floor_area": "57.13 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※approx. 8.1 sqm setback",
+      "※A corner lot cut of approx. 2sqm is needed when rebuilding.",
+      "※This property has obtained Kyo-machiya profile/Karte.",
+      "※The property will be handed over as is.",
+      "※Furniture is included in the property price.(Excludes some personal items.)",
+      "※Fully renovated in May 2024.",
+      "Renovation works done: Renewed water plumbing facilities (bathroom, kitchen, toilet, basin, etc.), Repaired and repainted exterior walls, Renewed exterior and interior fittings, Interior refurbishments, Replaced flooring materials, Replaced Tatami pads, etc."
+    ],
+    "adjoining_street": [
+      "Street Width: 3m (not a road in law), Frontage: 6.20m, Direction: North (approx. number)",
+      "Street Width: 2.60m (not a road in law), Frontage: 7.90m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      3.0,
+      2.6
+    ],
+    "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0499048,
     "lng": 135.7920324,
     "place_id": "ChIJnSBglk2kAWARCJQ4DxeUV9w",
@@ -74,10 +173,30 @@
     "property_name": "Takase River–View Machiya 3 Min to Kiyomizu-Gojo",
     "price_jpy": 198000000,
     "price_per_m2": 2187120,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70062/index.html",
     "address": "771-5, 771-6, Nishihashidumecho, Shimogyo Ward, Kyoto",
-    "ryokan_licence_eligibility": "ALREADY A RYOKAN",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Commercial District",
+    "floor_area": "90.53 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as in Inn",
+    "remarks": [
+      "※This property is unrebuildable. You cannot rebuild any architectural structure on this land when the existing one is demolished or collapsed. » Check here for more about rebuilding prohibited lands",
+      "※Fully renovated by the seller in September 2025.／Renovation works done：Renewed water plumbing facilities (bathroom, kitchen, toilet, basin, etc.), Repainted exterior walls, Renewed exterior and interior fittings, Interior refurbishments, Replaced flooring materials, etc.",
+      "※Furniture is not included in the property price.",
+      "※The new owner must reapply for short-term rental (minpaku) registration or complete the required succession procedures before continuing short-term rental operations.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a short-term rental (minpaku).",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width(not a road in low) : 0.5m, Frontage: 4.08m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      0.5
+    ],
+    "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 34.988924,
     "lng": 135.7697227,
     "place_id": "ChIJ09A-w7UIAWARicqWvbTLTP8",
@@ -88,9 +207,27 @@
     "property_name": "A Kyomachiya in a Quiet Alley Just off Gojo Street",
     "price_jpy": 31800000,
     "price_per_m2": 503722,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70078/index.html",
     "address": "225-5 Tawarayacho, Shimogyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Commercial District",
+    "floor_area": "63.13 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※This property is unrebuildable. You cannot rebuild any architectural structure on this land when the existing one is demolished or collapsed. » Check here for more about rebuilding prohibited lands",
+      "※Renovation work is required due to it's aged deterioration.",
+      "※The property will be handed over as is.",
+      "※This property has obtained Kyo-machiya profile."
+    ],
+    "adjoining_street": [
+      "Street Width(not a road in law) : 1.83m, Frontage: 2.34m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      1.83
+    ],
     "ryokan_licence_eligibility": "UNCERTAIN",
     "lat": 34.9971477,
     "lng": 135.7636248,
@@ -102,9 +239,33 @@
     "property_name": "The Bros. Machiya -The Belvedere Machiya-",
     "price_jpy": 13800000,
     "price_per_m2": 223808,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70055/index.html",
     "address": "146-41 Imakumano Minamihiyoshicho, Higashiyama Ward, Kyoto 146-40 Imakumano Minamihiyoshicho, Higashiyama Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Quasi-Industrial District",
+    "floor_area": "61.66 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Rebuilding this property requires permission under Article 43, Paragraph 2, Item 2 of the Building Standards Act of Japan. Such permission must be obtained when rebuilding an architectural structure after the existing one is demolished or collapsed.",
+      "※approx. 0.66 sqm setback(west), approx. 2.26 sqm setback(east)",
+      "※Renovation work is required due to it's aged deterioration.",
+      "※This property has obtained Kyo-machiya profile.",
+      "※The Shinkansen railway line runs underground beneath this property.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width: 3.72～4.02m (not a road in law), Frontage: 4.83m, Direction: South (approx. number)",
+      "Street Width: 3.43～3.72m (not a road in law), Frontage: 5.02m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      3.72,
+      4.02,
+      3.43,
+      3.72
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 34.9848604,
     "lng": 135.7787679,
@@ -116,9 +277,33 @@
     "property_name": "The Bros. Machiya -The German Wall Machiya-",
     "price_jpy": 12800000,
     "price_per_m2": 207590,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70055/index.html",
     "address": "146-41 Imakumano Minamihiyoshicho, Higashiyama Ward, Kyoto 146-40 Imakumano Minamihiyoshicho, Higashiyama Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Quasi-Industrial District",
+    "floor_area": "61.66 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Rebuilding this property requires permission under Article 43, Paragraph 2, Item 2 of the Building Standards Act of Japan. Such permission must be obtained when rebuilding an architectural structure after the existing one is demolished or collapsed.",
+      "※approx. 0.66 sqm setback(west), approx. 2.26 sqm setback(east)",
+      "※Renovation work is required due to it's aged deterioration.",
+      "※This property has obtained Kyo-machiya profile.",
+      "※The Shinkansen railway line runs underground beneath this property.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width: 3.72～4.02m (not a road in law), Frontage: 4.83m, Direction: South (approx. number)",
+      "Street Width: 3.43～3.72m (not a road in law), Frontage: 5.02m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      3.72,
+      4.02,
+      3.43,
+      3.72
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 34.9848604,
     "lng": 135.7787679,
@@ -130,9 +315,27 @@
     "property_name": "A Beloved Machiya Draped in Timeless Elegance",
     "price_jpy": 18300000,
     "price_per_m2": 328369,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70059/index.html",
     "address": "11 Ichijoji Nishitojikawaracho, Sakyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Residential District",
+    "floor_area": "55.73 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※approx. 2.5 sqm setback",
+      "※The property will be handed over as is.",
+      "※Renovation work is required due to it's aged deterioration.",
+      "※This property is currently under application for the Kyo-machiya Profile."
+    ],
+    "adjoining_street": [
+      "Street Width : 3.1m, Frontage: 5.5m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      3.1
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0474795,
     "lng": 135.7866964,
@@ -144,9 +347,25 @@
     "property_name": "A Live/Work House 7min. from Kuramaguchi Sta.",
     "price_jpy": 79000000,
     "price_per_m2": 440996,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69130/index.html",
     "address": "1-16, 1-18 Murasakino Miyahigashicho, Kita Ward, Kyoto",
+    "type": "old_house",
+    "building_structure": "A three-story wooden and cement (concrete) building",
+    "land_use_district": "Category 1 Residential District",
+    "floor_area": "179.14 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "In Residence",
+    "remarks": [
+      "※The property will be handed over as is.",
+      "※Furniture is not included in the property price."
+    ],
+    "adjoining_street": [
+      "Street Width : 6.0m(Public road), Frontage: 5.80m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      6.0
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0376104,
     "lng": 135.7537074,
@@ -158,10 +377,29 @@
     "property_name": "Machiya Inn 5 min walk from Kiyomizu Gojo Sta.",
     "price_jpy": 99800000,
     "price_per_m2": 1113094,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70061/index.html",
     "address": "309-5 Rokkendoori Takasegawasuji Higashi-iru Hayaocho, Shimogyo Ward, Kyoto",
-    "ryokan_licence_eligibility": "ALREADY A RYOKAN",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Commercial District",
+    "floor_area": "89.66 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as in Inn",
+    "remarks": [
+      "※approx. 0.55 sqm setback",
+      "※Furniture is not included in the property price.",
+      "※New owner needs to reapply inn business licenses under their own name before continuing the operation as a lodging facility.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width : 3.75m, Frontage: 4.45m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      3.75
+    ],
+    "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 34.9931651,
     "lng": 135.7663899,
     "place_id": "ChIJi3qy9bkIAWARN6KBV_wJKuA",
@@ -172,9 +410,28 @@
     "property_name": "A Kyomachiya That Wears Its Memories with Grace",
     "price_jpy": 26800000,
     "price_per_m2": 219708,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70072/index.html",
     "address": "16-13 Murasakino Shimokashiwanocho, Kita Ward, Kyoto, and other",
+    "type": "kyo_machiya",
+    "building_structure": "",
+    "land_use_district": "Quasi-Industrial District",
+    "floor_area": "121.98 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※approx. 1.57 sqm setback",
+      "※Renovation work is required due to it's aged deterioration.",
+      "※This property has obtained Kyo-machiya profile/Karte.",
+      "※Furniture is not included in the property price.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width(public road) : 3.42m, Frontage: 5.36m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      3.42
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0339405,
     "lng": 135.7376566,
@@ -186,9 +443,28 @@
     "property_name": "A Home with a Private Pathway",
     "price_jpy": 67800000,
     "price_per_m2": 709057,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70094/index.html",
     "address": "23-15 Shogoinhigashimachi, Sakyo Ward, Kyoto, and other",
+    "type": "old_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Neighborhood Commercial District, Category 1 Medium-to-High-Rise Exclusive Residential District",
+    "floor_area": "95.62 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Renovation work is required due to it's aged deterioration.",
+      "※Furniture is not included in the property price.",
+      "※The property will be handed over as is.",
+      "※The property may also be considered as a site for rebuilding.",
+      "※This property is designated to be purchased through KINTETSU REAL ESTATE CO.,Ltd's brokerage. The Buyer therefore is required to pay agent commission when concluding contract."
+    ],
+    "adjoining_street": [
+      "Street Width(public road) : 6.9m, Frontage: 4.1m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      6.9
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0499048,
     "lng": 135.7920324,
@@ -200,9 +476,28 @@
     "property_name": "Moon Window Kyomachiya in Shichiku",
     "price_jpy": 20800000,
     "price_per_m2": 303916,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70041/index.html",
     "address": "13, 12-4 Shichiku Kamitakedonocho, Kita Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Neighborhood Commercial District",
+    "floor_area": "68.44 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Renovation work is required due to it's aged deterioration.",
+      "※This property has obtained Kyo-machiya profile.",
+      "※Revovated by Hachise in August 2025.",
+      "Renovation works done: Replaced the roof tiles on the main roof and lean-to roof.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width(Public road) : 11m, Frontage: 5.48m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      11.0
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.053945,
     "lng": 135.7482487,
@@ -214,9 +509,30 @@
     "property_name": "Machiya Inn 7 min. from Kyoto-Kawaramachi Sta.",
     "price_jpy": 160000000,
     "price_per_m2": 1591090,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/68068/index.html",
     "address": "502-3 Fuyachodori-Matsubarasagaru Kamiurokogatacho, Shimogyo Ward, Kyoto 500-2 Matsubaradori-Tominokojihigashiiru Matsubaranakanocho, Shimogyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Commercial District",
+    "floor_area": "100.56 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as an Inn",
+    "remarks": [
+      "※This property has obtained Kyo-machiya profile.",
+      "※The property will be handed over as is.",
+      "※Furniture shown in photos is included in the property price.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※New owner needs to reapply inn business licenses in their name or acquire business succession before continuing the operation as a lodging facility.",
+      "※Fully renovated in Oct 2023.",
+      "Renovations works done: Renewed water plumbing facilities (kitchen, basin, bathroom, toilet), Replaced roofing materials, Renewed wallpaper for walls and ceilings of each room, Renewed Tatami pads, Gardening, Renewed pipings, etc."
+    ],
+    "adjoining_street": [
+      "Street width: 4.4m (public street), Frontage: 4.71m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.4
+    ],
     "ryokan_licence_eligibility": "ALREADY A RYOKAN",
     "lat": 34.9981407,
     "lng": 135.7655753,
@@ -228,9 +544,33 @@
     "property_name": "A Kyomachiya Inheriting the Spirit of Taisho Era",
     "price_jpy": 44800000,
     "price_per_m2": 1856610,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70085/index.html",
     "address": "282-13 Daikokucho-Matsubarasagarunichome Yamashirocho, Higashiyama Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Single Storey Wooden House",
+    "land_use_district": "Commercial District",
+    "floor_area": "24.13 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as an Inn",
+    "remarks": [
+      "※This property is unrebuildable. You cannot rebuild any architectural structure on this land when the existing one is demolished or collapsed.",
+      "» Check here for more about rebuilding prohibited lands",
+      "※Fully renovared in Jan 2017. Renovation works done: Renewed water plumbing facilities (kitchen, bathroom, basin, toilet), Replaced ceiling coverings and wallpapers, Replaced flooring materials, Newly installed floor heating system, Gardening, etc.",
+      "※The property has obtained inn business license.",
+      "※New owner needs to reapply inn business licenses under their own name before continuing the operation as a lodging facility.",
+      "※Furniture and appliances are included in the property price.",
+      "※This property has obtained Kyo-machiya profile.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width: 2.9m~3m (Not a road in law), Frontage: 4.11m, Direction: North (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      2.9,
+      3.0
+    ],
     "ryokan_licence_eligibility": "ALREADY A RYOKAN",
     "lat": 35.0012964,
     "lng": 135.7663436,
@@ -242,9 +582,28 @@
     "property_name": "Japanese Mansion South of Ryuanji",
     "price_jpy": 260000000,
     "price_per_m2": 1232520,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70089/index.html",
     "address": "19-10, 19-7, 19-6, 19-3 Ryuanji-Kinugasashitacho, Ukyo Ward, Kyoto",
+    "type": "old_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "210.95 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※approx. 12.53sqm setback.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Photos are taken in May 2021.",
+      "※We kindly ask you to arrange house viewing appointments with sufficient advance notice. Please note that we may not be able to accommodate requests made on short notice."
+    ],
+    "adjoining_street": [
+      "Street width: 2.85m (private street), Frontage: 21.8m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      2.85
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 34.9636794,
     "lng": 135.7615867,
@@ -256,9 +615,26 @@
     "property_name": "Concrete Block Designer’s House in Ichijoji",
     "price_jpy": 48800000,
     "price_per_m2": 518597,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69049/index.html",
     "address": "63 Ichijoji-Matsudacho, Sakyo Ward",
+    "type": "old_house",
+    "building_structure": "2 Storey Concrete Block House",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "94.1 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※approx. 0.6sqm setback",
+      "※The property will be handed over as is.",
+      "※Renovated in Apr 2023: Rooftop water proof sheet installation, Repainted 1F interior walls, Exterior walls caulking work"
+    ],
+    "adjoining_street": [
+      "Street width: 3.9m (public road), Frontage: 12.1m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      3.9
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0476238,
     "lng": 135.7901559,
@@ -270,9 +646,29 @@
     "property_name": "Unrenovated Machiya in a Quiet Alley of Shichiku",
     "price_jpy": 14800000,
     "price_per_m2": 291339,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69093/index.html",
     "address": "88-4 Shichiku-Shimomidoricho, Kita Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "【Registered】Single Storey Wooden House",
+    "land_use_district": "Neighborhood Commercial District",
+    "floor_area": "50.8 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※This property is unrebuildable. You cannot rebuild any architectural structure on this land when the existing one is demolished or collapsed.",
+      "» Check here for more about rebuilding prohibited lands",
+      "※Renovation work is required due to it's aged deterioration.",
+      "※The property will be handed over as is.",
+      "※This property has obtained Kyo-machiya profile."
+    ],
+    "adjoining_street": [
+      "Street width: 1.42m～1.44m (private street), Frontage: 5.34m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      1.42,
+      1.44
+    ],
     "ryokan_licence_eligibility": "UNCERTAIN",
     "lat": 35.0496071,
     "lng": 135.7487193,
@@ -284,9 +680,27 @@
     "property_name": "Machiya in Original Condition 7 min from Nijo Sta.",
     "price_jpy": 55700000,
     "price_per_m2": 1021456,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70082/index.html",
     "address": "22-7 Nishinokyo Ikenouchicho, Nakagyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Neighborhood Commercial District",
+    "floor_area": "54.53 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※approx. 3.05 sqm setback",
+      "※Renovation work is required due to it's aged deterioration.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width(private road) : 2.6~2.8m, Frontage: 4.7m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      2.6,
+      2.8
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0091182,
     "lng": 135.7449017,
@@ -298,9 +712,29 @@
     "property_name": "Home near Daitokuji Temple",
     "price_jpy": 18500000,
     "price_per_m2": 479772,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/67110/index.html",
     "address": "52-5, 52 Murasakino-Unrinincho, Kita Ward, Kyoto",
+    "type": "used_house_one_of_7_terraced_houses",
+    "building_structure": "Two Storey Steel House",
+    "land_use_district": "【A】Quasi-Industrial District  【B】Neighborhood Commercial District",
+    "floor_area": "38.56 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※This property is not available for guest house and inn.",
+      "※Furniture and appliances are not included in the property price.",
+      "※This property cannot be rebuilt on its own because it is a building owned by division.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Photos are taken in Mar 2019."
+    ],
+    "adjoining_street": [
+      "Street width: 6.0m, Frontage: 10.4m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      6.0
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0403937,
     "lng": 135.7491534,
@@ -312,9 +746,30 @@
     "property_name": "Renovated Kyomachiya near Gojozaka",
     "price_jpy": 79800000,
     "price_per_m2": 1642313,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/68104/index.html",
     "address": "211-3 Ikedonocho, Yamatoojidori Gojoagaru, Higashiyama ward, Kyoto city",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden Houses",
+    "land_use_district": "Neighborhood Commercial Districts",
+    "floor_area": "48.59 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※approx. 0.36sqm setback.",
+      "※ 【Current rental conditions】 Monthly rent: 165,000JPY (incl. tax), Contract Duration: 5 years, Contract Type: Fixed-term lease agreement, Contract Period-end: Until 1 Oct 2026",
+      "※Withholding tax (10.21% of the rental income) will be incurred for non-resident owner who does not live in Japan since the property is currently leased out for non-residential use.",
+      "※The lessee's deposit (such as guarantee deposit, etc.) is not included in the property price. Deposits will be passed from the seller to the buyer.",
+      "--> ※Furniture and appliances are not included in the property price.",
+      "※Photos are taken in 2021.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width: 3.8m, Frontage: 3.6m, Direction: West (Approx. Number)"
+    ],
+    "adjoining_street_widths": [
+      3.8
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 34.9965502,
     "lng": 135.7724792,
@@ -326,9 +781,26 @@
     "property_name": "Four Elegant Residences in Scenic Sakamoto, Otsu",
     "price_jpy": 138000000,
     "price_per_m2": 488496,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70045/index.html",
     "address": "2818-3 Sakamoto 6-choume, Otsu City, Shiga and other",
+    "type": "old_house",
+    "building_structure": "Two Storey Wooden House（A・B・C・D）",
+    "land_use_district": "Category 1 Residential District",
+    "floor_area": "282.5 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Renovation work is required due to partial aging deterioration of the buildings.",
+      "※The property will be handed over as is.",
+      "※Furniture and other items shown in the photos can be discussed separately."
+    ],
+    "adjoining_street": [
+      "Street Width(public road) : 5.50m, Frontage: 27.94m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      5.5
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0751901,
     "lng": 135.8718936,
@@ -340,9 +812,29 @@
     "property_name": "A Machiya Standing along the Alley in Imakumano",
     "price_jpy": 16800000,
     "price_per_m2": 260506,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70019/index.html",
     "address": "30-15 Imagumano Hozocho, Higashiyama Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Medium-to-High-Rise Exclusive Residential District",
+    "floor_area": "64.49 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※approx. 3.05 sqm setback",
+      "※Renovation work is required due to it's aged deterioration.",
+      "※This property is not available for guest house and inn.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width(Private road) : 2.55～2.63m, Frontage: 4.37ｍ, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      2.55,
+      2.63
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 34.9765772,
     "lng": 135.7740187,
@@ -354,9 +846,31 @@
     "property_name": "A Serene Estate with a Kura and Garden in Iwakura",
     "price_jpy": 398000000,
     "price_per_m2": 2407452,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70081/index.html",
     "address": "73-3, 76-1, 78, 69-2, 76-2, 41-1 Iwakura Chuzaijicho, Sakyo Ward, Kyoto",
+    "type": "old_house",
+    "building_structure": "Storage shed（Single Storey Wooden House）30.17 sqm／Storage shed and apartment building（Two Storey Wooden House）1F：66.44 sqm・2F：53.43 sqm　*With unregistered area",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "165.32 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Residence",
+    "remarks": [
+      "※This property is unrebuildable. You cannot rebuild any architectural structure on this land when the existing one is demolished or collapsed. » Check here for more about rebuilding prohibited lands",
+      "※This property is regulated by the escarpment regulations",
+      "※Furniture is not included in the property price.",
+      "※Prior reservation is required 2 days before the viewing as the property is currently in residence.",
+      "※The property will be handed over as is.",
+      "※The seller plans to install a pool.",
+      "※Fully renovated by the seller in December 2025.",
+      "Renovation works done：Renewed water plumbing facilities (bathroom, kitchen, toilet, basin, etc.), Renewed ceiling and wall paper, Gardening, etc."
+    ],
+    "adjoining_street": [
+      "Street Width(private road) : 4.34m, Frontage: 1.00m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.34
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0797601,
     "lng": 135.7859096,
@@ -368,9 +882,32 @@
     "property_name": "Mibu Kyomachiya with lights",
     "price_jpy": 99800000,
     "price_per_m2": 3549075,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69082/index.html",
     "address": "22-14, 22-61 Mibu-Shujakucho, Nakagyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Quasi-Industrial District",
+    "floor_area": "28.12 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※approx. 3.6sqm setback.",
+      "※Corner lot cut is required when rebuilding on this land",
+      "※The seller is not liable for any defects.",
+      "※Simple lodging business license obtained.",
+      "※New owner needs to acquire business succession in their name before continuing the operation as a lodging facility.",
+      "※This property has obtained Kyo-machiya Karte."
+    ],
+    "adjoining_street": [
+      "Street Width : 3m, Frontage: 7.19m, Direction: South (approx. number)",
+      "Street Width : 1.82～1.69m, Frontage: 6.26m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      3.0,
+      1.82,
+      1.69
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0065556,
     "lng": 135.7427753,
@@ -382,9 +919,35 @@
     "property_name": "Gojo Rakuen Kyo-machiya with Kamogawa view",
     "price_jpy": 316000000,
     "price_per_m2": 2941450,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/65079/index.html",
     "address": "348-2,357-1 Yatsuyanagicho, Kamogawabata Rokkenagaru, Shimogyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Commercial District",
+    "floor_area": "107.43 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as an Inn",
+    "remarks": [
+      "※The seller is not liable for any defects.",
+      "※Approx. 4.9 sqm setback is required when rebuilding on this land.",
+      "※License in the Inns and Hotels Act has been obtained.",
+      "※New owner needs to renew Inn business licenses before operation.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※Furnitures are included in the property price.",
+      "※Fully renovated by the owner in 2018",
+      "All the plumbing products were newly installed （kitchen, wash stand, toilet, bath tub room）",
+      "Floor material and tatami pads are renewed, and etc.",
+      "※Renovated by the owner in Jan 2024",
+      "Renovation works done: Renewed front exterior walls and entrance, Renewed kitchen on the second floor, Gardening, Renewed terrace, etc.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width: 2.4ｍ, Frontage: 6.2ｍ, Direction: West (Approx. Number)"
+    ],
+    "adjoining_street_widths": [
+      2.4
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 34.9932616,
     "lng": 135.7670565,
@@ -396,9 +959,28 @@
     "property_name": "A Grand Residence with a Japanese Garden",
     "price_jpy": 800000000,
     "price_per_m2": 1559697,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70073/index.html",
     "address": "5-2 Yoshida Izumidono cho, Sakyo Ward, Kyoto",
+    "type": "old_house",
+    "building_structure": "Two-story Wooden and Reinforced Concrete House with One Basement Level",
+    "land_use_district": "Category 1 Residential District",
+    "floor_area": "512.92 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "In Residence",
+    "remarks": [
+      "※approx. 22.80 sqm setback",
+      "※Furniture is not included in the property price.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Prior reservation is required 5 days before the viewing as the property is currently in residence."
+    ],
+    "adjoining_street": [
+      "Street Width : 2.1m, Frontage: 24.0m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      2.1
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0499048,
     "lng": 135.7920324,
@@ -410,9 +992,30 @@
     "property_name": "Yamashina Terrace 213",
     "price_jpy": 19800000,
     "price_per_m2": 357078,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70079/index.html",
     "address": "2-13 Misasagitayamacho, Yamashina Ward, Kyoto",
+    "type": "old_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "55.45 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※This property is located in a designated Sediment Disaster Special Alert Area, where certain development activities are restricted and structural regulations apply to buildings with living spaces.",
+      "※Furniture is not included in the property price.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Fully renovated in October 2025.",
+      "Renovation Works Done: Renewed water plumbing products (kitchen, bath tub room, washbasin, toilet), Water plumbing were replaced, Renewed interior fittings and window flames, Interior refurbishments, and etc."
+    ],
+    "adjoining_street": [
+      "Street Width (Private road) : 4.53~4.61m, Frontage: 3.70m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.53,
+      4.61
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 34.9932271,
     "lng": 135.8136801,
@@ -424,9 +1027,26 @@
     "property_name": "Jodoji hiyori",
     "price_jpy": 70800000,
     "price_per_m2": 1024899,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70047/index.html",
     "address": "153-2 Jodojishimominamidacho, Sakyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "69.08 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※approx. 1.05 sqm setback",
+      "※This property has obtained Kyo-machiya profile.",
+      "※Furniture is not included in the property price."
+    ],
+    "adjoining_street": [
+      "Street Width : 3.6m, Frontage: 5.83m, Direction: North (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      3.6
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0499048,
     "lng": 135.7920324,
@@ -438,9 +1058,28 @@
     "property_name": "Authentic Japanese Estate with Garage",
     "price_jpy": 74800000,
     "price_per_m2": 233889,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70063/index.html",
     "address": "Otsuka Dannoura, Yamashina Ward, Kyoto",
+    "type": "old_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Residential District",
+    "floor_area": "319.81 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※A detached annex and washroom were added in 1990.",
+      "/ The main house underwent a full interior and exterior inspection and renovation in 2004.",
+      "※Furniture is not included in the property price.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width : 11.00m, Frontage: 19.27m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      11.0
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 34.97504,
     "lng": 135.8269,
@@ -452,9 +1091,22 @@
     "property_name": "Grand Palace Hirano",
     "price_jpy": 93800000,
     "price_per_m2": 605669,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69164/index.html",
     "address": "43 Hirano-Toriimaecho, Kita Ward, Kyoto",
+    "type": "used_condominium_apartment_unit",
+    "building_structure": "4 Floors Reinforced Concrete House",
+    "land_use_district": "Category 2 Medium-to-High-Rise Exclusive Residential District",
+    "floor_area": "154.87 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Pet ownership is subject to compliance with the separate pet ownership rules."
+    ],
+    "adjoining_street": [],
+    "adjoining_street_widths": [],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0324432,
     "lng": 135.7340368,
@@ -466,9 +1118,25 @@
     "property_name": "Gosho South, Grand Demeure Sakaimachi-Nijo 202",
     "price_jpy": 39800000,
     "price_per_m2": 759977,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69117/index.html",
     "address": "171 Sakaimachidori-Nijoagaru Kameyacho, Nakagyo Ward, Kyoto",
+    "type": "used_condominium_apartment_unit",
+    "building_structure": "9 Floors with Basement Reinforced Concrete House",
+    "land_use_district": "Commercial District",
+    "floor_area": "52.37 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Residence",
+    "remarks": [
+      "※Fully renovated by previous owner in Jan 2022.",
+      "Renovation works done：Renewed water plumbing facilities,",
+      "Replaced wallpaper and flooring, etc.",
+      "※Furniture is not included in the property price.",
+      "※The property will be handed over as is.",
+      "※No usage fee for a separate trunk room."
+    ],
+    "adjoining_street": [],
+    "adjoining_street_widths": [],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0142797,
     "lng": 135.7632055,
@@ -480,10 +1148,28 @@
     "property_name": "A Machiya Inn with a Tsuboniwa near Gosho Minami",
     "price_jpy": 176000000,
     "price_per_m2": 2040107,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70037/index.html",
     "address": "444-2 Takeyacho-dori Fuyacho-higashiiru Uoya-cho, Nakagyo Ward, Kyoto 417-1 Fuyacho-dori Takeyacho-agaru Funaya-cho, Nakagyo Ward, Kyoto",
-    "ryokan_licence_eligibility": "ALREADY A RYOKAN",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Neighborhood Commercial District",
+    "floor_area": "86.27 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as in Inn",
+    "remarks": [
+      "※Furniture is not included in the property price.",
+      "※New owner needs to reapply inn business licenses in their name or acquire business succession before continuing the operation as a lodging facility.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width : 5.8m, Frontage: 7m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      5.8
+    ],
+    "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0168885,
     "lng": 135.7658715,
     "place_id": "ChIJo0bWgokIAWARlozZ1rJ9gcc",
@@ -494,9 +1180,29 @@
     "property_name": "A Designated Kyomachiya Preserving Kyoto Culture",
     "price_jpy": 79800000,
     "price_per_m2": 856131,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70064/index.html",
     "address": "11-4 Koyama Shimofusa-cho, Kita Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "93.21 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Renovation work is required due to it's aged deterioration.",
+      "※Officially Registered Designated Kyomachiya (Registration No. 20111804 / Designation Date: November 18, 2020)",
+      "※This property is not available for guest house and inn.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※This property is offered to those who share our intention to preserve and carry it forward for future generations. We kindly ask for your understanding of this philosophy when considering the purchase."
+    ],
+    "adjoining_street": [
+      "Street Width : 5.25m, Frontage: 7.48m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      5.25
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0407,
     "lng": 135.7593,
@@ -508,10 +1214,30 @@
     "property_name": "Whole-Rental Kyomachiya Facing Shinmachi St.",
     "price_jpy": 218000000,
     "price_per_m2": 4367862,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70025/index.html",
     "address": "319 Benzaiten-cho, Shimmachi-dori Takeyamachi-sagaru, Nakagyo Ward, Kyoto",
-    "ryokan_licence_eligibility": "ALREADY A RYOKAN",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Neighborhood Commercial District",
+    "floor_area": "49.91 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as in Inn",
+    "remarks": [
+      "*Furniture is not included in the property price.",
+      "*New owner needs to reapply inn business licenses in their name or acquire business succession before continuing the operation as a lodging facility.",
+      "*Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "*The property will be handed over as is.",
+      "*Fully renovated in June 2017.",
+      "Renovation works done: Renewed water plumbing facilities (bathroom, kitchen, toilet), The roof tiles were replaced, Interior refurbishments, Replaced flooring materials, Installation of floor heating, Gardening, etc."
+    ],
+    "adjoining_street": [
+      "Street Width : 6.7m, Frontage: 3.9m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      6.7
+    ],
+    "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0150478,
     "lng": 135.7566134,
     "place_id": "ChIJWQK4Bn4IAWARvPzkzlfzI0s",
@@ -522,9 +1248,28 @@
     "property_name": "Machiya Guesthouse North of Umekoji",
     "price_jpy": 128000000,
     "price_per_m2": 1225467,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69038/index.html",
     "address": "45-4 Ebisubanbacho, Shimogyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Residential District",
+    "floor_area": "104.45 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as an Inn",
+    "remarks": [
+      "※The furniture and appliances are included in the property price.",
+      "※New owner needs acquire business succession in their name before continuing the operation as a lodging facility.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility."
+    ],
+    "adjoining_street": [
+      "Street width: 4.1m (private road), Frontage: 6m, Direction; East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.1
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 34.9890813,
     "lng": 135.7560967,
@@ -536,9 +1281,29 @@
     "property_name": "Guesthouse with Tsuboniwa in Riseicho, Nishijin",
     "price_jpy": 48000000,
     "price_per_m2": 1022800,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69035/index.html",
     "address": "294-42 Shimochojamachidori-Rokkenmachinishiiru Riseicho, Kamigyo Ward, Kyoto",
+    "type": "used_house_one_of_4_terraced_houses",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Quasi-Industrial District",
+    "floor_area": "46.93 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as an Inn",
+    "remarks": [
+      "※approx. 0.84sqm setback",
+      "※Furniture is included in the property price.",
+      "※New owner needs to acquire business succession under their name before continuing the operation as a lodging facility.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※The property will be handed over as is.",
+      "※Fully renovated by owner in Jan 2017/Renovation works done: Renewed water plumbing products (kitchen, basin, bathroom, toilet), Replaced wallpaper for each room's walls and ceilings, Renewed Tatami pads, Gardening, etc."
+    ],
+    "adjoining_street": [
+      "Street width: 4.2m (private), Frontage: 3.6m, Direction: North (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.2
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0227258,
     "lng": 135.740402,
@@ -550,9 +1315,31 @@
     "property_name": "Japanese-Modern Machiya Guesthouse, Saiin",
     "price_jpy": 80000000,
     "price_per_m2": 1253722,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69090/index.html",
     "address": "61-1 Mibumorimachi, Nakagyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Quasi-Industrial District",
+    "floor_area": "63.81 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as an Inn",
+    "remarks": [
+      "※This property has obtained Kyo-machiya Karte.",
+      "※Equipment and furniture are not included in the property price.",
+      "※New owner needs to reapply inn business licenses in their name before continuing the operation as a lodging facility.",
+      "※Prior reservation is required as the facility is currently operating as a lodging facility.",
+      "※The property will be handed over as is.",
+      "※Renovated by the seller in October 2018",
+      "Renovation works done: Structural reinforcement, Soundproofing, Replaced gas and water pipes, Roof retiling, Installation of floor heating on the first floor, Renewed skylights, Renewed water plumbing products（bathroom, kitchen, toilet, and washbasin）."
+    ],
+    "adjoining_street": [
+      "Street Width : 5.67～5.71m（public street）, Frontage: 6.4m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      5.67,
+      5.71
+    ],
     "ryokan_licence_eligibility": "ALREADY A RYOKAN",
     "lat": 35.0044808,
     "lng": 135.736382,
@@ -564,10 +1351,30 @@
     "property_name": "Machiya Inn 8-min Walk to Kiyomizu Temple",
     "price_jpy": 130000000,
     "price_per_m2": 1804303,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70036/index.html",
     "address": "96-11 Tsukinowacho, Nakamichidori Matsubaraagaru, Higashiyama Ward, Kyoto",
-    "ryokan_licence_eligibility": "ALREADY A RYOKAN",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 2 Residential District",
+    "floor_area": "72.05 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as in Inn",
+    "remarks": [
+      "approx. 0.427 sqm setback",
+      "Furniture is not included in the property price.",
+      "New owner needs to reapply inn business licenses in their name or acquire business succession before continuing the operation as a lodging facility.",
+      "Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "The property will be handed over as is.",
+      "Fully renovated in January 2017 / Renovation works done:Renewed water plumbing products (kitchen, bath tub room, washbasin, toilet), Renewed ceiling and wall paper, Installation of floor heating, Gardening"
+    ],
+    "adjoining_street": [
+      "Street Width : 3.8m, Frontage: 4.27m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      3.8
+    ],
+    "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 34.9979075,
     "lng": 135.7775659,
     "place_id": "ChIJ0-GniMUIAWAR7po4MWYLhR8",
@@ -578,9 +1385,27 @@
     "property_name": "Vacant Land for Sale in Arashiyama",
     "price_jpy": 53000000,
     "price_per_m2": [],
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69167/index.html",
     "address": "16 Arashiyama-Yamanoshitacho, Nishikyo Ward, Kyoto",
+    "type": "vacant_land",
+    "building_structure": "",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "--",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant Land",
+    "remarks": [
+      "※Setback approx. 1.84sqm",
+      "※This property is located in a sediment disaster alert area.",
+      "※This property falls under Kyoto City's escarpment ordinance.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width: 3.7m (private street), Frontage: 12.3m, Direction: Northeast (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      3.7
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0060757,
     "lng": 135.6813711,
@@ -592,9 +1417,25 @@
     "property_name": "Income-Generating Building Facing Hanamikoji St.",
     "price_jpy": 270000000,
     "price_per_m2": 774860,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69113/index.html",
     "address": "382-3 Hanamikojidori Shinbashisagaru Hashimotocho, Higashiyama Ward, Kyoto",
+    "type": "building",
+    "building_structure": "7 Storey Reinforced Concrete House With 1 Basement level",
+    "land_use_district": "Commercial District",
+    "floor_area": "348.45 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width : 6.0m（public road）, Frontage: 4.2m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      6.0
+    ],
     "ryokan_licence_eligibility": "UNCERTAIN",
     "lat": 35.0056617,
     "lng": 135.7759446,
@@ -606,10 +1447,31 @@
     "property_name": "Bungalow with Spectacular Views",
     "price_jpy": 39800000,
     "price_per_m2": 365574,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/67007/index.html",
     "address": "32, 33 Kurama-Ninosecho, Sakyo Ward, Kyoto",
-    "ryokan_licence_eligibility": "UNCERTAIN",
+    "type": "used_house",
+    "building_structure": "Single Storey Wooden House",
+    "land_use_district": "Urbanization Control Area",
+    "floor_area": "108.87 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Rebuilding is prohibited for this property because it is located in Urbanization Control Area.",
+      "※Furniture is not included in the property price.",
+      "※Prior reservation is required 3 days before the viewing as the owner is currently in residence.",
+      "※This property is located in a sediment disaster alert area.",
+      "※This property is regulated by the escarpment regulations."
+    ],
+    "adjoining_street": [
+      "Street Width: 5m (public road), Frontage: 11.5m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      5.0
+    ],
+    "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.1085353,
     "lng": 135.7698709,
     "place_id": "ChIJpQpVlv-lAWARZlYSYuzd7bE",
@@ -620,9 +1482,28 @@
     "property_name": "House with a Framed Scenery",
     "price_jpy": 75000000,
     "price_per_m2": 680890,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/68056/index.html",
     "address": "288-9 Riseicho, Kamigyo Ward, Kyoto 151-107 Yonbancho, Kamigyo Ward, Kyoto",
+    "type": "used_house",
+    "building_structure": "Three Storey Wooden House",
+    "land_use_district": "Quasi-Industrial District",
+    "floor_area": "110.15 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Furniture shown in photos is not included in the property price.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street width: 4.55m, Frontage: 4.33m, Direction: South",
+      "Street width: 4m, Frontage: 8.79m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.55,
+      4.0
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0232413,
     "lng": 135.740454,
@@ -634,9 +1515,31 @@
     "property_name": "3-Storey House with 6 Rooms in Kamigyo",
     "price_jpy": 22800000,
     "price_per_m2": 167168,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69140/index.html",
     "address": "245-5 Uramondori-Demizuagaru Shiroganecho, Kamigyo Ward, Kyoto",
+    "type": "used_house_one_of_2_terraced_houses_owner_change_property_with_tenant",
+    "building_structure": "Three Storey Wooden House",
+    "land_use_district": "Quasi-Industrial District",
+    "floor_area": "136.39 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Tenanted",
+    "remarks": [
+      "※This property is unrebuildable. You cannot rebuild any architectural structure on this land when the existing one is demolished or collapsed. ≫Check out more about Rebuilding Prohibited Lands",
+      "※The property will be handed over as is.",
+      "※The seller is not liable for any defects.",
+      "※Renovated by seller in Dec 2016: Interior refurbishment, Installation of floor heating ststem, Renewed bathroom and toilet, etc.",
+      "※Please note that we cannot show you the interior of the property as it is currently leased. We will only show you the exterior of the property.",
+      "※Rental contract period end until 22 Feb 2028／Monthly rent: 130,000JPY／3-year fixed-term rental contract",
+      "※The lessee's deposit (such as guarantee deposit, etc.) is not included in the property price. Deposits will be passed from the seller to the buyer."
+    ],
+    "adjoining_street": [
+      "Street width: 1m~1.5m (Not a road in law), Frontage: 1.5m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      1.0,
+      1.5
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0219764,
     "lng": 135.7454356,
@@ -648,9 +1551,28 @@
     "property_name": "Traditional Residence near Kamigamo Shrine",
     "price_jpy": 148000000,
     "price_per_m2": 719355,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70052/index.html",
     "address": "6 Kamigamo Ikedonocho, Kita Ward, Kyoto",
+    "type": "old_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "205.74 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Residence",
+    "remarks": [
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Furniture is not included in the property price.",
+      "※Prior reservation is required 2 days before the viewing as the property is currently in residence. Please understand that there is a possibility that we may not able to show you the property as it is currently in residence."
+    ],
+    "adjoining_street": [
+      "Street Width(public road) : 5.58m～5.75m, Frontage: 19.30m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      5.58,
+      5.75
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0576138,
     "lng": 135.7530567,
@@ -662,9 +1584,26 @@
     "property_name": "Kyomachiya 9 min. from JR Enmachi Station",
     "price_jpy": 33800000,
     "price_per_m2": 535403,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69183/index.html",
     "address": "38-6 Nishinokyo Samaryocho, Nakagyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Residential District",
+    "floor_area": "63.13 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※approx. 5.48 sqm setback",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width(Private road) : 2.56〜2.65m, Frontage: 5.66m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      2.56,
+      2.65
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0192177,
     "lng": 135.7371268,
@@ -676,9 +1615,28 @@
     "property_name": "Customizable Building 10 Sec from Kamo River",
     "price_jpy": 158000000,
     "price_per_m2": 688153,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69156/index.html",
     "address": "38 Izumojitatemotocho, Kita Ward, Kyoto",
+    "type": "old_building",
+    "building_structure": "Three Storey Steel Building",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "229.6 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Includes 53.3 sqm of riverside land leased from Kyoto Prefecture. Annual ground rent: JPY 38,190.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width(public road) : 6.8m, Frontage: 5.69m, Direction: East (approx. number)",
+      "Street Width(public road) : 5.5m, Frontage: 10.0m, Direction: North (approx. number)",
+      "With a 6.3 sqm corner cut"
+    ],
+    "adjoining_street_widths": [
+      6.8,
+      5.5
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0397565,
     "lng": 135.764222,
@@ -690,9 +1648,28 @@
     "property_name": "Nature-Loving Life with a Wood-Burning Stove",
     "price_jpy": 42800000,
     "price_per_m2": 411538,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69214/index.html",
     "address": "606 Fukakusa-Okamedani Manjujikicho, Fushimi Ward, Kyoto",
+    "type": "old_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "104 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Confirmation Number: 第H26確認建機構ア京市10105号 (1 Aug 2014)",
+      "※Inspection Number: 第H26完了建機構ア京市10105号 (16 Oct 2014)",
+      "※Shed is not yet registered (approx. 4.86sqm)."
+    ],
+    "adjoining_street": [
+      "Street width: 6m (public street), Forntage: 4m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      6.0
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 34.9597293,
     "lng": 135.7651309,
@@ -704,9 +1681,28 @@
     "property_name": "Traditional Estate Framed by Weeping Cherry Trees",
     "price_jpy": 158000000,
     "price_per_m2": 1022919,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70049/index.html",
     "address": "19-8 Saga Kankuji Kubodencho, Ukyo Ward, Kyoto",
+    "type": "old_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "154.46 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Furniture is not included in the property price.",
+      "※This property is not available for guest house and inn.",
+      "※The property will be handed over as is.",
+      "※Renovated in 2023",
+      "Renovation works done:Renovated kitchen, Installation of new lighting fixtures, Terrace upgraded with a counter table, Terrace upgraded with a counter table, Glass fence installed for enhanced design and openness, etc."
+    ],
+    "adjoining_street": [
+      "Street Width(public road) : 4.3m, Frontage: 11m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.3
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0274002,
     "lng": 135.6742438,
@@ -718,9 +1714,27 @@
     "property_name": "Unrenovated Kyomachiya facing Marutamachi St.",
     "price_jpy": 59500000,
     "price_per_m2": 485160,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69199/index.html",
     "address": "70 Jurakumawarinishimachi, Nakagyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Commercial District",
+    "floor_area": "122.64 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Renovation work is required due to it's aged deterioration.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street width: 21m (Marutamachi St./Public street), Frontage: 6.2m, Direction: South (approx. number)",
+      "Street width: 4.8m (Public street), Frontage: 14.3m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      21.0,
+      4.8
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0109729,
     "lng": 135.7518395,
@@ -732,9 +1746,27 @@
     "property_name": "a home in Takagamine with charming interior",
     "price_jpy": 29500000,
     "price_per_m2": 425317,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69071/index.html",
     "address": "1-29 Takagamine-Kyudoicho, Kita Ward, Kyoto",
+    "type": "used_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "69.36 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Residence",
+    "remarks": [
+      "※Furniture is not included in the property price.",
+      "※The seller is not liable for any defects.",
+      "※Prior reservation is required 3 days before viewing as the property is currently in residence.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street width: 4.78m, Frontage: 5.87m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.78
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0503496,
     "lng": 135.7363979,
@@ -746,9 +1778,28 @@
     "property_name": "Atelier en Gosho Higashi",
     "price_jpy": 75800000,
     "price_per_m2": 693504,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70039/index.html",
     "address": "378-1 Shinebisucho, Kamigyo Ward, Kyoto",
+    "type": "old_house",
+    "building_structure": "Three Storey Reinforced Concrete House",
+    "land_use_district": "Category 2 Medium-to-High-Rise Exclusive Residential District",
+    "floor_area": "109.3 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※The structural seismic strength and the availability of the building confirmation and inspection certificates are not confirmed.",
+      "※Furniture is not included in the property price.",
+      "※Please note that the property is not equipped with a washbasin or bathroom."
+    ],
+    "adjoining_street": [
+      "Street Width(public road) : 4.8m, Frontage: 6.0m, Direction: North (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.8
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0275179,
     "lng": 135.7683215,
@@ -760,9 +1811,26 @@
     "property_name": "Residence & Business Kyomachiya in Shimogamo",
     "price_jpy": 43800000,
     "price_per_m2": 474951,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70023/index.html",
     "address": "82 Shimogamo Nishihangicho, Sakyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District, Neighborhood Commercial District",
+    "floor_area": "92.22 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Renovation work is required due to it's aged deterioration.",
+      "※Furniture is not included in the property price.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width(public road) : 6.00m, Frontage: 6.00m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      6.0
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0442443,
     "lng": 135.7665716,
@@ -774,9 +1842,27 @@
     "property_name": "Unrenovated Machiya Near Horikawa-Imadegawa",
     "price_jpy": 34800000,
     "price_per_m2": 374838,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70033/index.html",
     "address": "509-5 Teraimacho, Kamigyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Quasi-Industrial District",
+    "floor_area": "92.84 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※approx. 8.69 sqm setback",
+      "※Renovation work is required due to it's aged deterioration.",
+      "※This property has obtained Kyo-machiya profile.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width(private road) : 1.8m, Frontage: 7.9m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      1.8
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.02912080000001,
     "lng": 135.749933,
@@ -788,9 +1874,27 @@
     "property_name": "Timeless Kyomachiya 4 min. from JR Enmachi",
     "price_jpy": 49800000,
     "price_per_m2": 643827,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70040/index.html",
     "address": "15 Nishinokyo Kitaenmachi, Nakagyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 2 Medium-to-High-Rise Exclusive Residential District",
+    "floor_area": "77.35 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Furniture is not included in the property price.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※This property has obtained Kyo-machiya profile."
+    ],
+    "adjoining_street": [
+      "Street Width(Public street) : 4.98m, Frontage: 7.01m, Direction: North (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.98
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0200179,
     "lng": 135.7305671,
@@ -802,9 +1906,30 @@
     "property_name": "Kyomachiya Just East of Kyoto Imperial Palace",
     "price_jpy": 45500000,
     "price_per_m2": 1058878,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69202/index.html",
     "address": "141-7, 141-19, 141-13 Matukagecho, Kamigyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 2 Medium-to-High-Rise Exclusive Residential District",
+    "floor_area": "42.97 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※This property is unrebuildable. You cannot rebuild any architectural structure on this land when the existing one is demolished or collapsed.",
+      "» Check here for more about rebuilding prohibited lands",
+      "※Fully renovated in May 2024",
+      "Renovation Works Done:Renewed water plumbing facilities (kitchen, bathroom, washbasin, toilet), Repaired and repainted exterior walls, Renewed exterior and interior fittings, Interior refurbishment, Replaced flooring materials, etc.",
+      "※Furniture is not included in the property price.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width(not a road in law) : 1.3m, Frontage: 3.9m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      1.3
+    ],
     "ryokan_licence_eligibility": "UNCERTAIN",
     "lat": 35.0290885,
     "lng": 135.7593189,
@@ -816,9 +1941,30 @@
     "property_name": "Mt. Yoshida Renovated Machiya with Irori Fireplace",
     "price_jpy": 150000000,
     "price_per_m2": 1313715,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70032/index.html",
     "address": "34-109 and other, Yoshida-Nakaojicho, Sakyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House with Basement",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "114.18 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Renovated by owner in Apr 2024.",
+      "Replaced kitchen/bathroom/basin/toilet, Replaced fittings, Replated flooring materials for all rooms and aisles, Replaced coverings for all walls and ceilings, Installation of floor heating system for LDK, etc.",
+      "※The property will be handed over as is.",
+      "※This property is regulated by the escarpment regulations.",
+      "※Furniture is not included in the property price.",
+      "※This property has obtained Kyo-machiya profile."
+    ],
+    "adjoining_street": [
+      "Street Width: 4.85m～4.77m (public street), Frontage: 4.6m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.85,
+      4.77
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0227337,
     "lng": 135.7832045,
@@ -830,9 +1976,31 @@
     "property_name": "Spacious corner house in surbub Iwakura",
     "price_jpy": 58000000,
     "price_per_m2": 298139,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69058/index.html",
     "address": "251-19 Iwakurakinocho, Sakyo Ward, Kyoto",
+    "type": "old_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "194.54 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※This property is not available for guest house and inn.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Regulations under the Cliff Ordinance",
+      "※Renovated by the seller in October 2019",
+      "Renewed water plumbing products (kitchen, basin, bathroom, toilet), Replaced wall and ceiling wallpaper in each room, Renewed Tatami mats, Renewed flooring materials, Added a shower room(2F), etc."
+    ],
+    "adjoining_street": [
+      "Street Width : 6m（Public road）, Frontage: 15m, Direction: Northwest",
+      "Street Width : 6m（Public road）, Frontage: 21m, Direction: Southwest (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      6.0,
+      6.0
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0499048,
     "lng": 135.7920324,
@@ -844,10 +2012,28 @@
     "property_name": "Machiya Inn w Garden 9 min from Subway Shijo Sta",
     "price_jpy": 208000000,
     "price_per_m2": 2900167,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70022/index.html",
     "address": "166 Takoyakushidori-Shinmachinishiiru Fudocho, Nakagyo Ward, Kyoto",
-    "ryokan_licence_eligibility": "ALREADY A RYOKAN",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Commercial District",
+    "floor_area": "71.72 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as in Inn",
+    "remarks": [
+      "※Furniture and appliances shown in photos are not included in the property price.",
+      "※New owner needs to reapply inn business licenses in their name or acquire business succession before continuing the operation as a lodging facility.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width: 4.5m (public road), Frontage: 4.2m, Direction: North (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.5
+    ],
+    "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0061691,
     "lng": 135.7558005,
     "place_id": "ChIJ_cm2R4MIAWAR8p2ZiuLI_6M",
@@ -858,9 +2044,30 @@
     "property_name": "Four-Storey Steel-House Inn in Okazaki",
     "price_jpy": 230000000,
     "price_per_m2": 1309199,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70012/index.html",
     "address": "7-6 Okazaki-Tokuseicho, Sakyo Ward, Kyoto",
+    "type": "building",
+    "building_structure": "Four Storey Steel House",
+    "land_use_district": "Neighborhood Commercial District",
+    "floor_area": "175.68 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as an Inn",
+    "remarks": [
+      "※Setback approx. 3.52sqm",
+      "※A corner lot cut is required when rebuilding on this land.",
+      "※Furniture shown in photos is negotiable.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※Renovated in Dec 2018. Renovation works done: Renewed water plumbing facilities (kitchen/basin/toilet), Replaced wallpapers and flooring materials for each rooms, etc."
+    ],
+    "adjoining_street": [
+      "Street Width: 14.7m (public street), Frontage: 3.04m, Direction: South (approx. number)",
+      "Street Width: 3.9m (public street), Frontage: 7.05m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      14.7,
+      3.9
+    ],
     "ryokan_licence_eligibility": "UNCERTAIN",
     "lat": 35.0137847,
     "lng": 135.7771521,
@@ -872,9 +2079,33 @@
     "property_name": "Accommodation West of Keage Incline",
     "price_jpy": 250000000,
     "price_per_m2": 2847705,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70024/index.html",
     "address": "21-12 Awataguchi-Toriicho, Sakyo Ward, Kyoto",
+    "type": "old_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 2 Residential District",
+    "floor_area": "87.79 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as in Inn",
+    "remarks": [
+      "※Setback approx. 6.3sqm",
+      "※Renovated in Oct 2023/Renovation works done: Renewed water plumbing facilities (kitchen, basin, bathroom, toilet), Replaced coverings for all walls and ceilings, Renewed Tatami pads, Gardening, Installation of 2F toilet and bathroom, etc.",
+      "※Furniture and appliances shown in photos are included in the property price.",
+      "※To operate the lodging facility, a business transfer (name change) is required.",
+      "※The property will be handed over as is.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility."
+    ],
+    "adjoining_street": [
+      "Street Width: 4.15m～4.25m (public street), Frontage: 8.6m, Direction: North (approx. number)",
+      "Street Width: 2.61m～2.78m (public street), Frontage: 8.4m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.15,
+      4.25,
+      2.61,
+      2.78
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0088204,
     "lng": 135.7828248,
@@ -886,9 +2117,28 @@
     "property_name": "A Machiya Inn 2 min. from Higashiyama Sta.",
     "price_jpy": 128000000,
     "price_per_m2": 1677808,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69173/index.html",
     "address": "525-1 Furukawachosuji-Niomonsagaru Higachimonzencho, Sakyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 2 Residential District",
+    "floor_area": "76.29 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as an Inn",
+    "remarks": [
+      "※Furniture is included in the property price.",
+      "※New owner needs to reapply inn business licenses in their name or acquire business succession before continuing the operation as a lodging facility.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※The property will be handed over as is.",
+      "※Renovated in Jan 2025 by seller. Renovation works done: Renewed kitchen, Replaced wall coverings, Installation of air conditioner, etc."
+    ],
+    "adjoining_street": [
+      "Street width: 4.20m (public street), Frontage: 5.38m, Direction: North (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.2
+    ],
     "ryokan_licence_eligibility": "ALREADY A RYOKAN",
     "lat": 35.0499048,
     "lng": 135.7920324,
@@ -900,9 +2150,28 @@
     "property_name": "Villa at the Foothills of Narabigaoka",
     "price_jpy": 550000000,
     "price_per_m2": 1019349,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/67108/index.html",
     "address": "48-5, 48-8 Omuro-Okanosusocho, Ukyo Ward, Kyoto",
+    "type": "used_house",
+    "building_structure": "Two Storey Reinforced Concrete House with Basement",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "539.56 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Furniture is not included in the property price.",
+      "※The property will be handed over as is.",
+      "※This property is regulated by the escarpment regulations due to the difference in elevation of the site.",
+      "※Fully renovated by owner in Dec 2020",
+      "（Renovation works done: Repainted exterior walls, Interior refurbishment, Replaced fittings (exterior/interior), Renewed water plumbing products (bathroom, kitchen, toilet, basin, etc.), Gardening, etc.）"
+    ],
+    "adjoining_street": [
+      "Street width: 10m, Frontage: 23.52m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      10.0
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0228197,
     "lng": 135.7122691,
@@ -914,9 +2183,27 @@
     "property_name": "Vacant Land with a Borrowed Scenery of Shrine",
     "price_jpy": 25000000,
     "price_per_m2": [],
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/66012/index.html",
     "address": "1-174 and others, Kinugasa-Akasakacho, Kita Ward, Kyoto",
+    "type": "vacant_land_with_no_construction_restrictions",
+    "building_structure": "",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant Land",
+    "remarks": [
+      "※At the time of construction, permission based on the provisions of Article 43, Paragraph 2, Item 2 of the Building Standards Act is required.",
+      "※The property will be handed over as is.",
+      "※This property is designated in the sediment disaster alert area."
+    ],
+    "adjoining_street": [
+      "Street Width: 4.98~5.07m, Frontage: 16.42m, Direction: Southeast (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.98,
+      5.07
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0399413,
     "lng": 135.7207169,
@@ -928,9 +2215,27 @@
     "property_name": "A home to enjoy renovation near Takano River",
     "price_jpy": 39800000,
     "price_per_m2": 309535,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69078/index.html",
     "address": "26-10 Shimogamomorigamaecho, Sakyo Ward, Kyoto",
+    "type": "old_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "128.58 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※approx. 3.20 sqm setback",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Renovation work is required due to it's aged deterioration."
+    ],
+    "adjoining_street": [
+      "Street Width : 2.97m, Frontage: 6.22m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      2.97
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0499048,
     "lng": 135.7920324,
@@ -942,9 +2247,29 @@
     "property_name": "Build-Ready Land Near Imadegawa Station",
     "price_jpy": 51800000,
     "price_per_m2": [],
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/70004/index.html",
     "address": "1-4 Kamiuridachidori-Muromachinishiiru Kamitachiuricho, Kamigyo Ward, Kyoto",
+    "type": "vacant_land_no_building_conditions",
+    "building_structure": "",
+    "land_use_district": "Quasi-Industrial District",
+    "floor_area": "--",
+    "reno_status": "others",
+    "current_situation": "Land with an old house",
+    "remarks": [
+      "※The property will be handed over as is.",
+      "※The seller is not liable for any defects.",
+      "※The property will be delivered as vacant land after the sales contract, with the existing buildings removed by the seller.",
+      "※Underground pipings will not be removed.",
+      "※【Current building】Structure: 2-storey wooden house; Floor area: 1F: 51.24sqm, 2F: 46.39sqm, Total: 97.63sqm",
+      "※Currently, a mixed-structure building (wood and reinforced concrete) with 2 stories stands on the property."
+    ],
+    "adjoining_street": [
+      "Street Width: 12m (public street), Frontage: 6.7m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      12.0
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0317074,
     "lng": 135.7569853,
@@ -956,9 +2281,31 @@
     "property_name": "Grand Kyomachiya with an annex in Nishijin",
     "price_jpy": 300000000,
     "price_per_m2": 1800720,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/68059/index.html",
     "address": "269 Kamidachiuridori-Omiyanishiiru Suzuriyacho, Kamigyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "(Main hosue/Annex) Two Storey Wooden House",
+    "land_use_district": "Quasi-Industrial District",
+    "floor_area": "166.6 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Main house: In residence, Annex: In tenant (leased)",
+    "remarks": [
+      "※approx. 2.18sqm setback.",
+      "※This property has obtained Kyo-machiya Karte.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Furniture shown in photos is not included in the property price.",
+      "※Prior reservation is required 1 week before the viewing as the property is currently in residence.",
+      "※Please note that we cannot show you the interior of the part that is currently leased.",
+      "※The lessee's deposit (such as guarantee deposit, etc.) is included in the property price. Deposits will NOT be passed from the seller to the buyer."
+    ],
+    "adjoining_street": [
+      "Street width: 3.4m (public streer), Frontage: 8m, Direction: North (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      3.4
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0323602,
     "lng": 135.7481007,
@@ -970,9 +2317,24 @@
     "property_name": "Building with Panoramic Views of Higashiyama",
     "price_jpy": 600000000,
     "price_per_m2": 915793,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69209/index.html",
     "address": "438-1,438-2,438-3 Yasaka-Toriimaesagaru Kamibentencho, Higashiyama Ward, Kyoto",
+    "type": "old_building",
+    "building_structure": "Four Stories Steel House",
+    "land_use_district": "Commercial District",
+    "floor_area": "655.17 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street width: 6m (public street), Frontage: 13.20m, Direction: North (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      6.0
+    ],
     "ryokan_licence_eligibility": "UNCERTAIN",
     "lat": 35.0006332,
     "lng": 135.7783151,
@@ -984,9 +2346,29 @@
     "property_name": "Machiya Inn with Tsuboniwa facing Nishinotoin St.",
     "price_jpy": 172000000,
     "price_per_m2": 1858455,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69217/index.html",
     "address": "465-9 Nishinotoincho, Shimogyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Neighborhood Commercial District",
+    "floor_area": "92.55 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as an Inn",
+    "remarks": [
+      "※Fully Renovation by seller in Oct 2024.",
+      "Renovation works done: Renewed all water plumbing products (kitchen, basin, bathroom, toilet), Repaired exterior walls, Renewed exterior and interior fittings, Interior refurbishment, Replaced flooring materials, Installation of floor heating system, etc.",
+      "※Furniture and appliances are included in the property price.",
+      "※The inn business licenses are registered under the operating company.",
+      "The property will be handed over as is.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility."
+    ],
+    "adjoining_street": [
+      "Street Width(public road) : 9.4m, Frontage: 5.11m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      9.4
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 34.9925425,
     "lng": 135.7555065,
@@ -998,9 +2380,27 @@
     "property_name": "Kyomachiya Inn West of Nijo Station",
     "price_jpy": 71800000,
     "price_per_m2": 855271,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/68129/index.html",
     "address": "18-4 Nishinokyo-Uchihatacho, Nakagyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two-Storey Wooden House",
+    "land_use_district": "Quasi-Industrial District",
+    "floor_area": "83.95 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as in Inn",
+    "remarks": [
+      "※Furniture is not included in the property price.",
+      "※New owner needs to renew inn business licenses before continuing the operation as a lodging facility.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street width: 5.4m (public street), Frontage; 5.53m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      5.4
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0138575,
     "lng": 135.7384265,
@@ -1012,9 +2412,29 @@
     "property_name": "Machiya Inn with a Tsuboniwa in Gosho East",
     "price_jpy": 105000000,
     "price_per_m2": 1660079,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69185/index.html",
     "address": "121-1 Teramachidori-Kojinguchiagaru Kojincho, Kamigyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Neighborhood Commercial District",
+    "floor_area": "63.25 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as an Inn",
+    "remarks": [
+      "※Furniture is not included in the property price.",
+      "※New owner needs to reapply inn business licenses in their name or acquire business succession before continuing the operation as a lodging facility.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※The property will be handed over as is.",
+      "※Renovation by seller in Apr 2018.",
+      "Renovation works done: Renewed all water plumbing products (kitchen, basin, bathroom, toilet), Renewed coverings of all rooms' walls and ceilings, Renewed Tatami pads, etc."
+    ],
+    "adjoining_street": [
+      "Street width: 7.1m (public street), Frontage: 4.1m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      7.1
+    ],
     "ryokan_licence_eligibility": "ALREADY A RYOKAN",
     "lat": 35.0215838,
     "lng": 135.7682415,
@@ -1026,10 +2446,27 @@
     "property_name": "Traditional Kominka 6min from Hankyu Katsura Sta.",
     "price_jpy": 84000000,
     "price_per_m2": 658359,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69196/index.html",
     "address": "1-69 Katsura-Kinoshitacho, Nishikyo Ward, Kyoto",
-    "ryokan_licence_eligibility": "",
+    "type": "old_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Medium-to-High-Rise Exclusive Residential District",
+    "floor_area": "127.59 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Renovation work is required due to it's aged deterioration.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street width: 4.01m (public street), Frontage: 10.09m, Direction: North (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.01
+    ],
+    "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 34.9810812,
     "lng": 135.7061337,
     "place_id": "ChIJ64gjRvAGAWARFOE6XQQ8bvI",
@@ -1040,9 +2477,28 @@
     "property_name": "Vacant Land 1 min. from Kiyomizu-Gojo Sta.",
     "price_jpy": 150000000,
     "price_per_m2": [],
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69211/index.html",
     "address": "422 Miyagawasuji 8-chome, Higashiyama Ward, Kyoto",
+    "type": "vacant_land",
+    "building_structure": "",
+    "land_use_district": "Commercial District",
+    "floor_area": "--",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant Land",
+    "remarks": [
+      "※No building conditions applied.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width(Public road) : 6.00∼6.35m, Frontage: 7.63m, Direction: West (approx. number)",
+      "Street Width: 0.90m (not a road in law), Frontage: 14.00m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      6.0,
+      6.35,
+      0.9
+    ],
     "ryokan_licence_eligibility": "UNCERTAIN",
     "lat": 34.9962973,
     "lng": 135.768834,
@@ -1054,9 +2510,28 @@
     "property_name": "A Renovated Home in Northern Okazaki",
     "price_jpy": 48000000,
     "price_per_m2": 700423,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69139/index.html",
     "address": "28-9 Okazaki Nishifukunokawacho, Sakyo Ward, Kyoto",
+    "type": "old_house",
+    "building_structure": "",
+    "land_use_district": "Category 1 Medium-to-High-Rise Exclusive Residential District",
+    "floor_area": "68.53 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Furniture and appliances are included in the property price.",
+      "※This property is not available for guest house and inn.",
+      "※The property will be handed over as is.",
+      "※Renovated in July 2023 by the previous owner",
+      "Renovation works done: Renewed water plumbing facilities (bathroom, kitchen, toilet, basin, etc.), Renewed ceiling and wallpaper, Replaced roof tiles, Repaired exterior walls, Termite-treated, etc."
+    ],
+    "adjoining_street": [
+      "Street Width(Private road) : 5.0m, Frontage: 4.2m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      5.0
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0200321,
     "lng": 135.7837993,
@@ -1068,9 +2543,28 @@
     "property_name": "Newly Built Home in Kyoto's Serene Hillside",
     "price_jpy": 44800000,
     "price_per_m2": 530240,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69181/index.html",
     "address": "(Lot C) Shizuichi-Ichiharacho, Sakyo Ward, Kyoto",
+    "type": "newly_build_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "84.49 sqm",
+    "reno_status": "others",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Furniture is not included in the property price.",
+      "※The property will be handed over as is.",
+      "※Building Permit Number: R06-IPEC00109 (第R06確認建築IPEC00109号)"
+    ],
+    "adjoining_street": [
+      "Street width: 4m (public street), Frontage: 9.5m, Direction: North (approx. number)",
+      "Street width: 2.2m (private street), Frontage: 14.3m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.0,
+      2.2
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0914889,
     "lng": 135.7544678,
@@ -1082,9 +2576,25 @@
     "property_name": "Residence and Shop Building on Shirakawa St.",
     "price_jpy": 71500000,
     "price_per_m2": 268848,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69176/index.html",
     "address": "111 Jodoji-Kamibanbacho, Sakyo Ward, Kyoto",
+    "type": "old_building",
+    "building_structure": "Three Stories Steel House with Basement",
+    "land_use_district": "Neighborhood Commercial District",
+    "floor_area": "265.95 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※The property will be handed over as is.",
+      "※Renovation work is required due to it's aged deterioration."
+    ],
+    "adjoining_street": [
+      "Street width: 21.8m (public street), Frontage: 5m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      21.8
+    ],
     "ryokan_licence_eligibility": "UNCERTAIN",
     "lat": 35.0251552,
     "lng": 135.7917532,
@@ -1096,9 +2606,30 @@
     "property_name": "Machiya Inn with a Tsuboniwa Garden near Nijo Sta.",
     "price_jpy": 79800000,
     "price_per_m2": 1482445,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69158/index.html",
     "address": "17-14 Nishinokyo-Hoshigaikecho, Nakagyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Quasi-Industrial District",
+    "floor_area": "53.83 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as an Inn",
+    "remarks": [
+      "※approx. 1.09sqm setback.",
+      "※Furniture and appliances shown in photos are negotiable.",
+      "※New owner needs to reapply inn business licenses in their name or acquire business succession before continuing the operation as a lodging facility.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※The property will be handed over as is.",
+      "※Fully renovated in Jan 2016. Renovation works done: Repaired roof, Structual reinforcement, Installation of floor heating system, Renewed water plumbing facilities (kitchen, bathroom, basin, toilet), Renewed walls/floorings/ceilings, Replaced electricity/gas/water pipings, etc."
+    ],
+    "adjoining_street": [
+      "Street width: 3.56m (Private street/2nd-clause road), Frontage: 4.97m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      3.56,
+      2.0
+    ],
     "ryokan_licence_eligibility": "ALREADY A RYOKAN",
     "lat": 35.012922,
     "lng": 135.7405127,
@@ -1110,9 +2641,28 @@
     "property_name": "Renovated Guesthouse West of Nijo Castle",
     "price_jpy": 65000000,
     "price_per_m2": 1027506,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69145/index.html",
     "address": "30-5 Jurakumawariminamimachi, Nakagyo Ward, Kyoto",
+    "type": "used_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Residential District",
+    "floor_area": "63.26 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as Guesthouse",
+    "remarks": [
+      "※Jan 2016 Renovation: Replaced flooring materials, Replaced wallpaper of walls and ceilings, Installation of floor heating system (1F Tatami room, 2F Tatami room) / Jan 2020 Renovation: Renovated kitchen facilities, etc.",
+      "※Furniture shown in photos are negotiable.",
+      "※New owner needs to reapply inn business licenses in their name or acquire business succession before continuing the operation as a lodging facility.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width: 6m (public street), Frontage: 4m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      6.0
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0109729,
     "lng": 135.7518395,
@@ -1124,9 +2674,32 @@
     "property_name": "Two Terraced Kyomachiya with Stately Facades",
     "price_jpy": 45000000,
     "price_per_m2": 521618,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69124/index.html",
     "address": "56-9, 56-10, 56-12 Shichiku-Shimoshibamotocho, Kita Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "【A】within 25m from Kitayama St.: Neighborhood Commercial District 【B】over 25m from Kitayama St.: Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "86.27 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※approx. 9.58sqm setback.",
+      "※This property has obtained Kyo-machiya profile.",
+      "※Furniture shown in photos is not included in the property price.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Renovation work is required due to it's aged deterioration.",
+      "※Photos of 56-9 are taken in Feb 2022.",
+      "※Photos of 56-10 are taken in May 2022."
+    ],
+    "adjoining_street": [
+      "Street width: 2.69ⅿ～3.64ⅿ(private road), Frontage: 14.43m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      2.69,
+      3.64
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0500573,
     "lng": 135.7506618,
@@ -1138,9 +2711,28 @@
     "property_name": "Kominka Shop in Amanohashidate",
     "price_jpy": 28000000,
     "price_per_m2": 305810,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/68133/index.html",
     "address": "82-3 Ejiri-aza Miyanoshita-koaza, Miyazu City, Kyoto",
+    "type": "used_house_kominka",
+    "building_structure": "Two-Storey Wooden House",
+    "land_use_district": "Category 1 Residential District",
+    "floor_area": "91.56 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation",
+    "remarks": [
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Prior reservation is required 3 days before the viewing.",
+      "※Furniture is not included in the property price.",
+      "※Renovated in Jan 2022. Renovation works done: Renewed ceiling and walls, Renewed Tatami mats, Renewed toilets, Repaired roof, Gardening, etc."
+    ],
+    "adjoining_street": [
+      "Street width: 5.2m, Frontage: 11m, Direction: Northeast (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      5.2
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.5810448,
     "lng": 135.1973104,
@@ -1152,9 +2744,32 @@
     "property_name": "Kyomachiya Inn in an Alley by Shirakawa",
     "price_jpy": 81000000,
     "price_per_m2": 1433121,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69148/index.html",
     "address": "473-9 Shirakawasuji-Higashikawabatasanjosagarunichome Umemiyacho, Higashiyama Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 2 Residential District",
+    "floor_area": "56.52 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as Guesthouse",
+    "remarks": [
+      "※This property is unrebuildable. You cannot rebuild any architectural structure on this land when the existing one is demolished or collapsed. » Check here for more about rebuilding prohibited lands",
+      "※Furniture is not included in the property price.",
+      "※New owner needs to reapply inn business licenses under their own name before continuing the operation as a lodging facility.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※The property will be handed over as is.",
+      "※Fully renovated in April 2019.",
+      "Renovation works done: Replaced wallpapers of each rooms' walls and ceiling, Replaced water plumbing facilities (kitchen, shower booth, basin, toilet), etc."
+    ],
+    "adjoining_street": [
+      "Street Width: 2.5m (private street), Frontage: 4.3m, Direction: South (approx. number)",
+      "Street Width: 1.5m (private street), Frontage: 4.0m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      2.5,
+      1.5
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0081144,
     "lng": 135.780093,
@@ -1166,9 +2781,28 @@
     "property_name": "Home with a Garden 5-Min. Walk to Golden Pavilion",
     "price_jpy": 59800000,
     "price_per_m2": 743042,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69141/index.html",
     "address": "26-6, 26-7 Kinugasagaidocho, Kita Ward, Kyoto",
+    "type": "used_house",
+    "building_structure": "",
+    "land_use_district": "Category 2 Medium-to-High-Rise Exclusive Residential District",
+    "floor_area": "80.48 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Renovation work is required due to it's aged deterioration.",
+      "※Agent commission required when concluding contract.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width: 5.8m~5.9m (public street), Frontage: 13.3m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      5.8,
+      5.9
+    ],
     "ryokan_licence_eligibility": "UNCERTAIN",
     "lat": 35.0499022,
     "lng": 135.7514581,
@@ -1180,9 +2814,25 @@
     "property_name": "Oceanview house and office in Amanohashidate",
     "price_jpy": 150000000,
     "price_per_m2": 569476,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69100/index.html",
     "address": "586-1, 586-2, 586-11, 587-2 Akaiwa, Monju, Miyazu City, Kyoto",
+    "type": "used_house",
+    "building_structure": "",
+    "land_use_district": "Non-designated District",
+    "floor_area": "263.4 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※The property will be handed over as is.",
+      "※Prior reservation is required 3 days before the viewing."
+    ],
+    "adjoining_street": [
+      "Street Width: 8m (public street), Frontage: 38m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      8.0
+    ],
     "ryokan_licence_eligibility": "UNCERTAIN",
     "lat": 35.5568003,
     "lng": 135.1848793,
@@ -1194,9 +2844,33 @@
     "property_name": "Owner-change Compact Machiya in Mibu",
     "price_jpy": 52800000,
     "price_per_m2": 1495751,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69116/index.html",
     "address": "48-14 Mibu Shimomizocho, Nakagyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Single Storey Wooden House",
+    "land_use_district": "Quasi-Industrial District",
+    "floor_area": "35.3 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Tenanted",
+    "remarks": [
+      "【Current rental conditions】Monthly rent:98,000JPY／Deposit:98,000JPY／Expense deposit:55,000JPY/Contract Duration:3 years/Contract Type:Fixed-term lease agreement／Contract renewal fee:98,000JPY／Contract Period-end: Until 23 Jan 2028",
+      "※The lessee's deposit (such as guarantee deposit, etc.) is included in the property price, and no refund will be made by the seller. (Kansai method)",
+      "※Approx. 3.06 sqm setback",
+      "※This property has obtained Kyo-machiya profile.",
+      "※Renovated by previous owner.",
+      "Renovation works done：Renewed the roof of the garden in Jan 2025, Renewed water plumbing facilities, Replaced wallpaper, flooring and a part of ceiling in Jan 2020.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Please note that we cannot show you the interior of the property as it is currently leased. We will only show you the exterior of the property."
+    ],
+    "adjoining_street": [
+      "Street Width : 2.94〜2.5m（Private Road）, Frontage: 5.8m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      2.94,
+      2.5
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0034766,
     "lng": 135.7478217,
@@ -1208,9 +2882,28 @@
     "property_name": "A Kyomachiya for Second House Nijo Castle North",
     "price_jpy": 59000000,
     "price_per_m2": 641723,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69122/index.html",
     "address": "746-21 Higurashidori-Marutamachiagaru-nishiiru Saiincho, Kamigyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Quasi-Industrial District",
+    "floor_area": "91.94 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In operation as a lodging facility",
+    "remarks": [
+      "※setback approx. 1.20sqm",
+      "※New owner needs to reapply inn business licenses under their own name before continuing the operation as a lodging facility.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※The property will be handed over as is.",
+      "※Furniture is not included in the property price."
+    ],
+    "adjoining_street": [
+      "Street width: 3.5m (public street), Frontage: 5.1m, Direction: North (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      3.5
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0187665,
     "lng": 135.7469162,
@@ -1222,9 +2915,28 @@
     "property_name": "Retro House in Murasakino",
     "price_jpy": 32800000,
     "price_per_m2": 341667,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69055/index.html",
     "address": "4-7 Murasakino-Higashigoshodencho, Kita Ward, Kyoto",
+    "type": "used_house_one_of_3_terraced_houses",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "96 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Renovated by owner in Apr 2015.",
+      "Renovation works done: Repaired main roof, Renewed water plumbing products (system kitchen, toilet, washbasin, bathroom, laundry space), Renewed floorings (tiles, floorings, carpet), Partly renewed and replaced fittings, etc.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Photos were taken in June 2018."
+    ],
+    "adjoining_street": [
+      "Street width: 6m (public street), Frontage: 4.9m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      6.0
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.039394,
     "lng": 135.7527262,
@@ -1234,11 +2946,32 @@
   {
     "property_number": "69083",
     "property_name": "Luxurious Residence in Verdant Narutaki",
-    "price_jpy": 400000000,
-    "price_per_m2": 1212084,
-    "price_per_m2_benchmark": 1015577,
+    "price_jpy": 350000000,
+    "price_per_m2": 1060574,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69083/index.html",
     "address": "6-24 Narutaki-Ondoyamacho, Ukyo Ward, Kyoto",
+    "type": "old_house",
+    "building_structure": "2 Storey Reinforced Concrete House",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "330.01 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Furniture is not included in the property price.",
+      "※This property is not available for guest house and inn.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Part of the lot of this property is located in a sediment disaster special alert area / sediment disaster alert area.",
+      "※This property is regulated by the escarpment regulations.",
+      "※Scheduling adjustments of viewings are required since the property owner will be present during viewings."
+    ],
+    "adjoining_street": [
+      "Street Width: 5.30m, Frontage: 31.50m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      5.3
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0307329,
     "lng": 135.7028363,
@@ -1250,9 +2983,26 @@
     "property_name": "Shimogamo Bungalow with Private Alley & Garden",
     "price_jpy": 42800000,
     "price_per_m2": 330834,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69088/index.html",
     "address": "3 Shimogamo-Takagicho, Sakyo Ward, Kyoto",
+    "type": "old_house",
+    "building_structure": "Single Storey Wooden House",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "129.37 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※Renovation work is required due to it's aged deterioration.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street width: 5.90m (public street), Frontage: 2.03m, Direction: North (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      5.9
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0439533,
     "lng": 135.776263,
@@ -1264,9 +3014,30 @@
     "property_name": "Kyomachiya along Kamo River south of Gojo",
     "price_jpy": 348000000,
     "price_per_m2": 2084581,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69097/index.html",
     "address": "350-1, 357-5 Kamogawasuji-Rokkensagaru Yatsuyanagicho, Shimogyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "2 Storey Wooden House with Basement",
+    "land_use_district": "Commercial District",
+    "floor_area": "166.94 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In operation as an inn",
+    "remarks": [
+      "※Fully renovated in Jan 2018.",
+      "Renovation works done: Renewed water plumbing facilies (kitchen, basin, bathroom, toilet), Replaced wallpaper for walls and ceilings of all rooms, Renewed Tatami pads, Gardening, Installation of floor heating system, etc.",
+      "※Furniture is included in the property price.",
+      "※This property is available for guest house and inn.",
+      "※New owner needs to acquire succession of the inn business licenses in their name before continuing the operation as a lodging facility.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width: 4m (public street), Frontage: 5.6m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.0
+    ],
     "ryokan_licence_eligibility": "ALREADY A RYOKAN",
     "lat": 34.9932616,
     "lng": 135.7670565,
@@ -1278,9 +3049,29 @@
     "property_name": "Gosho South Kyomachiya with a Garden Bath",
     "price_jpy": 280000000,
     "price_per_m2": 2802242,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69039/index.html",
     "address": "495-3 Fuyachodori-Nijoagaru Hoteiyacho, Nakagyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Commercial District",
+    "floor_area": "99.92 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as an Inn",
+    "remarks": [
+      "※Fully renovated in Jan 2020. Renovation works done: Renewed water plumbing products (kitchen, Washbasin, Bathroom, Toilet), Replaced wallpaper of walls and ceilings for all rooms, Renewed Tatami mats, Gardening, etc.",
+      "※This property has obtained Kyo-machiya profile",
+      "※Furniture and appliances shown in photos are negotiable.",
+      "※New owner needs to acquire business succession under their name before continuing the operation as a lodging facility.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street width: 6.2m (private road), Frontage: 5m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      6.2
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0143885,
     "lng": 135.7658715,
@@ -1292,9 +3083,27 @@
     "property_name": "Villa near Daikakuji Temple in Saga",
     "price_jpy": 140000000,
     "price_per_m2": 1212751,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/68148/index.html",
     "address": "39-14, 39-2, 76-1 Saga-Daikakujimonzen-Rokudocho, Ukyo Ward, Kyoto",
+    "type": "used_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Low-Rise Exclusive Residential District",
+    "floor_area": "115.44 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "In Residence",
+    "remarks": [
+      "※Furniture shown in photos is not included in the property price.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Prior reservation is required 3 days before the viewing as the owner is currently in residence."
+    ],
+    "adjoining_street": [
+      "Street width: 6m (public road), Frontage: 5.99m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      6.0
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0238796,
     "lng": 135.678844,
@@ -1306,9 +3115,30 @@
     "property_name": "a Kyomachiya that blends in the cityscape",
     "price_jpy": 68000000,
     "price_per_m2": 513479,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69027/index.html",
     "address": "6 Murasakino-Shimokashiwanochi, Kita Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Quasi-Industrial District",
+    "floor_area": "132.43 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as a Guesthouse",
+    "remarks": [
+      "※approx. 1.73sqm setback",
+      "※Furniture is included in the property price (Not including consumable items for inn business such as linen, amenities or storage boxes).",
+      "※New owner needs to reapply inn business licenses under their own name before continuing the operation as a lodging facility.",
+      "※The purchase of this property is conditional upon taking over the operation of the guesthouse and its management company.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street width: 3.39m～3.4m (private street), Frontage: 5.61m, Direction: South (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      3.39,
+      3.4
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0425394,
     "lng": 135.7482637,
@@ -1320,9 +3150,30 @@
     "property_name": "Higashiyama-Shichijo Inn with Kamo River View",
     "price_jpy": 62800000,
     "price_per_m2": 1576701,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/69010/index.html",
     "address": "79-2 Ichinohashinomotocho, Higashiyama Ward, Kyoto",
+    "type": "used_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 2 Residential District",
+    "floor_area": "39.83 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Operation as an Inn",
+    "remarks": [
+      "※New owner needs to reapply inn business licenses under their own name before continuing the operation as a lodging facility.",
+      "※The property will be handed over as is.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※Furniture is included in the property price."
+    ],
+    "adjoining_street": [
+      "Street width: 4.0m (private road), Frontage: 9.7m, Direction: West",
+      "Street width: 2.0m (not a road in law), Frontage: 9.7m, Direction: East",
+      "(approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.0,
+      2.0
+    ],
     "ryokan_licence_eligibility": "ALREADY A RYOKAN",
     "lat": 34.9857903,
     "lng": 135.7685765,
@@ -1334,9 +3185,29 @@
     "property_name": "Family House in Umezu",
     "price_jpy": 9900000,
     "price_per_m2": 152872,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/68166/index.html",
     "address": "15-38 Umezu-Gotocho, Ukyo Ward, Kyoto",
+    "type": "used_house_one_of_2_terraced_houses",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Medium-to-High-Rise Exclusive Residential District",
+    "floor_area": "64.76 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※This property is unrebuildable. You cannot rebuild any architectural structure on this land when the existing one is demolished or collapsed. » Check here for more about rebuilding prohibited lands",
+      "※Renovation work is required due to it's aged deterioration.",
+      "※This property is not available for guest house and inn.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Building extention was done in 1980."
+    ],
+    "adjoining_street": [
+      "Street width: 1.90m, Frontage: 3.60m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      1.9
+    ],
     "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
     "lat": 35.0041848,
     "lng": 135.702667,
@@ -1348,9 +3219,27 @@
     "property_name": "Shijo Guesthouse with 7 rooms",
     "price_jpy": 185000000,
     "price_per_m2": 740030,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/68108/index.html",
     "address": "465 Samegaidori-Bukkojisagaru Kojincho, Shimogyo Ward, Kyoto",
+    "type": "used_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Commercial Districts",
+    "floor_area": "249.99 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※The seller is not liable for any defects.",
+      "※Furnitures is included in the property price (partly exception).",
+      "※The property will be handed over as is.",
+      "※New owner needs to renew inn business licenses before staring the operation as a lodging facility."
+    ],
+    "adjoining_street": [
+      "Street Width: 4.4m (public street/Samegai St.), Frontage: 6.2m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.4
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0008215,
     "lng": 135.7527649,
@@ -1362,9 +3251,27 @@
     "property_name": "Farmhouse-style Residence in Muko City",
     "price_jpy": 350000000,
     "price_per_m2": 1279474,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/68112/index.html",
     "address": "16-4,16-5 Mozumecho-Dounomae, Muko City, Kyoto Prefecture",
+    "type": "used_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Medium-to-High-Rise Exclusive Residential District",
+    "floor_area": "273.55 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "In Residence",
+    "remarks": [
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Prior reservation is required 1 week before the viewing as the owner is currently in residence.",
+      "※Furniture is not included in the property price."
+    ],
+    "adjoining_street": [
+      "Street width: 4.5m (public street), Frontage: 27m, Direction: East (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      4.5
+    ],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 34.9611139,
     "lng": 135.6929052,
@@ -1376,9 +3283,30 @@
     "property_name": "Modern Kyomachiya near Marutamachi Sta.",
     "price_jpy": 49800000,
     "price_per_m2": 1004437,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/66144/index.html",
     "address": "168-5, 168-6 Ryogaemachidori-Takeyamachiagaru Saihojicho, Nakagyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Single Storey Wooden House",
+    "land_use_district": "Neighborhood Commercial District",
+    "floor_area": "49.58 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In use as an office",
+    "remarks": [
+      "※This property is unrebuildable. You cannot rebuild any architectural structure on this land when the existing one is demolished or collapsed. » Check here for more about rebuilding prohibited lands",
+      "※Prior reservation is required 1 day before the viewing as the property is currently in use.",
+      "※Furniture is not included in the property price.",
+      "※The seller is not liable for any defects.",
+      "※The property will be handed over as is.",
+      "※Renovated by owner in Jan 2019.",
+      "Renovation works done: Renewed water plumbing products (kitchen, bathroom, washbashin, toilet), Repaired and refurbished interior and exterior, etc."
+    ],
+    "adjoining_street": [
+      "Street width: 1.4m (not a road in law), Frontage: 4.7m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      1.4
+    ],
     "ryokan_licence_eligibility": "UNCERTAIN",
     "lat": 35.0166906,
     "lng": 135.7587624,
@@ -1390,9 +3318,27 @@
     "property_name": "One-storey house West of Kyoto station",
     "price_jpy": 20000000,
     "price_per_m2": 945626,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/65050/index.html",
     "address": "46, 47 Nishikujo Harikojicho, Minami Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "One Storey Wooden House",
+    "land_use_district": "Category 2 Residential Districts",
+    "floor_area": "21.15 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In occupied as an office",
+    "remarks": [
+      "・The seller is not liable for any defects.",
+      "・This property is unrebuildable. You cannot rebuild any architectural structure on this land when the existing one is demolished or collapsed.",
+      "・The furniture are included in the property price. Disposal is also negotiable.",
+      "・Prior reservation is required 3 days before the viewing as the property is currently in occupied."
+    ],
+    "adjoining_street": [
+      "Street Width : 1.79m, Frontage: 5.89m, Direction: East (Approx. Number)"
+    ],
+    "adjoining_street_widths": [
+      1.79
+    ],
     "ryokan_licence_eligibility": "UNCERTAIN",
     "lat": 34.9829562,
     "lng": 135.7515669,
@@ -1404,13 +3350,91 @@
     "property_name": "Renovated Kominka in Otsu",
     "price_jpy": 59000000,
     "price_per_m2": 428904,
-    "price_per_m2_benchmark": 1015577,
+    "price_per_m2_benchmark": 1004810,
     "url": "https://www.hachise.com/buy/66002/index.html",
     "address": "【Registered location】2076 and others, Sakamoto-rokuchome Aza Hachijo, Otsu City, Shiga Prefecture",
+    "type": "used_house_kominka",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 1 Residential Districts",
+    "floor_area": "137.56 sqm",
+    "reno_status": "renovated",
+    "current_situation": "In Opertaion as Guesthouse",
+    "remarks": [
+      "※Setback might required on the west of the property when rebuilding on this land.",
+      "※Common lodging house license in the Inns and Hotels Act has been obtained.",
+      "※Please understand that there is a possibility that we may not able to show you the property as it is currently in operation as a lodging facility.",
+      "※Furnitures and appliances are negotiable.",
+      "※Monthly rental parking lot is available nearby (3000JPY/month)."
+    ],
+    "adjoining_street": [],
+    "adjoining_street_widths": [],
     "ryokan_licence_eligibility": "LIKELY ELIGIBLE",
     "lat": 35.0711268,
     "lng": 135.8721488,
     "place_id": "ChIJZwv9wvgKAWAR32oWyFkmkj0",
     "geocode_status": "OK"
+  },
+  {
+    "property_number": "70103",
+    "property_name": "Kyomachiya in Nishishichijo",
+    "price_jpy": 61900000,
+    "price_per_m2": 540564,
+    "price_per_m2_benchmark": 1004810,
+    "url": "https://www.hachise.com/buy/70103/index.html",
+    "address": "121 Nishishichijo-Nishihattandacho, Shimogyo Ward, Kyoto",
+    "type": "kyo_machiya",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Quasi-Industrial District",
+    "floor_area": "114.51 sqm",
+    "reno_status": "renovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※approx. 0.8sqm setback",
+      "※Repainted exterior walls, Replaced bathroom/washbasin, Replaced Tatami mats in July 2020.",
+      "※Furniture is not included in the property price.",
+      "--> ※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street width: 3.80m (private street), Frontage: 7.5m, Direction: West (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      3.8
+    ],
+    "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
+    "lat": null,
+    "lng": null,
+    "place_id": "",
+    "geocode_status": "MISSING"
+  },
+  {
+    "property_number": "70095",
+    "property_name": "Awataguchi Base",
+    "price_jpy": 31800000,
+    "price_per_m2": 576087,
+    "price_per_m2_benchmark": 1004810,
+    "url": "https://www.hachise.com/buy/70095/index.html",
+    "address": "21-13 Awataguchi Toriicho, Sakyo Ward, Kyoto",
+    "type": "old_house",
+    "building_structure": "Two Storey Wooden House",
+    "land_use_district": "Category 2 Residential District",
+    "floor_area": "55.2 sqm",
+    "reno_status": "nonrenovated",
+    "current_situation": "Vacant",
+    "remarks": [
+      "※approx. 13.41 sqm setback ※A corner lot cut of approx. 2sqm is needed when rebuilding. ※Renovation work is required due to it's aged deterioration. ※Furniture is not included in the property price. ※This property is not available for guest house and inn. ※The property will be handed over as is."
+    ],
+    "adjoining_street": [
+      "Street Width : 3.94m, Frontage: 15.63m, Direction: North (approx. number)",
+      "Street Width : 2.35m, Frontage: 15.69m, Direction: North (approx. number)"
+    ],
+    "adjoining_street_widths": [
+      3.94,
+      2.35
+    ],
+    "ryokan_licence_eligibility": "LIKELY NOT ELIGIBLE",
+    "lat": null,
+    "lng": null,
+    "place_id": "",
+    "geocode_status": "MISSING"
   }
 ]
