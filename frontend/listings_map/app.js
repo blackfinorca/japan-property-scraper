@@ -1,5 +1,6 @@
 import { evaluateProperty } from "./eligibility_engine.js";
 
+const USER_STATE_STORAGE_KEY = "jp_property_user_state";
 const NOTES_STORAGE_KEY = "jp_property_notes";
 const SHORTLIST_STORAGE_KEY = "jp_property_shortlist";
 
@@ -348,11 +349,13 @@ function buildEligibilityHtml(assessment) {
 }
 
 function buildPopupHtml(record) {
-  const propertyNumber = escapeHtml(toText(record.property_number));
+  const rawPropertyNumber = toText(record.property_number);
+  const propertyNumber = escapeHtml(rawPropertyNumber);
   const propertyName = escapeHtml(toText(record.property_name));
-  const existingNote = escapeHtml(loadNote(toText(record.property_number)));
-  const isShortlisted = loadShortlist().has(toText(record.property_number));
-  const checkedAttr = isShortlisted ? " checked" : "";
+  const existingState = getPropertyUserState(rawPropertyNumber);
+  const existingNote = escapeHtml(existingState.note || "");
+  const shortlistCheckedAttr = existingState.shortlisted ? " checked" : "";
+  const notConsideredCheckedAttr = existingState.notConsidered ? " checked" : "";
   const assessment = evaluateProperty(record);
   const eligibilityHtml = buildEligibilityHtml(assessment);
   const priceJpy = formatPriceJpy(record.price_jpy);
@@ -386,8 +389,12 @@ function buildPopupHtml(record) {
       }</p>
       ${eligibilityHtml}
       <label class="popup-shortlist">
-        <input type="checkbox" id="popup-shortlist-cb"${checkedAttr} />
+        <input type="checkbox" id="popup-shortlist-cb"${shortlistCheckedAttr} />
         <span>Shortlisted</span>
+      </label>
+      <label class="popup-shortlist">
+        <input type="checkbox" id="popup-not-considered-cb"${notConsideredCheckedAttr} />
+        <span>Not considered</span>
       </label>
       <div class="popup-note">
         <label for="popup-note-textarea"><strong>Notes</strong></label>
@@ -403,59 +410,195 @@ function buildPopupHtml(record) {
 }
 
 
-function loadShortlist() {
+function loadUserStateMap() {
   try {
-    return new Set(JSON.parse(localStorage.getItem(SHORTLIST_STORAGE_KEY) || "[]"));
+    const raw = localStorage.getItem(USER_STATE_STORAGE_KEY);
+    if (raw) {
+      return normalizeUserStateMap(JSON.parse(raw));
+    }
+
+    const migrated = buildLegacyUserStateMap();
+    if (Object.keys(migrated).length > 0) {
+      localStorage.setItem(USER_STATE_STORAGE_KEY, JSON.stringify(migrated));
+    }
+    return migrated;
   } catch {
-    return new Set();
+    return {};
   }
+}
+
+function normalizeUserStateMap(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return {};
+  }
+
+  const normalized = {};
+  for (const [propertyNumber, entry] of Object.entries(value)) {
+    if (!entry || typeof entry !== "object" || Array.isArray(entry)) {
+      continue;
+    }
+    const note = toText(entry.note);
+    const shortlisted = entry.shortlisted === true;
+    const notConsidered = entry.notConsidered === true;
+    if (!note && !shortlisted && !notConsidered) {
+      continue;
+    }
+    normalized[toText(propertyNumber)] = {
+      note,
+      shortlisted,
+      notConsidered,
+    };
+  }
+  return normalized;
+}
+
+function buildLegacyUserStateMap() {
+  const migrated = {};
+
+  try {
+    const legacyNotes = JSON.parse(localStorage.getItem(NOTES_STORAGE_KEY) || "{}");
+    if (legacyNotes && typeof legacyNotes === "object" && !Array.isArray(legacyNotes)) {
+      for (const [propertyNumber, noteValue] of Object.entries(legacyNotes)) {
+        const note = toText(noteValue);
+        if (!note) {
+          continue;
+        }
+        const key = toText(propertyNumber);
+        if (!key) {
+          continue;
+        }
+        migrated[key] = {
+          ...(migrated[key] || {}),
+          note,
+          shortlisted: migrated[key]?.shortlisted === true,
+          notConsidered: migrated[key]?.notConsidered === true,
+        };
+      }
+    }
+  } catch {
+    // ignore legacy notes parse errors
+  }
+
+  try {
+    const legacyShortlist = JSON.parse(localStorage.getItem(SHORTLIST_STORAGE_KEY) || "[]");
+    if (Array.isArray(legacyShortlist)) {
+      for (const propertyNumberValue of legacyShortlist) {
+        const key = toText(propertyNumberValue);
+        if (!key) {
+          continue;
+        }
+        migrated[key] = {
+          ...(migrated[key] || {}),
+          note: migrated[key]?.note || "",
+          shortlisted: true,
+          notConsidered: migrated[key]?.notConsidered === true,
+        };
+      }
+    }
+  } catch {
+    // ignore legacy shortlist parse errors
+  }
+
+  return migrated;
+}
+
+function saveUserStateMap(userStateMap) {
+  try {
+    localStorage.setItem(USER_STATE_STORAGE_KEY, JSON.stringify(userStateMap));
+  } catch {
+    // localStorage unavailable — silently ignore
+  }
+}
+
+function getPropertyUserState(propertyNumber) {
+  const key = toText(propertyNumber);
+  if (!key) {
+    return { note: "", shortlisted: false, notConsidered: false };
+  }
+
+  const userStateMap = loadUserStateMap();
+  const existing = userStateMap[key];
+  if (!existing) {
+    return { note: "", shortlisted: false, notConsidered: false };
+  }
+
+  return {
+    note: toText(existing.note),
+    shortlisted: existing.shortlisted === true,
+    notConsidered: existing.notConsidered === true,
+  };
+}
+
+function updatePropertyUserState(propertyNumber, updates) {
+  const key = toText(propertyNumber);
+  if (!key) {
+    return;
+  }
+
+  const userStateMap = loadUserStateMap();
+  const nextState = {
+    ...getPropertyUserState(key),
+    ...updates,
+  };
+
+  if (!nextState.note && !nextState.shortlisted && !nextState.notConsidered) {
+    delete userStateMap[key];
+  } else {
+    userStateMap[key] = nextState;
+  }
+
+  saveUserStateMap(userStateMap);
+}
+
+
+function loadShortlist() {
+  return new Set(
+    Object.entries(loadUserStateMap())
+      .filter(([, entry]) => entry.shortlisted === true)
+      .map(([propertyNumber]) => propertyNumber),
+  );
 }
 
 function setShortlisted(propertyNumber, checked) {
-  const list = loadShortlist();
-  if (checked) {
-    list.add(propertyNumber);
-  } else {
-    list.delete(propertyNumber);
-  }
-  try {
-    localStorage.setItem(SHORTLIST_STORAGE_KEY, JSON.stringify([...list]));
-  } catch {
-    // localStorage unavailable — silently ignore
-  }
+  updatePropertyUserState(propertyNumber, { shortlisted: checked });
 }
 
 function loadNote(propertyNumber) {
-  try {
-    const notes = JSON.parse(localStorage.getItem(NOTES_STORAGE_KEY) || "{}");
-    return toText(notes[propertyNumber]);
-  } catch {
-    return "";
-  }
+  return getPropertyUserState(propertyNumber).note;
 }
 
 function saveNote(propertyNumber, text) {
-  try {
-    const notes = JSON.parse(localStorage.getItem(NOTES_STORAGE_KEY) || "{}");
-    if (text) {
-      notes[propertyNumber] = text;
-    } else {
-      delete notes[propertyNumber];
-    }
-    localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(notes));
-  } catch {
-    // localStorage unavailable — silently ignore
-  }
+  updatePropertyUserState(propertyNumber, { note: toText(text) });
+}
+
+function loadNotConsidered() {
+  return new Set(
+    Object.entries(loadUserStateMap())
+      .filter(([, entry]) => entry.notConsidered === true)
+      .map(([propertyNumber]) => propertyNumber),
+  );
+}
+
+function setNotConsidered(propertyNumber, checked) {
+  updatePropertyUserState(propertyNumber, { notConsidered: checked });
 }
 
 function wirePopupNote(propertyNumber) {
   const btn = document.getElementById("popup-note-save");
   const textarea = document.getElementById("popup-note-textarea");
   const shortlistCb = document.getElementById("popup-shortlist-cb");
+  const notConsideredCb = document.getElementById("popup-not-considered-cb");
 
   if (shortlistCb) {
     shortlistCb.addEventListener("change", () => {
       setShortlisted(propertyNumber, shortlistCb.checked);
+      applyFilters();
+    });
+  }
+
+  if (notConsideredCb) {
+    notConsideredCb.addEventListener("change", () => {
+      setNotConsidered(propertyNumber, notConsideredCb.checked);
       applyFilters();
     });
   }
@@ -506,6 +649,7 @@ function wireFilters() {
 
   document.getElementById("filter-shortlist").addEventListener("change", applyFilters);
   document.getElementById("filter-have-licence").addEventListener("change", applyFilters);
+  document.getElementById("filter-not-considered").addEventListener("change", applyFilters);
 
   document.getElementById("clear-filters").addEventListener("click", () => {
     for (const id of ids) {
@@ -516,6 +660,7 @@ function wireFilters() {
     }
     document.getElementById("filter-shortlist").checked = false;
     document.getElementById("filter-have-licence").checked = false;
+    document.getElementById("filter-not-considered").checked = false;
     applyFilters();
   });
 }
@@ -529,11 +674,13 @@ function applyFilters() {
   const maxPriceRaw = document.getElementById("filter-price-max").value.trim();
   const shortlistOnly = document.getElementById("filter-shortlist").checked;
   const haveLicenceOnly = document.getElementById("filter-have-licence").checked;
+  const notConsideredOnly = document.getElementById("filter-not-considered").checked;
 
   const minPrice = minPriceRaw ? Number(minPriceRaw) : null;
   const maxPrice = maxPriceRaw ? Number(maxPriceRaw) : null;
   const selectedEligibility = getSelectedEligibility();
   const shortlist = shortlistOnly ? loadShortlist() : null;
+  const notConsidered = notConsideredOnly ? loadNotConsidered() : null;
 
   let visible = 0;
   let selectedStillVisible = false;
@@ -552,6 +699,7 @@ function applyFilters() {
       selectedEligibility,
       shortlist,
       haveLicenceOnly,
+      notConsidered,
     });
 
     marker.setMap(matches ? state.map : null);
@@ -586,6 +734,7 @@ function matchesFilters({
   selectedEligibility,
   shortlist,
   haveLicenceOnly,
+  notConsidered,
 }) {
   const propertyNumber = toLower(toText(record.property_number));
   const propertyName = toLower(toText(record.property_name));
@@ -621,6 +770,9 @@ function matchesFilters({
     return false;
   }
   if (haveLicenceOnly && !hasLicence) {
+    return false;
+  }
+  if (notConsidered !== null && !notConsidered.has(toText(record.property_number))) {
     return false;
   }
 
