@@ -9,6 +9,11 @@ const DEFAULT_JSON_PATHS = [
   "./data/listings_map_payload.json",
   "/api/listings-map-payload",
 ];
+const DEFAULT_COMPARISON_REPORT_PATHS = [
+  "/output/consolidated/latest_scrape_comparison.json",
+  "./data/latest_scrape_comparison.json",
+  "/api/latest-scrape-comparison",
+];
 const API_KEY_STORAGE_KEY = "jp_property_google_maps_api_key";
 
 const ELIGIBILITY_COLORS = {
@@ -23,6 +28,9 @@ const state = {
   infoWindow: null,
   records: [],
   markerEntries: [],
+  comparisonReport: null,
+  comparisonLoadAttempted: false,
+  activeComparisonPath: "",
   localConfigKey: "",
   remoteConfigKey: "",
   activeDataPath: "",
@@ -44,7 +52,11 @@ async function bootstrap() {
     window.localStorage.removeItem(API_KEY_STORAGE_KEY);
   }
   const dataFromQuery = toText(params.get("data"));
+  const comparisonFromQuery = toText(params.get("changes"));
   const dataCandidates = dataFromQuery ? [dataFromQuery] : DEFAULT_JSON_PATHS;
+  state.comparisonCandidates = comparisonFromQuery ?
+    [comparisonFromQuery] :
+    DEFAULT_COMPARISON_REPORT_PATHS;
   const { apiKey, source } = resolveMapsApiKey(
     params,
     state.localConfigKey,
@@ -59,6 +71,7 @@ async function bootstrap() {
     throw error;
   }
   initMap();
+  wireViewTabs();
   wireFilters();
   await loadRecords(dataCandidates);
   await createMarkersFromRecords();
@@ -237,6 +250,43 @@ async function loadRecords(paths) {
 
   const detail = attempts.length ? attempts.join("; ") : "No data paths provided.";
   throw new Error(`Failed to load listings JSON. Tried: ${detail}`);
+}
+
+async function loadComparisonReport(paths) {
+  const candidates = Array.isArray(paths) ? paths : [paths];
+  const attempts = [];
+
+  for (const path of candidates) {
+    const candidate = toText(path);
+    if (!candidate) {
+      continue;
+    }
+
+    try {
+      const response = await fetch(candidate, { cache: "no-store" });
+      if (!response.ok) {
+        attempts.push(`${candidate} (HTTP ${response.status})`);
+        continue;
+      }
+
+      const payload = await response.json();
+      if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+        attempts.push(`${candidate} (payload is not JSON object)`);
+        continue;
+      }
+
+      state.comparisonReport = payload;
+      state.activeComparisonPath = candidate;
+      state.comparisonLoadAttempted = true;
+      renderComparisonReport(payload);
+      return;
+    } catch (error) {
+      attempts.push(`${candidate} (${error.message})`);
+    }
+  }
+
+  state.comparisonLoadAttempted = true;
+  renderComparisonError(attempts);
 }
 
 async function createMarkersFromRecords() {
@@ -663,6 +713,330 @@ function wireFilters() {
     document.getElementById("filter-not-considered").checked = false;
     applyFilters();
   });
+}
+
+function wireViewTabs() {
+  const tabs = document.querySelectorAll(".view-tab");
+  for (const tab of tabs) {
+    tab.addEventListener("click", () => {
+      showView(tab.dataset.view || "map");
+    });
+  }
+
+  const refreshChanges = document.getElementById("refresh-changes");
+  refreshChanges.addEventListener("click", () => {
+    state.comparisonLoadAttempted = false;
+    state.comparisonReport = null;
+    showView("changes");
+  });
+}
+
+function showView(viewName) {
+  const mapNode = document.getElementById("map");
+  const changesNode = document.getElementById("changes-view");
+  const showingChanges = viewName === "changes";
+
+  mapNode.hidden = showingChanges;
+  changesNode.hidden = !showingChanges;
+  for (const tab of document.querySelectorAll(".view-tab")) {
+    tab.classList.toggle("is-active", tab.dataset.view === viewName);
+  }
+
+  if (showingChanges) {
+    if (!state.comparisonLoadAttempted) {
+      renderComparisonLoading();
+      loadComparisonReport(state.comparisonCandidates);
+    } else if (state.comparisonReport) {
+      renderComparisonReport(state.comparisonReport);
+    }
+    return;
+  }
+
+  if (state.map) {
+    google.maps.event.trigger(state.map, "resize");
+    applyFilters();
+  }
+}
+
+function renderComparisonLoading() {
+  document.getElementById("changes-meta").textContent = "Loading latest comparison report...";
+  document.getElementById("changes-content").innerHTML =
+    `<p class="empty-state">Loading comparison data...</p>`;
+}
+
+function renderComparisonError(attempts) {
+  const detail = attempts.length ? attempts.join("; ") : "No report paths provided.";
+  document.getElementById("changes-meta").textContent = "Comparison report unavailable.";
+  document.getElementById("changes-content").innerHTML =
+    `<p class="empty-state">Run the scraper to generate ` +
+    `<code>output/consolidated/latest_scrape_comparison.json</code>.</p>` +
+    `<p class="changes-error">${escapeHtml(detail)}</p>`;
+}
+
+function renderComparisonReport(report) {
+  const summary = report.summary || {};
+  const runTimestamp = toText(report.run_timestamp) || "-";
+  const generatedAt = toText(report.generated_at) || "-";
+  const source = state.activeComparisonPath ? ` Source: ${state.activeComparisonPath}.` : "";
+  document.getElementById("changes-meta").textContent =
+    `Run ${runTimestamp}. Generated ${generatedAt}.${source}`;
+
+  document.getElementById("changes-content").innerHTML =
+    buildSummaryHtml(summary) +
+    buildPriceChangesHtml(report.price_changed || []) +
+    buildListingSectionHtml("Added", report.added || [], "new_price_jpy") +
+    buildListingSectionHtml("Removed", report.removed || [], "old_price_jpy") +
+    buildOtherChangesHtml(report.other_changed || []);
+}
+
+function buildSummaryHtml(summary) {
+  const items = [
+    ["Previous", summary.previous_total],
+    ["Current", summary.current_total],
+    ["Added", summary.added],
+    ["Removed", summary.removed],
+    ["Price changed", summary.price_changed],
+    ["Other changed", summary.other_changed],
+  ];
+
+  return (
+    `<div class="changes-summary">` +
+    items.map(([label, value]) => (
+      `<div class="summary-tile">` +
+      `<span>${escapeHtml(label)}</span>` +
+      `<strong>${formatCount(value)}</strong>` +
+      `</div>`
+    )).join("") +
+    `</div>`
+  );
+}
+
+function buildPriceChangesHtml(rows) {
+  if (!rows.length) {
+    return buildEmptySectionHtml("Price Changes");
+  }
+
+  const body = rows.map((row) => {
+    const directionClass = row.direction === "down" ? "is-down" : "is-up";
+    return (
+      `<tr>` +
+      `<td>${propertyCellHtml(row)}</td>` +
+      `<td>${statusHistoryHtml(row)}</td>` +
+      `<td>${priceHistoryHtml(row, row.new_price_jpy)}</td>` +
+      `<td>${propertyOpenLinkHtml(row)}</td>` +
+      `<td>${formatPriceJpy(row.old_price_jpy)}</td>` +
+      `<td>${formatPriceJpy(row.new_price_jpy)}</td>` +
+      `<td class="${directionClass}">${formatDelta(row.delta_jpy, row.delta_percent)}</td>` +
+      `</tr>`
+    );
+  }).join("");
+
+  return (
+    `<section class="changes-section">` +
+    `<h3>Price Changes</h3>` +
+    `<div class="changes-table-wrap">` +
+    `<table class="changes-table">` +
+    `<thead><tr><th>Property</th><th>Status</th><th>Price History</th><th>Link</th><th>Old Price</th><th>New Price</th><th>Delta</th></tr></thead>` +
+    `<tbody>${body}</tbody>` +
+    `</table>` +
+    `</div>` +
+    `</section>`
+  );
+}
+
+function buildListingSectionHtml(title, rows, priceKey) {
+  if (!rows.length) {
+    return buildEmptySectionHtml(title);
+  }
+
+  const body = rows.map((row) => (
+    `<tr>` +
+      `<td>${propertyCellHtml(row)}</td>` +
+      `<td>${statusHistoryHtml(row)}</td>` +
+      `<td>${propertyOpenLinkHtml(row)}</td>` +
+      `<td>${priceHistoryHtml(row, row[priceKey])}</td>` +
+    `</tr>`
+  )).join("");
+
+  return (
+    `<section class="changes-section">` +
+    `<h3>${escapeHtml(title)}</h3>` +
+    `<div class="changes-table-wrap">` +
+    `<table class="changes-table">` +
+    `<thead><tr><th>Property</th><th>Status</th><th>Link</th><th>Price</th></tr></thead>` +
+    `<tbody>${body}</tbody>` +
+    `</table>` +
+    `</div>` +
+    `</section>`
+  );
+}
+
+function buildOtherChangesHtml(rows) {
+  if (!rows.length) {
+    return buildEmptySectionHtml("Other Changes");
+  }
+
+  const body = rows.map((row) => (
+    `<tr>` +
+      `<td>${propertyCellHtml(row)}</td>` +
+      `<td>${statusHistoryHtml(row)}</td>` +
+      `<td>${priceHistoryHtml(row, row.price_jpy)}</td>` +
+      `<td>${propertyOpenLinkHtml(row)}</td>` +
+      `<td>${escapeHtml((row.changed_fields || []).join(", "))}</td>` +
+    `</tr>`
+  )).join("");
+
+  return (
+    `<section class="changes-section">` +
+    `<h3>Other Changes</h3>` +
+    `<div class="changes-table-wrap">` +
+    `<table class="changes-table">` +
+    `<thead><tr><th>Property</th><th>Status</th><th>Price</th><th>Link</th><th>Fields</th></tr></thead>` +
+    `<tbody>${body}</tbody>` +
+    `</table>` +
+    `</div>` +
+    `</section>`
+  );
+}
+
+function buildEmptySectionHtml(title) {
+  return (
+    `<section class="changes-section">` +
+    `<h3>${escapeHtml(title)}</h3>` +
+    `<p class="empty-state">No records.</p>` +
+    `</section>`
+  );
+}
+
+function propertyCellHtml(row) {
+  const number = escapeHtml(toText(row.property_number || row.listing_id) || "-");
+  const name = escapeHtml(toText(row.property_name) || "(No Name)");
+  const label = `<strong>${number}</strong><span>${name}</span>`;
+  return `<div class="property-cell">${label}</div>`;
+}
+
+function propertyOpenLinkHtml(row) {
+  const url = toText(row.url || row.new_url || row.old_url);
+  if (!url) {
+    return `<span class="missing-link">-</span>`;
+  }
+  return (
+    `<a class="property-open-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">` +
+    `Open` +
+    `</a>`
+  );
+}
+
+function statusBadgeHtml(status) {
+  const text = toText(status);
+  if (!text) {
+    return `<span class="missing-link">-</span>`;
+  }
+  return `<span class="status-badge">${escapeHtml(text)}</span>`;
+}
+
+function statusHistoryHtml(row) {
+  const history = Array.isArray(row.status_history) ? row.status_history : [];
+  const entries = history
+    .map((item) => ({
+      status: toText(item.status),
+      run: toText(item.run_timestamp || item.time_stamp),
+    }))
+    .filter((item) => item.status);
+
+  const latestStatus = toText(row.status) || entries[entries.length - 1]?.status || "";
+  if (!latestStatus) {
+    return `<span class="missing-link">-</span>`;
+  }
+
+  if (entries.length <= 1) {
+    return statusBadgeHtml(latestStatus);
+  }
+
+  const list = entries.map((item) => (
+    `<li>` +
+    `<span>${escapeHtml(item.run || "-")}</span>` +
+    `<strong>${escapeHtml(item.status)}</strong>` +
+    `</li>`
+  )).join("");
+
+  return (
+    `<details class="status-history">` +
+    `<summary>` +
+    statusBadgeHtml(latestStatus) +
+    `<span class="status-count">${entries.length}</span>` +
+    `</summary>` +
+    `<ul>${list}</ul>` +
+    `</details>`
+  );
+}
+
+function priceHistoryHtml(row, fallbackPrice) {
+  const history = Array.isArray(row.price_history) ? row.price_history : [];
+  const entries = history
+    .map((item) => ({
+      price: parsePrice(item.price_jpy),
+      run: toText(item.run_timestamp || item.time_stamp),
+    }))
+    .filter((item) => item.price !== null);
+
+  const fallback = parsePrice(fallbackPrice);
+  if (!entries.length) {
+    return formatPriceJpy(fallback);
+  }
+
+  const first = entries[0].price;
+  const latest = entries[entries.length - 1].price;
+  const delta = first === null || latest === null ? null : latest - first;
+  const directionClass = delta === null || delta === 0 ? "" : (delta < 0 ? " is-down" : " is-up");
+  const deltaText = delta === null || delta === 0 ? "" : ` ${formatSignedPriceDelta(delta)}`;
+
+  if (entries.length <= 1) {
+    return `<span class="price-current">${formatPriceJpy(latest)}</span>`;
+  }
+
+  const list = entries.map((item) => (
+    `<li>` +
+    `<span>${escapeHtml(item.run || "-")}</span>` +
+    `<strong>${formatPriceJpy(item.price)}</strong>` +
+    `</li>`
+  )).join("");
+
+  return (
+    `<details class="price-history">` +
+    `<summary>` +
+    `<span class="price-current">${formatPriceJpy(latest)}</span>` +
+    `<span class="price-count">${entries.length}</span>` +
+    `<span class="price-delta${directionClass}">${escapeHtml(deltaText)}</span>` +
+    `</summary>` +
+    `<ul>${list}</ul>` +
+    `</details>`
+  );
+}
+
+function formatSignedPriceDelta(delta) {
+  const parsed = Number(delta);
+  if (!Number.isFinite(parsed)) {
+    return "";
+  }
+  const sign = parsed > 0 ? "+" : "";
+  return `${sign}${parsed.toLocaleString("en-US")}`;
+}
+
+function formatCount(value) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed.toLocaleString("en-US") : "0";
+}
+
+function formatDelta(deltaJpy, deltaPercent) {
+  const delta = Number(deltaJpy);
+  if (!Number.isFinite(delta)) {
+    return "-";
+  }
+  const sign = delta > 0 ? "+" : "";
+  const percent = Number(deltaPercent);
+  const percentText = Number.isFinite(percent) ? ` (${sign}${percent.toFixed(2)}%)` : "";
+  return `${sign}${delta.toLocaleString("en-US")} JPY${percentText}`;
 }
 
 function applyFilters() {

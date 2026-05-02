@@ -69,6 +69,14 @@ def load_consolidated_unique_records(
     return unique_records
 
 
+def load_consolidated_history_records(
+    consolidated_json_path: Path = CENTRAL_JSON_PATH,
+) -> list[dict[str, Any]]:
+    """Load historical consolidated change records for a consolidated JSON path."""
+    _, history_records = _load_or_migrate_storage_state(consolidated_json_path)
+    return history_records
+
+
 def export_consolidated_tabular_files(
     records: list[dict],
     consolidated_json_path: Path = CENTRAL_JSON_PATH,

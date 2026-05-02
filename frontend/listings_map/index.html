@@ -11,6 +11,11 @@
       <aside class="panel">
         <h1>Ryokan Listing Map</h1>
 
+        <nav class="view-tabs" aria-label="Primary views">
+          <button class="view-tab is-active" type="button" data-view="map">Map</button>
+          <button class="view-tab" type="button" data-view="changes">Changes</button>
+        </nav>
+
         <section class="filters">
           <h2>Filters</h2>
 
@@ -113,6 +118,18 @@
 
       <main class="map-wrap">
         <div id="map"></div>
+        <section id="changes-view" class="changes-view" hidden>
+          <div class="changes-header">
+            <div>
+              <h2>Latest Scrape Changes</h2>
+              <p id="changes-meta">No comparison report loaded yet.</p>
+            </div>
+            <button id="refresh-changes" type="button">Refresh</button>
+          </div>
+          <div id="changes-content" class="changes-content">
+            <p class="empty-state">Run the scraper to generate the latest comparison report.</p>
+          </div>
+        </section>
       </main>
     </div>
 

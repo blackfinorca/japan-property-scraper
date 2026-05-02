@@ -9,7 +9,11 @@ from pathlib import Path
 from typing import Callable, Sequence
 
 from japan_property_scraper.config import CONSOLIDATED_DIR, TIMESTAMP_FORMAT
-from japan_property_scraper.services.consolidation import append_new_or_changed_listings
+from japan_property_scraper.services.consolidation import (
+    append_new_or_changed_listings,
+    load_consolidated_history_records,
+    load_consolidated_unique_records,
+)
 from japan_property_scraper.services.exporters import export_site_results
 from japan_property_scraper.services.map_payload import (
     DEFAULT_GEOCODE_CACHE_PATH,
@@ -24,6 +28,11 @@ from japan_property_scraper.services.ryokan_licence_eligibility import (
 from japan_property_scraper.services.ryokan_summary import (
     DEFAULT_SUMMARY_XLS_PATH,
     export_ryokan_summary_xls,
+)
+from japan_property_scraper.services.scrape_comparison import (
+    DEFAULT_COMPARISON_REPORT_PATH,
+    load_raw_status_history_records,
+    write_scrape_comparison_report,
 )
 from japan_property_scraper.sites import scrape_hachise
 
@@ -140,6 +149,31 @@ def _run_scrape_stage() -> None:
         export_site_results(site_name, site_listings, run_timestamp)
         all_listings.extend(site_listings)
         LOGGER.info("%s listings fetched from %s", len(site_listings), site_name)
+
+    previous_records = load_consolidated_unique_records(DEFAULT_CONSOLIDATED_JSON_PATH)
+    history_records = load_consolidated_history_records(DEFAULT_CONSOLIDATED_JSON_PATH)
+    comparison = write_scrape_comparison_report(
+        previous_records=previous_records,
+        current_records=all_listings,
+        status_history_records=[
+            *load_raw_status_history_records(),
+            *history_records,
+            *previous_records,
+            *all_listings,
+        ],
+        run_timestamp=run_timestamp,
+    )
+    LOGGER.info(
+        (
+            "Latest scrape comparison written to %s. "
+            "Added=%s Removed=%s PriceChanged=%s OtherChanged=%s"
+        ),
+        DEFAULT_COMPARISON_REPORT_PATH,
+        comparison["summary"]["added"],
+        comparison["summary"]["removed"],
+        comparison["summary"]["price_changed"],
+        comparison["summary"]["other_changed"],
+    )
 
     changes = append_new_or_changed_listings(all_listings, run_timestamp)
     LOGGER.info("Run complete. %s new/changed listings were consolidated.", changes)
